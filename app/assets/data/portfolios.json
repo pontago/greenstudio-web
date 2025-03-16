@@ -1,7 +1,7 @@
 {
   "portfolio": [
     {
-      "name": "収支管理",
+      "name": "収支管理アプリ",
       "categories": ["iOS", "Android"],
       "cover": "/images/portfolio/balancemanagement/cover.png",
       "subtitle": "iOSとAndroidで使えるシンプルな収支管理アプリ",
@@ -30,8 +30,60 @@
       "categories": ["Web"],
       "cover": "/images/portfolio/supdrops/cover.png",
       "subtitle": "Supremeの新作アイテムやアーカイブをチェックできるサイト",
-      "description": "",
-      "images": []
+      "description": "Supremeの新作リリース情報をチェックできるサイトです。<br/>先行して販売される海外の情報をもとにいち早くリリース情報を確認できます。",
+      "techDescription": "JavaScript、TypeScript、Nuxt.js（2系）、Vue.js（2系）、Express（4系）、Vuetify、MySQL（5.7系、Mroonga）。設計からプログラミングまですべて担当。",
+      "images": [
+        "/images/portfolio/supdrops/1.png",
+        "/images/portfolio/supdrops/2.png",
+        "/images/portfolio/supdrops/3.png",
+        "/images/portfolio/supdrops/4.png"
+      ],
+      "links": [
+        {
+          "category": "Web",
+          "url": "https://supdrops.com/"
+        }
+      ]
+    },
+    {
+      "name": "適時開示情報WEB",
+      "categories": ["Web"],
+      "cover": "/images/portfolio/tdnetviewer-web/cover.png",
+      "subtitle": "適時開示情報をWebから閲覧できるサイト",
+      "description": "TDNET、EDINETの適時開示一覧を表示するサービスです。<br/>DBからデータを取得するためのAPIの実装、Vueを利用したPDFの表示を実装しました。",
+      "techDescription": "JavaScript、Express（4系）、Nuxt.js（2系）、Vue.js（2系）、Vuetify、MySQL（5.7系、Mroonga）。設計からプログラミングまですべて担当。",
+      "images": [
+        "/images/portfolio/tdnetviewer-web/1.png",
+        "/images/portfolio/tdnetviewer-web/2.png",
+        "/images/portfolio/tdnetviewer-web/3.png",
+        "/images/portfolio/tdnetviewer-web/4.png"
+      ],
+      "links": [
+        {
+          "category": "Web",
+          "url": "https://tdview.net/"
+        }
+      ]
+    },
+    {
+      "name": "適時開示情報アプリ",
+      "categories": ["iOS", "Android"],
+      "cover": "/images/portfolio/tdnetviewer-web/cover.png",
+      "subtitle": "適時開示情報をWebから閲覧できるサイト",
+      "description": "TDNET、EDINETの適時開示一覧を表示するサービスです。<br/>DBからデータを取得するためのAPIの実装、Vueを利用したPDFの表示を実装しました。",
+      "techDescription": "JavaScript、Express（4系）、Nuxt.js（2系）、Vue.js（2系）、Vuetify、MySQL（5.7系、Mroonga）。設計からプログラミングまですべて担当。",
+      "images": [
+        "/images/portfolio/tdnetviewer-web/1.png",
+        "/images/portfolio/tdnetviewer-web/2.png",
+        "/images/portfolio/tdnetviewer-web/3.png",
+        "/images/portfolio/tdnetviewer-web/4.png"
+      ],
+      "links": [
+        {
+          "category": "Web",
+          "url": "https://tdview.net/"
+        }
+      ]
     }
   ]
 }

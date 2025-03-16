@@ -1,17 +1,112 @@
 {
   "frontend": [
     {
+      "name": "Vue.js",
+      "level": 3,
+      "experience": "2年以上"
+    },
+    {
+      "name": "React",
+      "level": 1,
+      "experience": "1年未満"
+    },
+    {
+      "name": "Nuxt.js",
+      "level": 3,
+      "experience": "2年以上"
+    },
+    {
+      "name": "Next.js",
+      "level": 1,
+      "experience": "1年未満"
+    },
+    {
+      "name": "Electron",
+      "level": 2,
+      "experience": "1年未満"
+    },
+    {
+      "name": "Flutter",
+      "level": 2,
+      "experience": "1年未満"
+    },
+    {
+      "name": "TypeScript",
+      "level": 3,
+      "experience": "5年以上"
+    },
+    {
+      "name": "JavaScript",
+      "level": 3,
+      "experience": "5年以上"
+    },
+    {
       "name": "HTML, CSS",
       "level": 3,
       "experience": "5年以上"
     },
     {
-      "name": "Vue.js",
+      "name": "Objective-C",
       "level": 3,
-      "experience": "2年以上"
+      "experience": "5年以上"
+    },
+    {
+      "name": "Swift",
+      "level": 3,
+      "experience": "5年以上"
+    },
+    {
+      "name": "Kotlin",
+      "level": 2,
+      "experience": "1年未満"
+    },
+    {
+      "name": "Dart",
+      "level": 2,
+      "experience": "1年未満"
     }
   ],
   "backend": [
+    {
+      "name": "CakePHP",
+      "level": 3,
+      "experience": "3年以上"
+    },
+    {
+      "name": "Ruby On Rails",
+      "level": 3,
+      "experience": "3年以上"
+    },
+    {
+      "name": "Spring Framework",
+      "level": 1,
+      "experience": "1年未満"
+    },
+    {
+      "name": "AWS",
+      "level": 2,
+      "experience": "5年以上"
+    },
+    {
+      "name": "Azure",
+      "level": 1,
+      "experience": "1年未満"
+    },
+    {
+      "name": "PHP",
+      "level": 3,
+      "experience": "5年以上"
+    },
+    {
+      "name": "Ruby",
+      "level": 3,
+      "experience": "3年以上"
+    },
+    {
+      "name": "Java",
+      "level": 1,
+      "experience": "1年未満"
+    },
     {
       "name": "VB, C++",
       "level": 1,
@@ -23,9 +118,39 @@
       "experience": "1年未満"
     },
     {
-      "name": "PHP",
+      "name": "ColdFusion",
+      "level": 1,
+      "experience": "1年未満"
+    },
+    {
+      "name": "MySQL",
       "level": 3,
       "experience": "5年以上"
+    },
+    {
+      "name": "PostgreSQL",
+      "level": 3,
+      "experience": "3年以上"
+    },
+    {
+      "name": "MS SQL Server",
+      "level": 2,
+      "experience": "1年未満"
+    },
+    {
+      "name": "Oracle",
+      "level": 2,
+      "experience": "1年未満"
+    },
+    {
+      "name": "Linux",
+      "level": 3,
+      "experience": "5年以上"
+    },
+    {
+      "name": "FreeBSD",
+      "level": 2,
+      "experience": "3年以上"
     }
   ]
 }

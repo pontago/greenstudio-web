@@ -9,7 +9,7 @@ import { Skill } from '~/components/features/Skill';
 import { getPortfolios } from '~/models/portfolio';
 import { Portfolio } from '~/components/features/Portfolio';
 
-export async function clientLoader() {
+export const clientLoader = async () => {
   try {
     const skills = await getSkills();
     const portfolios = await getPortfolios();
@@ -17,7 +17,7 @@ export async function clientLoader() {
   } catch (error) {
     throw new Response('Internal Server Error', { status: 500 });
   }
-}
+};
 
 export const meta: MetaFunction = () => {
   return [{ title: 'GREEN STUDIO' }, { name: 'description', content: 'Welcome to Remix!' }];
@@ -173,7 +173,9 @@ export default function Index() {
             <div className='inline-block mb-1 py-0.5 px-1.5 bg-blue-50 border border-blue-200 text-xs font-medium text-blue-600 rounded-lg dark:bg-blue-800/30 dark:border-blue-800 dark:text-blue-500'>
               Level1
             </div>
-            <p className='text-xs text-gray-600 dark:text-neutral-400'>簡単なプログラムを作成・修正できるレベル</p>
+            <p className='text-xs text-gray-600 dark:text-neutral-400'>
+              簡単なプログラムを作成・修正できるレベルまたは、最近使用しておらずブランクがあるレベル
+            </p>
             <div className='inline-block mb-1 py-0.5 px-1.5 bg-teal-50 border border-teal-200 text-xs font-medium text-teal-500 rounded-lg dark:bg-teal-800/30 dark:border-teal-800 dark:text-teal-500'>
               Level2
             </div>
@@ -184,7 +186,7 @@ export default function Index() {
               Level3
             </div>
             <p className='text-xs text-gray-600 dark:text-neutral-400'>
-              個人アプリ開発、受託開発で使用したことがあり、問題なく使用できると感じるレベル
+              個人アプリ開発、受託開発で使用したことがあり、一人で開発できるレベル
             </p>
           </div>
 
@@ -203,6 +205,21 @@ export default function Index() {
               />
             </div>
           </div>
+        </div>
+
+        <div>
+          <div className='mb-2 text-gray-600 dark:text-neutral-400'>その他</div>
+          <div className='text-sm text-gray-600 dark:text-neutral-400'>
+            ActionScript, CodeIgniter, memcached, TokyoTyrant, Redis, qmail, Postfix, CourierIMAP, Dovecot,
+            SpamAssassin, bsfilter, ClamAV, bind, Samba, NFS, Apache, lighttpd, Nginx, SQLite
+          </div>
+        </div>
+
+        <div className='my-8'>
+          <embed
+            className='h-76 sm:h-96'
+            src='https://wakatime.com/share/@pontago/d621a504-c94d-4eb6-bbf9-632d2d629069.svg'
+          ></embed>
         </div>
         {/* End Skills */}
       </div>

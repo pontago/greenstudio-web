@@ -26,18 +26,22 @@ type Portfolio = {
 };
 
 export type PortfolioRecord = Portfolio & {
-  id: number;
+  id: string;
 };
 
 const portfolioData = {
-  records: {} as Record<number, PortfolioRecord>,
+  records: {} as Record<string, PortfolioRecord>,
 
   async getAll(): Promise<PortfolioRecord[]> {
-    return Object.keys(portfolioData.records).map((key) => portfolioData.records[Number(key)]);
+    return Object.keys(portfolioData.records).map((key) => portfolioData.records[key]);
   },
 
-  async create(index: number, values: Portfolio): Promise<PortfolioRecord> {
-    const id = index;
+  async get(id: string): Promise<PortfolioRecord | null> {
+    return portfolioData.records[id] || null;
+  },
+
+  async create(values: Portfolio): Promise<PortfolioRecord> {
+    const id = values.name;
     const newPortfolio = { id, ...values };
     portfolioData.records[id] = newPortfolio;
     return newPortfolio;
@@ -52,6 +56,10 @@ export async function getPortfolios(query?: string | null) {
   return portfolios;
 }
 
-portfoliosJson.portfolio.forEach((values, id) => {
-  portfolioData.create(id, values);
+export async function getPortfolio(id: string) {
+  return portfolioData.get(id);
+}
+
+portfoliosJson.portfolio.forEach((values) => {
+  portfolioData.create(values);
 });

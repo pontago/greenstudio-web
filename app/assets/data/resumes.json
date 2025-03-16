@@ -1,0 +1,53 @@
+{
+  "resume": [
+    {
+      "date": "2024年〜",
+      "category": "solo",
+      "title": "収支管理アプリ",
+      "description": "収支を管理するアプリです。家計簿、投資・キャンブルの収支管理を簡単におこなえます。<br/>カレンダーでの収支一覧表示、カテゴリ・タグでの分類、グラフ表示などすべての機能が無料で使えます。",
+      "techDescription": "iOS/Android、Flutter（3系）、Dart、Riverpod、drift、SQLite3、Firebase、RevenueCat。<br/>設計からプログラミングまですべて担当。レイヤードアーキテクチャで実装してみました。",
+      "portfolioLink": "収支管理アプリ"
+    },
+    {
+      "date": "2024年〜",
+      "category": "solo",
+      "title": "適時開示情報Androidアプリ",
+      "description": "iPhoneアプリ版をAndroidアプリへ移植しました。Jetpack Composeを使用し、ネイティブアプリとして実装しました。iPhoneと同等のUIと機能を実装し、Glanceを利用したWidgetも作成。",
+      "techDescription": "Android（Android 8.1以降、API Level 27以降）、Kotlin、Hilt、Jetpack Compose、Retrofit、Firebase、Glance。<br/>設計からプログラミングまですべて担当。"
+    },
+    {
+      "date": "2022年〜",
+      "category": "solo",
+      "title": "Supreme Droplists",
+      "description": "Supremeの新作リリース情報をチェックできるサイトです。<br/>先行して販売される海外の情報をもとにいち早くリリース情報を確認できます。",
+      "techDescription": "JavaScript、TypeScript、Nuxt.js（2系）、Vue.js（2系）、Express（4系）、Vuetify、MySQL（5.7系、Mroonga）。<br/>設計からプログラミングまですべて担当。"
+    },
+    {
+      "date": "2020〜2023年",
+      "category": "solo",
+      "title": "自動購入BOT",
+      "description": "Supreme、WTAPS、NewBalanceなど人気アパレルブランドの自動購入BOTです。<br/>Supremeの人気商品は1分以内に完売するため、購入処理を高速におこなえるようブラウザを利用しないリクエスト型といわれる最適化や、AWS上で動作させることで同時に数百件購入できるようにしました。<br/>また、BOT対策の仕組みも存在しているため、reCAPTCHAやhCaptchaの自動解決などアクセス制限を回避することもできるようにしました。<br/>Supremeの店舗入店抽選も同様に数秒で事前申込み終了となることが多く、数百件を高速に処理できるよう様々な工夫をおこないました。<br/>Electronを利用したWindowsとMacで動作するアプリも開発し、ライセンス認証の仕組みなども実装しました。",
+      "techDescription": "JavaScript、TypeScript、Express（4系）、Electron（19系）、Nuxt.js（2系）、Vue.js（3系）、Flowbite、MySQL（5.7系）、AWS（EC2、RDS）。<br/>設計からプログラミングまですべて担当。",
+      "links": [
+        {
+          "name": "BOT開発日記 USAGI BOT",
+          "url": "https://usagi-bot.com/"
+        }
+      ]
+    },
+    {
+      "date": "2019年〜",
+      "category": "solo",
+      "title": "適時開示情報WEB",
+      "description": "TDNET、EDINETの適時開示一覧を表示するサービスです。<br/>DBからデータを取得するためのAPIの実装、Vueを利用したPDFの表示を実装しました。",
+      "techDescription": "JavaScript、Express（4系）、Nuxt.js（2系）、Vue.js（2系）、Vuetify、MySQL（5.7系、Mroonga）。設計からプログラミングまですべて担当。",
+      "portfolioLink": "適時開示情報WEB",
+      "links": [
+        {
+          "name": "適時開示情報WEB",
+          "url": "https://tdview.net/"
+        }
+      ]
+    }
+  ]
+}

@@ -10,6 +10,10 @@ export const ErrorPage = () => {
     errorStatus = error.status;
     errorStatusText = error.statusText;
     errorMessage = error.statusText || (error instanceof Error ? error.message : 'エラーが発生しました');
+  } else {
+    errorStatus = 500;
+    errorStatusText = 'Unknown Error';
+    errorMessage = 'エラーが発生しました';
   }
 
   return (

@@ -1,10 +1,24 @@
 import { NavLink, useLocation } from '@remix-run/react';
 import clsx from 'clsx';
 
+type NavLinkItem = {
+  name: string;
+  to: string;
+  isRoot?: boolean;
+};
+
+const navLinks: NavLinkItem[] = [
+  { name: 'ホーム', to: '/#home', isRoot: true },
+  { name: 'ポートフォリオ', to: '/#portfolio' },
+  { name: 'スキル', to: '/#skill' },
+  { name: '経歴', to: '/resume' },
+  { name: 'お問い合わせ', to: '/contact' },
+  { name: 'ブログ', to: 'https://www.greenstudio.jp/blog/' },
+];
+
 export const Header = () => {
   const location = useLocation();
 
-  console.log(location);
   return (
     <header className='sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-40 w-full before:absolute before:inset-0 before:max-w-5xl before:mx-2 lg:before:mx-auto before:rounded-6.5 before:bg-white-800/30 before:backdrop-blur-md'>
       <nav className='relative max-w-5xl w-full py-2.5 ps-5 pe-2 md:flex md:items-center md:justify-between md:py-0 mx-2 lg:mx-auto'>
@@ -70,61 +84,25 @@ export const Header = () => {
           aria-labelledby='hs-navbar-header-floating-collapse'
         >
           <div className='flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-3 mt-3 md:mt-0 py-2 md:py-0 md:ps-7'>
-            <NavLink
-              to='/#home'
-              className={() => {
-                const isHomeActive = location.pathname === '/' && ['', '#home'].includes(location.hash);
-                return clsx(
-                  'py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 focus:outline-hidden dark:border-neutral-200 dark:text-neutral-200',
-                  isHomeActive ? 'border-gray-800' : 'border-transparent'
-                );
-              }}
-            >
-              ホーム
-            </NavLink>
-            <NavLink
-              to='/#portfolio'
-              className={() =>
-                clsx(
-                  'py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 text-gray-500 hover:text-gray-800 focus:outline-hidden dark:text-neutral-400 dark:hover:text-neutral-200',
-                  location.hash === '#portfolio' && 'border-gray-800',
-                  location.hash !== '#portfolio' && 'border-transparent'
-                )
-              }
-            >
-              ポートフォリオ
-            </NavLink>
-            <NavLink
-              to='/#skill'
-              className={() =>
-                clsx(
-                  'py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 text-gray-500 hover:text-gray-800 focus:outline-hidden dark:text-neutral-400 dark:hover:text-neutral-200',
-                  location.hash === '#skill' && 'border-gray-800',
-                  location.hash !== '#skill' && 'border-transparent'
-                )
-              }
-            >
-              スキル
-            </NavLink>
-            <NavLink
-              to='/resume'
-              className={({ isActive }) =>
-                clsx(
-                  'py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 text-gray-500 hover:text-gray-800 focus:outline-hidden dark:text-neutral-400 dark:hover:text-neutral-200',
-                  isActive && 'border-gray-800',
-                  !isActive && 'border-transparent'
-                )
-              }
-              end
-            >
-              経歴
-            </NavLink>
-            <a
-              className='py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-hidden dark:text-neutral-400 dark:hover:text-neutral-200'
-              href='/'
-            >
-              ブログ
-            </a>
+            {navLinks.map((link, index) => (
+              <NavLink
+                key={index}
+                to={link.to}
+                className={() => {
+                  let isActive = link.to === `${location.pathname}${location.hash}`;
+                  if (!isActive && link.isRoot) {
+                    isActive = location.pathname === '/' && location.hash === '';
+                  }
+                  return clsx(
+                    'py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 text-gray-500 hover:text-gray-800 focus:outline-hidden dark:text-neutral-400 dark:hover:text-neutral-200',
+                    isActive ? 'border-gray-800' : 'border-transparent'
+                  );
+                }}
+                end
+              >
+                {link.name}
+              </NavLink>
+            ))}
           </div>
         </div>
       </nav>

@@ -1,0 +1,211 @@
+import type { MetaFunction } from '@remix-run/node';
+import { IconContext } from 'react-icons';
+import { FaXTwitter, FaGithub, FaGooglePlay } from 'react-icons/fa6';
+import { FaAppStore } from 'react-icons/fa';
+import { useLoaderData } from '@remix-run/react';
+import { getSkills, SkillCategory } from '~/models/skill';
+import { BiLinkExternal } from 'react-icons/bi';
+import { Skill } from '~/components/features/Skill';
+import { getPortfolios } from '~/models/portfolio';
+import { Portfolio } from '~/components/features/Portfolio';
+
+export async function clientLoader() {
+  try {
+    const skills = await getSkills();
+    const portfolios = await getPortfolios();
+    return { skills, portfolios };
+  } catch (error) {
+    throw new Response('Internal Server Error', { status: 500 });
+  }
+}
+
+export const meta: MetaFunction = () => {
+  return [{ title: 'GREEN STUDIO' }, { name: 'description', content: 'Welcome to Remix!' }];
+};
+
+export default function Index() {
+  const { skills, portfolios } = useLoaderData<typeof clientLoader>();
+
+  return (
+    <main id='content'>
+      <div id='home' className='w-full max-w-5xl mx-auto pt-10 md:pt-16 px-4 sm:px-6 lg:px-8'>
+        {/* Avator */}
+        <div id='profile' className='flex items-center gap-x-3'>
+          <div className='shrink-0'>
+            <img className='shrink-0 size-16 rounded-full' src='/images/avatar.png' alt='Avatar' />
+          </div>
+
+          <div className='grow'>
+            <h1 className='text-lg font-medium text-gray-800 dark:text-neutral-200'>PONTAGO</h1>
+            <p className='text-sm text-gray-600 dark:text-neutral-400'>iOS, Android, Web Developer</p>
+          </div>
+        </div>
+        {/* End Avator */}
+
+        {/* Profile */}
+        <div className='mt-8'>
+          <div className='text-sm text-gray-600 dark:text-neutral-400'>
+            <p>東京に住んでいる1985年生まれの男です。2006年からフリーランスとして活動しています。</p>
+            <p>
+              個人アプリの開発と平行して受託開発もおこなっています。iOS、Android、Webアプリの開発が得意です。サーバ構築などバックエンドからフロントエンドまでフルスタックでの対応可能です。
+            </p>
+            <p className='mt-2'>
+              中学生時代にプログラミングに興味を持って以来、よくわからないものを量産し続けている。たくさんの人たちに使ってもらえるような面白いものを作りたい。
+            </p>
+            <p className='mt-2'>ラーメンとボルダリングが好き。</p>
+          </div>
+          <IconContext.Provider value={{ className: 'text-gray-800 dark:text-neutral-200' }}>
+            <div className='flex justify-start'>
+              <ul className='mt-5 flex flex-col gap-y-3'>
+                <li className='flex items-center gap-x-2.5'>
+                  <FaXTwitter />
+                  <a
+                    className='text-[13px] text-gray-500 hover:text-gray-800 hover:decoration-2 focus:outline-hidden focus:decoration-2 dark:text-neutral-500 dark:hover:text-neutral-400'
+                    href='https://x.com/happytar0'
+                  >
+                    @happytar0
+                  </a>
+                </li>
+                <li className='flex items-center gap-x-2.5'>
+                  <FaGithub />
+                  <a
+                    className='text-[13px] text-gray-500 hover:text-gray-800 hover:decoration-2 focus:outline-hidden focus:decoration-2 dark:text-neutral-500 dark:hover:text-neutral-400'
+                    href='https://github.com/pontago'
+                  >
+                    @pontago
+                  </a>
+                </li>
+                <li className='flex items-center gap-x-2.5'>
+                  <FaAppStore />
+                  <a
+                    className='text-[13px] text-gray-500 hover:text-gray-800 hover:decoration-2 focus:outline-hidden focus:decoration-2 dark:text-neutral-500 dark:hover:text-neutral-400'
+                    href='https://apps.apple.com/jp/developer/greenstudio/id406307134'
+                  >
+                    AppStore
+                  </a>
+                </li>
+                <li className='flex items-center gap-x-2.5'>
+                  <FaGooglePlay />
+                  <a
+                    className='text-[13px] text-gray-500 hover:text-gray-800 hover:decoration-2 focus:outline-hidden focus:decoration-2 dark:text-neutral-500 dark:hover:text-neutral-400'
+                    href='https://play.google.com/store/apps/developer?id=GREENSTUDIO'
+                  >
+                    Google Play
+                  </a>
+                </li>
+              </ul>
+              <ul className='mt-5 mx-20 flex flex-col gap-y-3'>
+                <li className='flex items-center gap-x-2.5'>
+                  <BiLinkExternal />
+                  <a
+                    className='text-[13px] text-gray-500 hover:text-gray-800 hover:decoration-2 focus:outline-hidden focus:decoration-2 dark:text-neutral-500 dark:hover:text-neutral-400'
+                    href='https://www.lancers.jp/profile/greenstudio'
+                  >
+                    Lancers
+                  </a>
+                </li>
+                <li className='flex items-center gap-x-2.5'>
+                  <BiLinkExternal />
+                  <a
+                    className='text-[13px] text-gray-500 hover:text-gray-800 hover:decoration-2 focus:outline-hidden focus:decoration-2 dark:text-neutral-500 dark:hover:text-neutral-400'
+                    href='https://crowdworks.jp/public/employees/379114'
+                  >
+                    クラウドワークス
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </IconContext.Provider>
+        </div>
+        {/* End Profile */}
+
+        {/* Portfolio */}
+
+        <div id='portfolio' className='my-8 sm:my-8 scroll-mt-14'>
+          <Portfolio portfolios={portfolios} />
+        </div>
+
+        {/* End Portfolio */}
+
+        {/* Skills */}
+        <div id='skill' className='my-10 sm:my-14 scroll-mt-14'>
+          <h2 className='font-medium text-gray-800 dark:text-neutral-200'>スキル</h2>
+          <div className='mt-4 w-1/2'>
+            <div className='flex justify-normal'>
+              <div className='inline-block mb-2 ms-[calc(33%-20px)] py-0.5 px-1.5 bg-blue-50 border border-blue-200 text-xs font-medium text-blue-600 rounded-lg dark:bg-blue-800/30 dark:border-blue-800 dark:text-blue-500'>
+                Level1
+              </div>
+              <div className='inline-block mb-2 ms-[calc(33%-50px)] py-0.5 px-1.5 bg-teal-50 border border-teal-200 text-xs font-medium text-teal-500 rounded-lg dark:bg-teal-800/30 dark:border-teal-800 dark:text-teal-500'>
+                Level2
+              </div>
+              <div className='inline-block mb-2 ms-[calc(33%-50px)] py-0.5 px-1.5 bg-yellow-50 border border-yellow-200 text-xs font-medium text-yellow-500 rounded-lg dark:bg-yellow-800/30 dark:border-yellow-800 dark:text-yellow-500'>
+                Level3
+              </div>
+            </div>
+            <div className='flex h-1.5 bg-gray-200 rounded-full overflow-hidden dark:bg-neutral-700'>
+              <div
+                className='flex flex-col justify-center overflow-hidden bg-blue-600 text-xs text-white text-center whitespace-nowrap'
+                style={{ width: '33%' }}
+                role='progressbar'
+                aria-valuenow={10}
+                aria-valuemin={0}
+                aria-valuemax={30}
+              />
+              <div
+                className='flex flex-col justify-center overflow-hidden bg-teal-500 text-xs text-white text-center whitespace-nowrap'
+                style={{ width: '33%' }}
+                role='progressbar'
+                aria-valuenow={10}
+                aria-valuemin={0}
+                aria-valuemax={30}
+              />
+              <div
+                className='flex flex-col justify-center overflow-hidden bg-yellow-500 text-xs text-white text-center whitespace-nowrap'
+                style={{ width: '34%' }}
+                role='progressbar'
+                aria-valuenow={10}
+                aria-valuemin={0}
+                aria-valuemax={30}
+              />
+            </div>
+          </div>
+          <div className='mt-2'>
+            <div className='inline-block mb-1 py-0.5 px-1.5 bg-blue-50 border border-blue-200 text-xs font-medium text-blue-600 rounded-lg dark:bg-blue-800/30 dark:border-blue-800 dark:text-blue-500'>
+              Level1
+            </div>
+            <p className='text-xs text-gray-600 dark:text-neutral-400'>簡単なプログラムを作成・修正できるレベル</p>
+            <div className='inline-block mb-1 py-0.5 px-1.5 bg-teal-50 border border-teal-200 text-xs font-medium text-teal-500 rounded-lg dark:bg-teal-800/30 dark:border-teal-800 dark:text-teal-500'>
+              Level2
+            </div>
+            <p className='text-xs text-gray-600 dark:text-neutral-400'>
+              個人アプリ開発、受託開発で使用したことはあるが、経験値が不十分だと感じるレベル
+            </p>
+            <div className='inline-block mb-1 py-0.5 px-1.5 bg-yellow-50 border border-yellow-200 text-xs font-medium text-yellow-500 rounded-lg dark:bg-yellow-800/30 dark:border-yellow-800 dark:text-yellow-500'>
+              Level3
+            </div>
+            <p className='text-xs text-gray-600 dark:text-neutral-400'>
+              個人アプリ開発、受託開発で使用したことがあり、問題なく使用できると感じるレベル
+            </p>
+          </div>
+
+          <div className='grid grid-cols-1 mt-2 sm:grid-cols-2 gap-x-3 border-gray-200  divide-gray-200 dark:border-neutral-700 dark:divide-neutral-700'>
+            <div className='sm:-ms-4 sm:px-4'>
+              <Skill
+                category={SkillCategory.FRONTEND}
+                records={skills.filter((skill) => skill.category === SkillCategory.FRONTEND)}
+              />
+            </div>
+
+            <div className='sm:px-4'>
+              <Skill
+                category={SkillCategory.BACKEND}
+                records={skills.filter((skill) => skill.category === SkillCategory.BACKEND)}
+              />
+            </div>
+          </div>
+        </div>
+        {/* End Skills */}
+      </div>
+    </main>
+  );
+}

@@ -1,0 +1,14 @@
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+/.cache
+/build
+.env
+
+.yarn/
+.pnp.*
+node_modules/
+public/build/
+
+.DS_Store

@@ -1,0 +1,31 @@
+{
+  "frontend": [
+    {
+      "name": "HTML, CSS",
+      "level": 3,
+      "experience": "5年以上"
+    },
+    {
+      "name": "Vue.js",
+      "level": 3,
+      "experience": "2年以上"
+    }
+  ],
+  "backend": [
+    {
+      "name": "VB, C++",
+      "level": 1,
+      "experience": "2年以上"
+    },
+    {
+      "name": "C#",
+      "level": 1,
+      "experience": "1年未満"
+    },
+    {
+      "name": "PHP",
+      "level": 3,
+      "experience": "5年以上"
+    }
+  ]
+}

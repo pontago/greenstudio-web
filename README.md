@@ -1,7 +1,23 @@
 # GREEN STUDIO Portfolio Web
 
-Remixを使って実装されています。SPAモードで静的サイト化して利用できます。
+Remix App
+
+- SPA Mode
+- Yarn (PnP)
+- Preline UI
+- Zustand
+
+## Requirement
+
+- Node.js 20.x
+- Yarn (PnP)
+- ZipFS (VSCode)
+
+## Build and Install
 
 ```shellscript
-npm run build
+yarn install
+yarn dlx @yarnpkg/sdks vscode
+yarn run dev
+(or yarn run build)
 ```

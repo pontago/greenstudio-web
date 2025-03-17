@@ -2,12 +2,13 @@ import type { MetaFunction } from '@remix-run/node';
 import { IconContext } from 'react-icons';
 import { FaXTwitter, FaGithub, FaGooglePlay } from 'react-icons/fa6';
 import { FaAppStore } from 'react-icons/fa';
-import { useLoaderData } from '@remix-run/react';
+import { Outlet, useLoaderData, useLocation } from '@remix-run/react';
 import { getSkills, SkillCategory } from '~/models/skill';
 import { BiLinkExternal } from 'react-icons/bi';
 import { Skill } from '~/components/features/Skill';
 import { getPortfolios } from '~/models/portfolio';
 import { Portfolio } from '~/components/features/Portfolio';
+import { useEffect, useRef } from 'react';
 
 export const clientLoader = async () => {
   try {
@@ -20,15 +21,47 @@ export const clientLoader = async () => {
 };
 
 export const meta: MetaFunction = () => {
-  return [{ title: 'GREEN STUDIO' }, { name: 'description', content: 'Welcome to Remix!' }];
+  return [
+    { title: 'GREEN STUDIO' },
+    {
+      name: 'description',
+      content: 'iOS、Android、Webアプリを開発しています。個人開発と平行して受託開発もおこなっています。',
+    },
+  ];
 };
 
-export default function Index() {
+export default function Layout() {
+  const location = useLocation();
   const { skills, portfolios } = useLoaderData<typeof clientLoader>();
+  const refHome = useRef<HTMLDivElement>(null);
+  const refPortfolio = useRef<HTMLDivElement>(null);
+  const refSkill = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let ref: HTMLDivElement | null = null;
+    switch (location.pathname) {
+      case '/home':
+        ref = refHome.current;
+        break;
+      case '/portfolio':
+        if (!location.search.includes('back=1')) {
+          ref = refPortfolio.current;
+        }
+        break;
+      case '/skill':
+        ref = refSkill.current;
+        break;
+    }
+    ref?.scrollIntoView({ behavior: 'smooth' });
+  }, [location.pathname, location.search]);
 
   return (
     <main id='content'>
-      <div id='home' className='w-full max-w-5xl mx-auto pt-10 md:pt-16 px-4 sm:px-6 lg:px-8'>
+      <div
+        id='home'
+        ref={refHome}
+        className='w-full max-w-5xl mx-auto pt-10 md:pt-16 px-4 sm:px-6 lg:px-8 scroll-mt-14'
+      >
         {/* Avator */}
         <div id='profile' className='flex items-center gap-x-3'>
           <div className='shrink-0'>
@@ -121,14 +154,14 @@ export default function Index() {
 
         {/* Portfolio */}
 
-        <div id='portfolio' className='my-8 sm:my-8 scroll-mt-14'>
+        <div id='portfolio' ref={refPortfolio} className='my-8 sm:my-8 scroll-mt-14'>
           <Portfolio portfolios={portfolios} />
         </div>
 
         {/* End Portfolio */}
 
         {/* Skills */}
-        <div id='skill' className='my-10 sm:my-14 scroll-mt-14'>
+        <div id='skill' ref={refSkill} className='my-10 sm:my-14 scroll-mt-14'>
           <h2 className='font-medium text-gray-800 dark:text-neutral-200'>スキル</h2>
           <div className='mt-4 w-1/2'>
             <div className='flex justify-normal'>
@@ -223,6 +256,7 @@ export default function Index() {
         </div>
         {/* End Skills */}
       </div>
+      <Outlet />
     </main>
   );
 }

@@ -1,40 +1,33 @@
 import clsx from 'clsx';
-import { useState } from 'react';
 import { PortfolioCategory, PortfolioRecord } from '~/models/portfolio';
-
-import { PortfolioModal } from './PortfolioModal';
+import { Link } from '@remix-run/react';
 
 type Props = {
   portfolios: PortfolioRecord[];
 };
 
 export const Portfolio = ({ portfolios }: Props) => {
-  const [portfolio, setPortfolio] = useState<PortfolioRecord>();
-
   return (
     <>
       <h2 className='font-medium text-gray-800 dark:text-neutral-200'>ポートフォリオ</h2>
       <div className='py-4 grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 justify-items-center'>
         {portfolios.map((portfolio) => (
           <div key={portfolio.id}>
-            <button
+            <Link
+              to={`/portfolio/${portfolio.name}`}
               className='group flex flex-col focus:outline-hidden text-left'
-              aria-haspopup='dialog'
-              aria-expanded='false'
-              aria-controls='hs-portfolio-modal'
-              data-hs-overlay='#hs-portfolio-modal'
-              onClick={() => setPortfolio(portfolio)}
+              preventScrollReset
             >
               <div className='overflow-hidden bg-gray-100 rounded dark:bg-neutral-800'>
                 <img
                   className='h-48 w-96 group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out object-cover rounded'
                   src={portfolio.cover}
-                  alt={portfolio.name}
+                  alt={portfolio.title}
                 />
               </div>
               <div className='pt-4'>
                 <h3 className='relative inline-block font-medium text-black before:absolute before:bottom-0.5 before:start-0 before:-z-1 before:w-full before:h-1 before:bg-lime-400 before:transition before:origin-left before:scale-x-0 group-hover:before:scale-x-100 dark:text-white'>
-                  {portfolio.name}
+                  {portfolio.title}
                 </h3>
                 <p className='text-sm mt-1 text-gray-600 dark:text-neutral-400'>{portfolio.subtitle}</p>
                 <div className='mt-3 flex flex-wrap gap-2'>
@@ -52,12 +45,10 @@ export const Portfolio = ({ portfolios }: Props) => {
                   ))}
                 </div>
               </div>
-            </button>
+            </Link>
           </div>
         ))}
       </div>
-
-      <PortfolioModal portfolio={portfolio} />
     </>
   );
 };

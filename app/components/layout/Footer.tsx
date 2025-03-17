@@ -12,25 +12,17 @@ export const Footer = () => {
             <li className='inline-block relative pe-4 text-xs last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-1.5 before:-translate-y-1/2 before:size-[3px] before:rounded-full before:bg-gray-400 dark:text-neutral-500 dark:before:bg-neutral-600'>
               <a
                 className='text-xs text-gray-500 underline hover:text-gray-800 hover:decoration-2 focus:outline-hidden focus:decoration-2 dark:text-neutral-500 dark:hover:text-neutral-400'
-                href='#/'
+                href='https://x.com/happytar0'
               >
                 X (Twitter)
-              </a>
-            </li>
-            <li className='inline-block relative pe-4 text-xs last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-1.5 before:-translate-y-1/2 before:size-[3px] before:rounded-full before:bg-gray-400 dark:text-neutral-500 dark:before:bg-neutral-600'>
-              <a
-                className='text-xs text-gray-500 underline hover:text-gray-800 hover:decoration-2 focus:outline-hidden focus:decoration-2 dark:text-neutral-500 dark:hover:text-neutral-400'
-                href='#/'
-              >
-                Dribbble
               </a>
             </li>
             <li className='inline-block pe-4 text-xs'>
               <a
                 className='text-xs text-gray-500 underline hover:text-gray-800 hover:decoration-2 focus:outline-hidden focus:decoration-2 dark:text-neutral-500 dark:hover:text-neutral-400'
-                href='#/'
+                href='https://github.com/pontago'
               >
-                Github
+                GitHub
               </a>
             </li>
             <li className='inline-block'>
@@ -58,7 +50,7 @@ export const Footer = () => {
               </button>
               <button
                 type='button'
-                className='hs-dark-mode hs-dark-mode-active:flex hidden relative flex justify-center items-center size-7 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700'
+                className='hs-dark-mode hs-dark-mode-active:flex hidden relative  justify-center items-center size-7 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700'
                 data-hs-theme-click-value='light'
               >
                 <span className='sr-only'>Light</span>

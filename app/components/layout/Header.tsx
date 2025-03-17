@@ -5,13 +5,16 @@ type NavLinkItem = {
   name: string;
   to: string;
   isRoot?: boolean;
+  scrollReset?: boolean;
 };
 
 const navLinks: NavLinkItem[] = [
-  { name: 'ホーム', to: '/#home', isRoot: true },
-  { name: 'ポートフォリオ', to: '/#portfolio' },
-  { name: 'スキル', to: '/#skill' },
-  { name: '経歴', to: '/resume' },
+  { name: 'ホーム', to: '/home', isRoot: true },
+  //{ name: 'ポートフォリオ', to: '/#portfolio' },
+  { name: 'ポートフォリオ', to: '/portfolio' },
+  // { name: 'スキル', to: '/#skill' },
+  { name: 'スキル', to: '/skill' },
+  { name: '経歴', to: '/resume', scrollReset: true },
   { name: 'お問い合わせ', to: '/contact' },
   { name: 'ブログ', to: 'https://www.greenstudio.jp/blog/' },
 ];
@@ -98,6 +101,7 @@ export const Header = () => {
                     isActive ? 'border-gray-800' : 'border-transparent'
                   );
                 }}
+                preventScrollReset={!link.scrollReset}
                 end
               >
                 {link.name}

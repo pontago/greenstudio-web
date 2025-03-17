@@ -27,7 +27,7 @@ export const clientLoader = async ({ request }: LoaderFunctionArgs) => {
 };
 
 export const meta: MetaFunction = () => {
-  return [{ title: '開発履歴' }, { name: 'description', content: 'Welcome to Remix!' }];
+  return [{ title: '経歴' }, { name: 'description', content: '個人開発と受託開発の履歴一覧です。' }];
 };
 
 export default function Resume() {
@@ -124,7 +124,7 @@ export default function Resume() {
         ))}
       </div>
 
-      <PortfolioModal portfolio={portfolio} />
+      {portfolio && <PortfolioModal portfolio={portfolio} />}
     </main>
   );
 }

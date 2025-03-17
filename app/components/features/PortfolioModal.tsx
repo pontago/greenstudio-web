@@ -2,16 +2,49 @@ import { PortfolioCategory, PortfolioRecord } from '~/models/portfolio';
 import { ExternalLink } from '../ui/ExternalLink';
 import { PortfolioGallery } from './PortfolioGallery';
 import { BiLinkExternal } from 'react-icons/bi';
+import { useEffect, useRef } from 'react';
+import { MdClose } from 'react-icons/md';
+
+import { HSOverlay } from 'preline/preline';
+import { useLocation, useNavigate } from '@remix-run/react';
+
+declare global {
+  interface Window {
+    HSOverlay: HSOverlay;
+  }
+}
 
 type Props = {
-  portfolio: PortfolioRecord | undefined;
+  portfolio: PortfolioRecord | null;
+  closeLink?: string;
 };
 
-export const PortfolioModal = ({ portfolio }: Props) => {
+export const PortfolioModal = ({ portfolio, closeLink }: Props) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const refModal = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      import('preline/preline').then((preline) => {
+        preline.HSOverlay.autoInit();
+        if (refModal.current) {
+          if (closeLink) {
+            preline.HSOverlay.on('close', refModal.current, () => {
+              navigate(closeLink, { replace: true, preventScrollReset: true });
+            });
+          }
+          preline.HSOverlay.open(refModal.current);
+        }
+      });
+    }
+  }, [location.pathname, navigate, closeLink]);
+
   return (
     <>
       {/* Portfolio Modal */}
       <div
+        ref={refModal}
         id='hs-portfolio-modal'
         className='hs-overlay hidden size-full fixed top-0 start-0 z-50 overflow-y-auto pointer-events-none'
         role='dialog'
@@ -22,7 +55,7 @@ export const PortfolioModal = ({ portfolio }: Props) => {
           <div className='w-full flex flex-col bg-white border border-gray-200 shadow-2xs rounded-xl pointer-events-auto dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70'>
             <div className='flex justify-between items-center py-3 px-4 border-b border-gray-200 dark:border-neutral-700'>
               <h3 id='hs-portfolio-modal-label' className='font-bold text-gray-800 dark:text-white'>
-                {portfolio?.name}
+                {portfolio?.title}
               </h3>
               <button
                 type='button'
@@ -31,21 +64,7 @@ export const PortfolioModal = ({ portfolio }: Props) => {
                 data-hs-overlay='#hs-portfolio-modal'
               >
                 <span className='sr-only'>Close</span>
-                <svg
-                  className='shrink-0 size-4'
-                  xmlns='http://www.w3.org/2000/svg'
-                  width='24'
-                  height='24'
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  strokeWidth='2'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                >
-                  <path d='M18 6 6 18'></path>
-                  <path d='m6 6 12 12'></path>
-                </svg>
+                <MdClose className='shrink-0 size-4' />
               </button>
             </div>
             <div className='flex flex-col overflow-y-auto'>

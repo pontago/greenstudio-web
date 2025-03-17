@@ -1,21 +1,18 @@
-import { PortfolioRecord } from '~/models/portfolio';
 import { useEffect } from 'react';
-import { useLocation } from '@remix-run/react';
+import { PortfolioRecord } from '~/models/portfolio';
 
 type Props = {
   portfolio: PortfolioRecord;
 };
 
 export const PortfolioGallery = ({ portfolio }: Props) => {
-  const location = useLocation();
-
   useEffect(() => {
     if (typeof window !== 'undefined') {
       import('preline/preline').then(() => {
         window.HSStaticMethods.autoInit(['carousel']);
       });
     }
-  }, [location.pathname]);
+  }, []);
 
   return (
     <>

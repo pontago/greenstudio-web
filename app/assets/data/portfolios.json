@@ -1,7 +1,8 @@
 {
   "portfolio": [
     {
-      "name": "収支管理アプリ",
+      "name": "balancemanagement",
+      "title": "収支管理アプリ",
       "categories": ["iOS", "Android"],
       "cover": "/images/portfolio/balancemanagement/cover.png",
       "subtitle": "iOSとAndroidで使えるシンプルな収支管理アプリ",
@@ -26,7 +27,8 @@
       ]
     },
     {
-      "name": "Supreme Droplists",
+      "name": "supdrops",
+      "title": "Supreme Droplists",
       "categories": ["Web"],
       "cover": "/images/portfolio/supdrops/cover.png",
       "subtitle": "Supremeの新作アイテムやアーカイブをチェックできるサイト",
@@ -46,7 +48,8 @@
       ]
     },
     {
-      "name": "適時開示情報WEB",
+      "name": "tdnetviewer-web",
+      "title": "適時開示情報WEB",
       "categories": ["Web"],
       "cover": "/images/portfolio/tdnetviewer-web/cover.png",
       "subtitle": "適時開示情報をWebから閲覧できるサイト",
@@ -66,7 +69,8 @@
       ]
     },
     {
-      "name": "適時開示情報アプリ",
+      "name": "tdnetviewer-app",
+      "title": "適時開示情報アプリ",
       "categories": ["iOS", "Android"],
       "cover": "/images/portfolio/tdnetviewer-web/cover.png",
       "subtitle": "適時開示情報をWebから閲覧できるサイト",

@@ -6,7 +6,7 @@
       "title": "収支管理アプリ",
       "description": "収支を管理するアプリです。家計簿、投資・キャンブルの収支管理を簡単におこなえます。<br/>カレンダーでの収支一覧表示、カテゴリ・タグでの分類、グラフ表示などすべての機能が無料で使えます。",
       "techDescription": "iOS/Android、Flutter（3系）、Dart、Riverpod、drift、SQLite3、Firebase、RevenueCat。<br/>設計からプログラミングまですべて担当。レイヤードアーキテクチャで実装してみました。",
-      "portfolioLink": "収支管理アプリ"
+      "portfolioLink": "balancemanagement"
     },
     {
       "date": "2024年〜",

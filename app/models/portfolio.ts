@@ -16,6 +16,7 @@ type PortfolioLink = {
 
 type Portfolio = {
   name: string;
+  title: string;
   categories: PortfolioCategoryType[];
   cover: string;
   subtitle: string;

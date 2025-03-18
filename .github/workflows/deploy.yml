@@ -1,0 +1,49 @@
+name: greenstudio-web deploy
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  Deploy:
+    name: Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+          cache: yarn
+
+      - name: Cache Dependency
+        uses: actions/cache@v4
+        id: cache_dependency
+        with:
+          path: './.pnp.cjs'
+          key: ${{ runner.os }}-build-${{ hashFiles('yarn.lock') }}
+
+      - name: Install Dependency
+          if: ${{ steps.cache_dependency.outputs.cache-hit != 'true' }}
+          run: yarn install
+
+      - name: Lint
+        run: |
+          yarn run lint
+          yarn run typecheck
+
+      - name: Build
+        run: |
+          yarn run build
+
+      - name: Upload Files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./build/client/
+          server-dir: ${{ secrets.FTP_UPLOAD_DIRECTORY }}

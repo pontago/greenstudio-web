@@ -1,5 +1,6 @@
 import { NavLink, useLocation } from '@remix-run/react';
 import clsx from 'clsx';
+import { useEffect, useState } from 'react';
 
 type NavLinkItem = {
   name: string;
@@ -7,12 +8,14 @@ type NavLinkItem = {
   isRoot?: boolean;
   scrollReset?: boolean;
 };
+type NavLinkStatus = {
+  to: string;
+  isActive: boolean;
+};
 
 const navLinks: NavLinkItem[] = [
-  { name: 'ホーム', to: '/home', isRoot: true },
-  //{ name: 'ポートフォリオ', to: '/#portfolio' },
+  { name: 'ホーム', to: '/', isRoot: true },
   { name: 'ポートフォリオ', to: '/portfolio' },
-  // { name: 'スキル', to: '/#skill' },
   { name: 'スキル', to: '/skill' },
   { name: '経歴', to: '/resume', scrollReset: true },
   { name: 'お問い合わせ', to: '/contact' },
@@ -21,6 +24,18 @@ const navLinks: NavLinkItem[] = [
 
 export const Header = () => {
   const location = useLocation();
+  const [navLinkStatus, setNavLinkStatus] = useState<NavLinkStatus[]>([]);
+
+  // NavLinkがSPAモードで/の状態が上手く反映されないための対応
+  // https://github.com/remix-run/react-router/issues/13010
+  useEffect(() => {
+    const navState = navLinks.reduce((acc, link) => {
+      acc.push({ to: link.to, isActive: link.to === location.pathname });
+      return acc;
+    }, [] as NavLinkStatus[]);
+
+    setNavLinkStatus(navState);
+  }, [location.pathname]);
 
   return (
     <header className='sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-40 w-full before:absolute before:inset-0 before:max-w-5xl before:mx-2 lg:before:mx-auto before:rounded-6.5 before:bg-white-800/30 before:backdrop-blur-md'>
@@ -92,17 +107,13 @@ export const Header = () => {
                 key={index}
                 to={link.to}
                 className={() => {
-                  let isActive = link.to === `${location.pathname}${location.hash}`;
-                  if (!isActive && link.isRoot) {
-                    isActive = location.pathname === '/' && location.hash === '';
-                  }
+                  const fixedActive = navLinkStatus.find((status) => status.to === link.to)?.isActive;
                   return clsx(
                     'py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 text-gray-500 hover:text-gray-800 focus:outline-hidden dark:text-neutral-400 dark:hover:text-neutral-200',
-                    isActive ? 'border-gray-800' : 'border-transparent'
+                    fixedActive ? 'border-gray-800' : 'border-transparent'
                   );
                 }}
                 preventScrollReset={!link.scrollReset}
-                end
               >
                 {link.name}
               </NavLink>

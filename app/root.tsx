@@ -66,7 +66,11 @@ export default function App() {
 }
 
 export function HydrateFallback() {
-  return <p>Loading...</p>;
+  return (
+    <div className='h-48 w-screen font-light flex justify-center items-center'>
+      <p>Loading...</p>
+    </div>
+  );
 }
 
 export function ErrorBoundary() {

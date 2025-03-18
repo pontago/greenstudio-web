@@ -9,6 +9,7 @@ import { Skill } from '~/components/features/Skill';
 import { getPortfolios } from '~/models/portfolio';
 import { Portfolio } from '~/components/features/Portfolio';
 import { useEffect, useRef } from 'react';
+import { ExternalLink } from '~/components/ui/ExternalLink';
 
 export const clientLoader = async () => {
   try {
@@ -40,7 +41,7 @@ export default function Layout() {
   useEffect(() => {
     let ref: HTMLDivElement | null = null;
     switch (location.pathname) {
-      case '/home':
+      case '/':
         ref = refHome.current;
         break;
       case '/portfolio':
@@ -249,9 +250,15 @@ export default function Layout() {
         </div>
 
         <div className='my-8'>
+          <ExternalLink href='https://wakatime.com/@pontago'>
+            <div className='flex items-center gap-x-0.5'>
+              <div className='text-gray-600 dark:text-neutral-400'>WakaTime</div>
+              <BiLinkExternal />
+            </div>
+          </ExternalLink>
           <embed
-            className='h-76 sm:h-96'
-            src='https://wakatime.com/share/@pontago/d621a504-c94d-4eb6-bbf9-632d2d629069.svg'
+            className='h-76 sm:h-96 dark:bg-gray-500'
+            src='https://wakatime.com/share/@pontago/c6f3c792-c14f-419a-aa08-2e5c8551d071.svg'
           ></embed>
         </div>
         {/* End Skills */}

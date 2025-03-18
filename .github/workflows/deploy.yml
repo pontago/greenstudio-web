@@ -27,8 +27,8 @@ jobs:
           key: ${{ runner.os }}-build-${{ hashFiles('yarn.lock') }}
 
       - name: Install Dependency
-          if: ${{ steps.cache_dependency.outputs.cache-hit != 'true' }}
-          run: yarn install
+        if: ${{ steps.cache_dependency.outputs.cache-hit != 'true' }}
+        run: yarn install
 
       - name: Lint
         run: |

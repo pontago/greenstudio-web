@@ -10,6 +10,9 @@ export const Portfolio = ({ portfolios }: Props) => {
   return (
     <>
       <h2 className='font-medium text-gray-800 dark:text-neutral-200'>ポートフォリオ</h2>
+      <div className='mb-2 text-xs text-gray-600 dark:text-neutral-400'>
+        ポートフォリオの一部を表示しています。その他は<Link to='/resume'>経歴ページ</Link>からご確認いただけます。
+      </div>
       <div className='py-4 grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 justify-items-center'>
         {portfolios.map((portfolio) => (
           <div key={portfolio.id}>

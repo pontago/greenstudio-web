@@ -77,7 +77,7 @@ export default function Resume() {
                     </div>
                   )}
                   {resume.category === ResumeCategory.CONTRACT && (
-                    <div className='inline-block mb-1 py-0.5 px-1.5 bg-teal-50 border border-teal-200 text-xs font-medium text-teal-500 rounded-lg dark:bg-teal-800/30 dark:border-teal-800 dark:text-teal-500'>
+                    <div className='inline-block mb-2 py-0.5 px-1.5 bg-yellow-50 border border-yellow-200 text-xs font-medium text-yellow-500 rounded-lg dark:bg-yellow-800/30 dark:border-yellow-800 dark:text-yellow-500'>
                       受託開発
                     </div>
                   )}
@@ -87,7 +87,7 @@ export default function Resume() {
                   dangerouslySetInnerHTML={{ __html: resume.description }}
                 />
                 <p
-                  className='mt-1 text-sm text-teal-700 dark:text-neutral-400'
+                  className='mt-1 text-sm text-teal-700 dark:text-teal-700'
                   dangerouslySetInnerHTML={{ __html: resume.techDescription }}
                 />
                 {resume.portfolioLink && (

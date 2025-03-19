@@ -7,7 +7,7 @@
     },
     {
       "name": "React",
-      "level": 1,
+      "level": 2,
       "experience": "1年未満"
     },
     {
@@ -17,7 +17,7 @@
     },
     {
       "name": "Remix",
-      "level": 1,
+      "level": 2,
       "experience": "1年未満"
     },
     {
@@ -69,7 +69,7 @@
   "backend": [
     {
       "name": "CakePHP",
-      "level": 3,
+      "level": 2,
       "experience": "3年以上"
     },
     {
@@ -110,7 +110,7 @@
     {
       "name": "VB, C++",
       "level": 1,
-      "experience": "2年以上"
+      "experience": "3年以上"
     },
     {
       "name": "C#",

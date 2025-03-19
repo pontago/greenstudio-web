@@ -208,19 +208,19 @@ export default function Layout() {
               Level1
             </div>
             <p className='text-xs text-gray-600 dark:text-neutral-400'>
-              簡単なプログラムを作成・修正できるレベルまたは、最近使用しておらずブランクがあるレベル
+              簡単なプログラムを作成・修正できる、もしくは最近使用していない。
             </p>
             <div className='inline-block mb-1 py-0.5 px-1.5 bg-teal-50 border border-teal-200 text-xs font-medium text-teal-500 rounded-lg dark:bg-teal-800/30 dark:border-teal-800 dark:text-teal-500'>
               Level2
             </div>
             <p className='text-xs text-gray-600 dark:text-neutral-400'>
-              個人アプリ開発、受託開発で使用したことはあるが、経験値が不十分だと感じるレベル
+              個人アプリ開発、受託開発で使用したことがある、経験値が不十分だと感じるレベル。
             </p>
             <div className='inline-block mb-1 py-0.5 px-1.5 bg-yellow-50 border border-yellow-200 text-xs font-medium text-yellow-500 rounded-lg dark:bg-yellow-800/30 dark:border-yellow-800 dark:text-yellow-500'>
               Level3
             </div>
             <p className='text-xs text-gray-600 dark:text-neutral-400'>
-              個人アプリ開発、受託開発で使用したことがあり、一人で開発できるレベル
+              個人アプリ開発、受託開発で使用したことがある、一人で開発できるレベル。
             </p>
           </div>
 
@@ -244,8 +244,8 @@ export default function Layout() {
         <div>
           <div className='mb-2 text-gray-600 dark:text-neutral-400'>その他</div>
           <div className='text-sm text-gray-600 dark:text-neutral-400'>
-            ActionScript, CodeIgniter, memcached, TokyoTyrant, Redis, qmail, Postfix, CourierIMAP, Dovecot,
-            SpamAssassin, bsfilter, ClamAV, bind, Samba, NFS, Apache, lighttpd, Nginx, SQLite
+            Tailwind, Vuetify, Preline UI, ActionScript, CodeIgniter, memcached, TokyoTyrant, Redis, qmail, Postfix,
+            CourierIMAP, Dovecot, SpamAssassin, bsfilter, ClamAV, bind, Samba, NFS, Apache, lighttpd, Nginx, SQLite
           </div>
         </div>
 

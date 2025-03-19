@@ -4733,9 +4733,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"greenstudio.jp@workspace:.":
+"greenstudio-web@workspace:.":
   version: 0.0.0-use.local
-  resolution: "greenstudio.jp@workspace:."
+  resolution: "greenstudio-web@workspace:."
   dependencies:
     "@preline/theme-switch": "npm:^3.0.0"
     "@remix-run/dev": "npm:^2.16.0"

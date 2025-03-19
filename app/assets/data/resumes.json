@@ -4,7 +4,7 @@
       "date": "2024年〜",
       "category": "solo",
       "title": "収支管理アプリ",
-      "description": "収支を管理するアプリです。家計簿、投資・キャンブルの収支管理を簡単におこなえます。<br/>カレンダーでの収支一覧表示、カテゴリ・タグでの分類、グラフ表示などすべての機能が無料で使えます。",
+      "description": "収支を管理するアプリです<br/>。家計簿、投資・キャンブルの収支管理を簡単におこなえます。<br/>カレンダーでの収支一覧表示、カテゴリ・タグでの分類、グラフ表示などすべての機能が無料で使えます。",
       "techDescription": "iOS/Android、Flutter（3系）、Dart、Riverpod、drift、SQLite3、Firebase、RevenueCat。<br/>設計からプログラミングまですべて担当。レイヤードアーキテクチャで実装してみました。",
       "portfolioLink": "balancemanagement"
     },
@@ -12,15 +12,29 @@
       "date": "2024年〜",
       "category": "solo",
       "title": "適時開示情報Androidアプリ",
-      "description": "iPhoneアプリ版をAndroidアプリへ移植しました。Jetpack Composeを使用し、ネイティブアプリとして実装しました。iPhoneと同等のUIと機能を実装し、Glanceを利用したWidgetも作成。",
-      "techDescription": "Android（Android 8.1以降、API Level 27以降）、Kotlin、Hilt、Jetpack Compose、Retrofit、Firebase、Glance。<br/>設計からプログラミングまですべて担当。"
+      "description": "iPhoneアプリ版をAndroidアプリへ移植しました。<br/>Jetpack Composeを使用し、ネイティブアプリとして実装しました。iPhoneと同等のUIと機能を実装し、Glanceを利用したWidgetも作成。",
+      "techDescription": "Android（Android 8.1以降、API Level 27以降）、Kotlin、Hilt、Jetpack Compose、Retrofit、Firebase、Glance。<br/>設計からプログラミングまですべて担当。",
+      "portfolioLink": "tdnetviewer-app",
+      "links": [
+        {
+          "name": "適時開示情報WEB",
+          "url": "https://tdview.net/"
+        }
+      ]
     },
     {
       "date": "2022年〜",
       "category": "solo",
       "title": "Supreme Droplists",
       "description": "Supremeの新作リリース情報をチェックできるサイトです。<br/>先行して販売される海外の情報をもとにいち早くリリース情報を確認できます。",
-      "techDescription": "JavaScript、TypeScript、Nuxt.js（2系）、Vue.js（2系）、Express（4系）、Vuetify、MySQL（5.7系、Mroonga）。<br/>設計からプログラミングまですべて担当。"
+      "techDescription": "JavaScript、TypeScript、Nuxt.js（2系）、Vue.js（2系）、Express（4系）、Vuetify、MySQL（5.7系、Mroonga）。<br/>設計からプログラミングまですべて担当。",
+      "portfolioLink": "supdrops",
+      "links": [
+        {
+          "name": "Supreme Droplists",
+          "url": "https://supdrops.com/"
+        }
+      ]
     },
     {
       "date": "2020〜2023年",
@@ -46,6 +60,260 @@
         {
           "name": "適時開示情報WEB",
           "url": "https://tdview.net/"
+        }
+      ]
+    },
+    {
+      "date": "2019年〜",
+      "category": "solo",
+      "title": "適時開示情報iOSアプリ",
+      "description": "TDNET、EDINETの適時開示をプッシュ通知で配信するアプリです。<br/>総ダウンロード16万以上。監視銘柄の決算予定カレンダー、プッシュ通知にも対応。適時開示のAI要約もできます。<br/>マテリアルデザインを採用しました。また、Firebaseと連携することで複数端末の同期・ログインできるようにしました。",
+      "techDescription": "iOS、Swift、Swift UI（ウィジェット箇所のみ）、RxSwift、Firebase。設計からプログラミングまですべて担当。",
+      "portfolioLink": "tdnetviewer-app",
+      "links": [
+        {
+          "name": "適時開示情報WEB",
+          "url": "https://tdview.net/"
+        }
+      ]
+    },
+    {
+      "date": "2017〜2019年",
+      "category": "solo",
+      "title": "仮想通貨アービトラージBOT",
+      "description": "仮想通貨のアービトラージを自動でおこなうシステムです。<br/>各取引所の仮想通貨の価格差を利用し、高速で売買することで利益を得るシステムです。海外の取引所にも対応することで、より効率的にアービトラージの自動売買をおこなうことができるようにしました。",
+      "techDescription": "PHP（7.1系）、Ruby（2.6系）、MySQL（5.7系）、CakePHP（3.4系）。設計からプログラミングまですべて担当。",
+      "links": []
+    },
+    {
+      "date": "2016年〜",
+      "category": "solo",
+      "title": "自動個体値チェッカー for ポケモンGO",
+      "description": "ポケモンGOでポケモンの個体値を測定するアプリです。<br/>総ダウンロード13万以上。スクショを読み込ませることで、個体値を測定できます。",
+      "techDescription": "iOS、Swift。設計からプログラミングまですべて担当。",
+      "links": [
+        {
+          "name": "AppStore",
+          "url": "https://apps.apple.com/jp/app/id1142754013?platform=iphone"
+        }
+      ]
+    },
+    {
+      "date": "2015〜2016年",
+      "category": "contract",
+      "title": "メモリアル新聞システム",
+      "description": "スポニチで使用したメモリアル新聞作成アプリです。<br/>Eye-Fiを使用して一眼レフカメラで撮影した写真をiPadへ転送し、新聞化したデータを即座にプリントアウトして渡せるようにしました。<br/>WiFiを使用したワイヤレス環境で写真の受信から新聞化、プリントアウトまで全てiPad端末でおこなうことができます。<br/>また、プリントアウトまで高速化できるようC#で開発したWindowsアプリも開発しました。有線でカメラを接続させることで、リアルタイムの写真取り込み、プリントアウトをおこなえるようにしました。",
+      "techDescription": "iOS/iPad/Windows、Objective-C、Swift、PHP、C#、CakePHP、Eye-Fi。設計からプログラミングまですべて担当。",
+      "links": []
+    },
+    {
+      "date": "2015年",
+      "category": "contract",
+      "title": "英語学習アプリ",
+      "description": "ホテルなどの宿泊施設向けの英語学習アプリです。<br/>iOSアプリ、APIと連携する実装までおこないました。Web上で登録した英語コンテンツを読み込み、iOSアプリから学習をおこないます。<br/>スピーキング、リスニング、ディクテーションなどの主要な英語学習方法を全て実装いたしました。<br/>各ユーザーの学習状況はサーバ同期され、Web上から確認することができます。",
+      "techDescription": "iOS、Objective-C。プログラミングまで担当。",
+      "links": []
+    },
+    {
+      "date": "2015年〜",
+      "category": "solo",
+      "title": "画面メモアプリ",
+      "description": "ブラウザで表示した画面を画像として保存できるアプリです。<br/>スクロールが必要な画面で見切れていても縦長で保存でき、アプリ内のフォルダで保存した画面メモを別けて管理できるようにしました。",
+      "techDescription": "iOS/iPad、Objective-C、SQLite。設計からプログラミングまで担当。",
+      "portfolioLink": "screencapture",
+      "links": []
+    },
+    {
+      "date": "2014年",
+      "category": "contract",
+      "title": "検診予約システム",
+      "description": "人間ドックの検診予約システムです。<br/>Webベースのシステムで各システムと連携するためのバッチプログラム、Web画面の実装までおこないました。10人程度のチームで開発しました。",
+      "techDescription": "WindowsServer、Apache、Java、Tomcat、Oracle、Spring Framework、XHTML、CSS、JavaScript。詳細設計からプログラミングまで担当。",
+      "links": []
+    },
+    {
+      "date": "2014〜2021年",
+      "category": "solo",
+      "title": "SmilePlayer2（公開終了）",
+      "description": "非公式のニコニコ動画専用の動画プレイヤーで、以前開発したSmilePlayerの後継バージョンとして一から開発しました。<br/>総ダウンロード74万、カテゴリランキング5位以内に入りました。<br/>通常では再生できないFLV形式の動画もリアルタイムデコードすることで再生できるようにしました。PCと同じ高画質での再生が可能で、コメントの表示や投稿もできます。独自のNG機能で動画やコメントを非表示にできます。",
+      "techDescription": "iOS、Objective-C、SQLite、FFmpeg。設計からプログラミングまですべて担当。",
+      "portfolioLink": "smileplayer2",
+      "links": [
+        {
+          "name": "一部動画プレイヤーのソースコード",
+          "url": "https://github.com/pontago/NicoMoviePlayer"
+        }
+      ]
+    },
+    {
+      "date": "2013年〜",
+      "category": "solo",
+      "title": "半角カナ入力アプリ",
+      "description": "ひらがなや全角カタカナを半角カタカナに変換できるアプリです。<br/>総ダウンロード34万以上。2013年当時、iOSから半角カタカナを利用するのがむずかしかったため、単純に半角カタカナに変換するだけのアプリとして開発しました。ひらがなの変換やクリップボードからの入力にも対応しています。",
+      "techDescription": "iOS、Objective-C、Swift、Swift UI。設計からプログラミングまですべて担当。",
+      "portfolioLink": "inputhankaku"
+    },
+    {
+      "date": "2012年〜",
+      "category": "solo",
+      "title": "TV実況なう",
+      "description": "TV局を選択するとTwitter、ニコニコ実況、2chのリアルタイムコメントを閲覧できます。<br/>TV番組を見ていたときにネット上の感想が気になったことから開発しました。",
+      "techDescription": "iOS/iPad、Objective-C。設計からプログラミングまですべて担当。",
+      "links": [
+        {
+          "name": "AppStore",
+          "url": "https://apps.apple.com/jp/app/id567690670?platform=iphone"
+        }
+      ]
+    },
+    {
+      "date": "2011〜2018年",
+      "category": "solo",
+      "title": "SmilePlayer（公開終了）",
+      "description": "非公式のニコニコ動画専用の動画プレイヤーです。<br/>通常では再生できないFLV形式の動画も内部変換することで再生できるようにしました。ランキングやカテゴリから見たい動画を検索でき、コメント付きで再生できます。",
+      "techDescription": "iOS、Objective-C、FFmpeg。設計からプログラミングまですべて担当。",
+      "links": [
+        {
+          "name": "一部動画プレイヤーのソースコード",
+          "url": "https://github.com/pontago/NicoMoviePlayer"
+        }
+      ]
+    },
+    {
+      "date": "2010〜2019年",
+      "category": "solo",
+      "title": "SmilePlayerHD（公開終了）",
+      "description": "非公式のニコニコ動画専用の動画プレイヤーで、iPad用のアプリとして開発しました。<br/>通常では再生できないFLV形式の動画も内部変換することで再生できるようにしました。ランキングやカテゴリから見たい動画を検索でき、コメント付きで再生できます。",
+      "techDescription": "iOS、Objective-C、FFmpeg。設計からプログラミングまですべて担当。",
+      "portfolioLink": "smileplayerhd",
+      "links": [
+        {
+          "name": "一部動画プレイヤーのソースコード",
+          "url": "https://github.com/pontago/NicoMoviePlayer"
+        },
+        {
+          "name": "紹介ページ",
+          "url": "https://www.mdn.co.jp/di/newstopics/16530/"
+        }
+      ]
+    },
+    {
+      "date": "2010年",
+      "category": "contract",
+      "title": "SEO測定システム",
+      "description": "GoogleやYahoo（モバイル含む）での順位を測定するシステムです。<br/>管理画面上から登録したキーワードを指定時刻に測定し、グラフ表示します。<br/>その他に成果金額やクライアント専用画面なども実装しました。ランニングコストをおさえるために、全て共有サーバ上で実行できるように工夫しました。",
+      "techDescription": "Apache、PHP、MySQL、SQLite、JavaScript。要件定義・設計、プログラミングまで担当。",
+      "links": []
+    },
+    {
+      "date": "2010年",
+      "category": "solo",
+      "title": "あしあとプラス（公開終了）",
+      "description": "mixiアプリ上でのオープンソーシャルアプリケーションになります。<br/>mixiでのあしあとにアクセス解析機能を付加することができます。<br/>アプリランキング1位、30万以上のユーザーに利用され、アクセスログを記録するアプリの性質上、300万/日のアクセスに対応しました。",
+      "techDescription": "AWS（EC2、RDS、ELB、CloudWatch）、Linux、Apache、Ruby、Ruby On Rails（2.3系）、MySQL、JavaScript。設計からプログラミングまですべて担当。",
+      "portfolioLink": "ashiatoplus",
+      "links": [
+        {
+          "name": "紹介ページ",
+          "url": "https://gamebiz.jp/news/33820"
+        }
+      ]
+    },
+    {
+      "date": "2010年",
+      "category": "solo",
+      "title": "iPeer（公開終了）",
+      "description": "ActionScriptのRTMFPという新プロトコルを利用することで、ブラウザのみでP2Pファイル転送を実現するサービスです。",
+      "techDescription": "Linux、Apache、Ruby、MySQL、Flex(ActionScript3)、JavaScript。設計からプログラミングまですべて担当。",
+      "links": []
+    },
+    {
+      "date": "2009年",
+      "category": "contract",
+      "title": "携帯向けメールアドレスチェックシステム",
+      "description": "携帯に特化したメールアドレスチェックシステムです。<br/>メール配信することなく、メールアドレスの生存確認をおこなうことができます。分散サーバ上でSMTP処理を独自に実装・制御し、高速にメールアドレスの確認がおこなえます。",
+      "techDescription": "Linux、Apache、Ruby、MySQL、TokyoTyrant(KVS)、JavaScript。要件定義・設計、プログラミングまで担当。",
+      "links": []
+    },
+    {
+      "date": "2008年",
+      "category": "contract",
+      "title": "勤怠管理システム",
+      "description": "携帯から打刻することで、出勤・退勤などを管理できるシステムです。",
+      "techDescription": "Linux、Apache、PHP（5.4系）、MySQL、JavaScript。設計、プログラミングまで担当。",
+      "links": []
+    },
+    {
+      "date": "2008年",
+      "category": "contract",
+      "title": "携帯漫画閲覧サイト",
+      "description": "3キャリア対応の漫画サイトです。<br/>漫画の閲覧には、セルシスのブックサーフィンとFlashLiteを利用しました。",
+      "techDescription": "Linux、Apache、PHP（5.4系）、MySQL、JavaScript。要件定義・設計、プログラミングまで担当。",
+      "links": []
+    },
+    {
+      "date": "2007年",
+      "category": "contract",
+      "title": "3キャリア対応携帯SNSサイト",
+      "description": "モバゲーと同じ内容のアバター、ブログ、コミュニティ、ゲームコンテンツを含むポータルサイトです。<br/>絵文字変換や投稿画像の負荷分散、アバターの合成など実装しました。",
+      "techDescription": "Linux、Apache、PHP（5.4系）、MySQL、JavaScript。要件定義・設計、プログラミングまで担当。",
+      "links": []
+    },
+    {
+      "date": "2007年",
+      "category": "contract",
+      "title": "不動産物件管理システム",
+      "description": "管理画面上から不動産物件を登録・管理できるCMSです。<br/>お客様の要望から運営コストをおさえるために、共有サーバ上で稼働できるように作りました。",
+      "techDescription": "Linux、Apache、PHP（5.4系）、MySQL、JavaScript。設計、プログラミングまで担当。",
+      "links": []
+    },
+    {
+      "date": "2007年",
+      "category": "contract",
+      "title": "建設画像履歴管理システム",
+      "description": "建設時の施工状況を携帯で撮影した画像を用いて、履歴として保存していくシステムです。<br/>施工状況をWebから確認でき、物件購入予定のお客さまや管理者が進捗を確認できます。<br/>全ての施行完了後は、HTMLデータを出力することで、CDデータとして保存できるようにしました。",
+      "techDescription": "Linux、Apache、PHP（5.4系）、MySQL、JavaScript。設計、プログラミングまで担当。",
+      "links": []
+    },
+    {
+      "date": "2006年",
+      "category": "contract",
+      "title": "中古車情報検索サイト",
+      "description": "中古車販売店舗を登録し、掲載された中古車情報を一括検索できるサイトです。<br/>地域に特化されており、都道府県・市区町村から絞り込み検索が可能です。",
+      "techDescription": "Linux、Apache、PHP（5.4系）、MySQL、JavaScript。要件定義・設計、プログラミングまで担当。",
+      "links": []
+    },
+    {
+      "date": "2004年",
+      "category": "solo",
+      "title": "YahooExplorer（公開終了）",
+      "description": "Yahoo掲示板を見るための専用ブラウザです。<br/>開発する時間が取れなくなったため、有志の方にソースコードを譲渡して引き継いでいただきました。<br/>■雑誌紙面・収録<br/>・YahooJapanインターネットガイド5月号に掲載して頂きました。（2004年）<br/>・裏ツールBESTランキングに掲載して頂きました。（2004年）<br/>・ネットランナー7月号に収録して頂きました。（2004年）<br/>・ネットランナー5月号に収録して頂きました。（2004年）",
+      "techDescription": "C++（Borland C++Builder）",
+      "links": [
+        {
+          "name": "YahooExplorerサイト跡",
+          "url": "https://web.archive.org/web/20181222061251/http://www.geocities.jp/y_explorer_1xx/"
+        },
+        {
+          "name": "Vectorの新着レビュー",
+          "url": "http://www.vector.co.jp/magazine/softnews/040317/n0403172.html"
+        },
+        {
+          "name": "林檎の木のレビュー",
+          "url": "https://web.archive.org/web/20150316103204/http://ringonoki.net/tool/web/yahooexplorer.php"
+        }
+      ]
+    },
+    {
+      "date": "2002年",
+      "category": "solo",
+      "title": "EGLEx",
+      "description": "IWANGOプロトコル対応したDirectLobby起動アプリ。<br/>CATV環境などでグローバルIPがなくてもゲーム対戦できるようになります。",
+      "techDescription": "C++",
+      "links": [
+        {
+          "name": "Vector",
+          "url": "http://www.vector.co.jp/soft/win95/game/se230525.html"
         }
       ]
     }

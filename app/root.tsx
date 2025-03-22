@@ -1,4 +1,4 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
+import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLocation } from '@remix-run/react';
 import type { LinksFunction } from '@remix-run/node';
 import { useEffect } from 'react';
 import { Header } from '~/components/layout/Header';
@@ -25,11 +25,11 @@ export const links: LinksFunction = () => [
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
   },
-  { rel: 'icon', type: 'image/png', href: '/favicon-96x96.png', sizes: '96x96' },
-  { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+  { rel: 'icon', type: 'image/png', href: '/images/favicon-96x96.png', sizes: '96x96' },
+  { rel: 'icon', type: 'image/svg+xml', href: '/images/favicon.svg' },
   { rel: 'shortcut icon', href: '/favicon.ico' },
-  { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
-  { rel: 'manifest', href: '/site.webmanifest' },
+  { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/apple-touch-icon.png' },
+  { rel: 'manifest', href: '/images/site.webmanifest' },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -54,13 +54,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const location = useLocation();
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       import('preline/preline').then(() => {
         window.HSStaticMethods.autoInit();
       });
     }
-  });
+  }, []);
+
+  useEffect(() => {
+    if (location.pathname !== '/contact') {
+      document.body.classList.add('hide-recaptcha');
+    } else {
+      document.body.classList.remove('hide-recaptcha');
+    }
+  }, [location.pathname]);
 
   return <Outlet />;
 }

@@ -27,7 +27,7 @@ export const clientLoader = async ({ request }: LoaderFunctionArgs) => {
 };
 
 export const meta: MetaFunction = () => {
-  return [{ title: '経歴' }, { name: 'description', content: '個人開発と受託開発の履歴一覧です。' }];
+  return [{ title: '経歴 - GREEN STUDIO' }, { name: 'description', content: '個人開発と受託開発の履歴一覧です。' }];
 };
 
 export default function Resume() {
@@ -50,7 +50,7 @@ export default function Resume() {
           <div key={index}>
             {/* Heading */}
             <div className='ps-2 my-2 first:mt-0'>
-              <h3 className='text-xs font-medium uppercase text-gray-500 dark:text-neutral-400'>{resume.date}</h3>
+              <div className='text-xs font-medium uppercase text-gray-500 dark:text-neutral-400'>{resume.date}</div>
             </div>
             {/* End Heading */}
             {/* Item */}
@@ -65,23 +65,23 @@ export default function Resume() {
               {/* End Icon */}
               {/* Right Content */}
               <div className='grow p-2 pb-8'>
-                <h3 className='flex gap-x-1.5 font-semibold text-gray-800 dark:text-white'>
+                <div className='flex gap-x-1.5 font-semibold text-gray-800 dark:text-white'>
                   {resume.category === ResumeCategory.SOLO && <FaHome className='shrink-0 size-4 mt-1' />}
                   {resume.category === ResumeCategory.CONTRACT && <FaRegBuilding className='shrink-0 size-4 mt-1' />}
 
-                  {resume.title}
+                  <h2>{resume.title}</h2>
 
                   {resume.category === ResumeCategory.SOLO && (
-                    <div className='inline-block mb-1 py-0.5 px-1.5 bg-teal-50 border border-teal-200 text-xs font-medium text-teal-500 rounded-lg dark:bg-teal-800/30 dark:border-teal-800 dark:text-teal-500'>
+                    <h3 className='inline-block mb-1 py-0.5 px-1.5 bg-teal-50 border border-teal-200 text-xs font-medium text-teal-500 rounded-lg dark:bg-teal-800/30 dark:border-teal-800 dark:text-teal-500'>
                       個人開発
-                    </div>
+                    </h3>
                   )}
                   {resume.category === ResumeCategory.CONTRACT && (
-                    <div className='inline-block mb-2 py-0.5 px-1.5 bg-yellow-50 border border-yellow-200 text-xs font-medium text-yellow-500 rounded-lg dark:bg-yellow-800/30 dark:border-yellow-800 dark:text-yellow-500'>
+                    <h3 className='inline-block mb-2 py-0.5 px-1.5 bg-yellow-50 border border-yellow-200 text-xs font-medium text-yellow-500 rounded-lg dark:bg-yellow-800/30 dark:border-yellow-800 dark:text-yellow-500'>
                       受託開発
-                    </div>
+                    </h3>
                   )}
-                </h3>
+                </div>
                 <p
                   className='mt-1 text-sm text-gray-600 dark:text-neutral-400'
                   dangerouslySetInnerHTML={{ __html: resume.description }}

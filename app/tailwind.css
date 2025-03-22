@@ -33,3 +33,7 @@ body {
     color-scheme: dark;
   }
 }
+
+.hide-recaptcha .grecaptcha-badge {
+  visibility: hidden;
+}

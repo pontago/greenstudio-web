@@ -22,7 +22,7 @@ namespace Main {
         }
 
         $payload = http_build_query([
-            'secret' => $_ENV['RECAPTCHA_SECRET_KEY'],
+            'secret' => $_ENV['RECAPTCHA_SECRET_KEY'] ?: $_SERVER['RECAPTCHA_SECRET_KEY'],
             'response' => $token
         ]);
 
@@ -94,8 +94,10 @@ namespace Main {
         $body =<<<EOM
 下記の内容でお問い合わせがありました。
 
-【お名前】{$data['name']}
-【メールアドレス】{$data['email']}
+【お名前】
+{$data['name']}
+【メールアドレス】
+{$data['email']}
 【本文】
 {$data['message']}
 EOM;
@@ -103,8 +105,10 @@ EOM;
 お問い合わせありがとうございます。
 下記の内容でお問い合わせを受け付けました。
 
-【お名前】{$data['name']}
-【メールアドレス】{$data['email']}
+【お名前】
+{$data['name']}
+【メールアドレス】
+{$data['email']}
 【本文】
 {$data['message']}
 
@@ -117,6 +121,7 @@ EOM;
             'MIME-Version' => '1.0',
             'Content-Transfer-Encoding' => 'base64',
             'Content-Type' => 'text/plain; charset=UTF-8',
+            'From' => "GREEN STUDIO <$toEmail>"
         ];
 
         // お問い合わせ確認用メール（自動返信）
@@ -124,7 +129,7 @@ EOM;
             $data['email'],
             $confirmSubject,
             $confirmBody,
-            $headers + ['From' => "GREEN STUDIO <$toEmail>"],
+            $headers,
             "-f$toEmail"
         );
         if ($confirmResult === false) {
@@ -136,8 +141,9 @@ EOM;
             $toEmail,
             $subject,
             $body,
-            $headers + ['From' => "{$data['email']}"],
-            "-f{$data['email']}"
+            $headers + ['Reply-To' => $data['email']
+            ],
+            "-f$toEmail"
         );
         return $result;
     }

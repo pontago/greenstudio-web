@@ -12,4 +12,7 @@ node_modules/
 public/build/
 .eslintcache
 
+.github/act/.secrets
+.github/workflows/test.yml
+
 .DS_Store

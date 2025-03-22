@@ -27,7 +27,6 @@ jobs:
           key: ${{ runner.os }}-build-${{ hashFiles('yarn.lock') }}
 
       - name: Install Dependency
-        if: ${{ !env.ACT }}
         if: ${{ steps.cache_dependency.outputs.cache-hit != 'true' }}
         run: yarn install
 

@@ -23,7 +23,7 @@ jobs:
         id: cache_dependency
         with:
           path: './.pnp.cjs'
-          key: ${{ runner.os }}-build-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-build-${{ hashFiles('package.json') }}-${{ hashFiles('yarn.lock') }}
 
       - name: Install Dependency
         if: ${{ steps.cache_dependency.outputs.cache-hit != 'true' }}

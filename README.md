@@ -12,7 +12,7 @@ Remix App
 - Yarn (PnP)
 - ZipFS (VSCode)
 
-## Environment and Secrets Variables
+## Environment Variables and Secrets
 
 ### Environment
 

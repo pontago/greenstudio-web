@@ -1,0 +1,17 @@
+name: greenstudio-web
+services:
+  php-app:
+    build: ./php
+    env_file: 
+      - ../../.env
+    volumes:
+      - ../app:/var/www/html
+    ports:
+      - 8081:80
+    depends_on:
+      - mail
+
+  mail:
+    image: mailhog/mailhog
+    ports:
+      - 8025:8025

@@ -1,0 +1,22 @@
+name: greenstudio-web test
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  Deploy:
+    name: Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload Files
+        run: |
+          which lftp || sudo apt-get update -y && sudo apt-get install lftp -y
+          sh ./.github/upload.sh
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          FTP_UPLOAD_DIRECTORY: ${{ secrets.FTP_UPLOAD_DIRECTORY }}
+          RECAPTCHA_SECRET_KEY: ${{ secrets.RECAPTCHA_SECRET_KEY }}

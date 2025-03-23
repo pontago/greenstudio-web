@@ -5,6 +5,8 @@ Remix App
 - SPA Mode
 - Yarn (PnP)
 - Preline UI
+- Sakura Internet Shared Server
+- PHP 7.4.x（お問い合わせメール送信箇所）
 
 ## Requirement
 
@@ -18,6 +20,7 @@ Remix App
 
 - VITE_CONTACT_URL=お問い合わせフォームPHPのURL
 - VITE_RECAPTCHA_SITE_KEY=reCAPTCHAのサイトキー
+- VITE_GA_TRACKING_ID=Google AnalyticsのトラッキングID
 
 ### Secrets for Actions
 

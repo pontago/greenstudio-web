@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { Header } from '~/components/layout/Header';
 import { Footer } from '~/components/layout/Footer';
 import { ErrorPage } from '~/components/layout/ErrorPage';
+import * as gtag from '~/utils/gtags.client';
 
 import './tailwind.css';
 
@@ -43,6 +44,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.VITE_GA_TRACKING_ID}`} />
+        <script
+          async
+          id='gtag-init'
+          dangerouslySetInnerHTML={{
+            __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', '${import.meta.env.VITE_GA_TRACKING_ID}', {
+                  page_path: window.location.pathname,
+                });
+              `,
+          }}
+        />
+
         <Header />
         {children}
         <Footer />
@@ -70,6 +88,8 @@ export default function App() {
     } else {
       document.body.classList.remove('hide-recaptcha');
     }
+
+    gtag.pageview(location.pathname, import.meta.env.VITE_GA_TRACKING_ID);
   }, [location.pathname]);
 
   return <Outlet />;

@@ -19,7 +19,7 @@ const navLinks: NavLinkItem[] = [
   { name: 'スキル', to: '/skill' },
   { name: '経歴', to: '/resume', scrollReset: true },
   { name: 'お問い合わせ', to: '/contact' },
-  { name: 'ブログ', to: 'https://www.greenstudio.jp/blog/' },
+  { name: 'ブログ', to: 'https://www.greenstudio.jp/wp/' },
 ];
 
 export const Header = () => {

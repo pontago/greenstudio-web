@@ -42,6 +42,7 @@ jobs:
         env:
           VITE_CONTACT_URL: ${{ vars.VITE_CONTACT_URL }}
           VITE_RECAPTCHA_SITE_KEY: ${{ vars.VITE_RECAPTCHA_SITE_KEY }}
+          VITE_GA_TRACKING_ID: ${{ vars.VITE_GA_TRACKING_ID }}
 
       - name: Upload Files
         run: |

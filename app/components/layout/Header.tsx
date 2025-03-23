@@ -7,6 +7,7 @@ type NavLinkItem = {
   to: string;
   isRoot?: boolean;
   scrollReset?: boolean;
+  isExternal?: boolean;
 };
 type NavLinkStatus = {
   to: string;
@@ -19,7 +20,7 @@ const navLinks: NavLinkItem[] = [
   { name: 'スキル', to: '/skill' },
   { name: '経歴', to: '/resume', scrollReset: true },
   { name: 'お問い合わせ', to: '/contact' },
-  { name: 'ブログ', to: 'https://www.greenstudio.jp/wp/' },
+  { name: 'ブログ', to: 'https://www.greenstudio.jp/wp/', isExternal: true },
 ];
 
 export const Header = () => {
@@ -114,6 +115,7 @@ export const Header = () => {
                   );
                 }}
                 preventScrollReset={!link.scrollReset}
+                reloadDocument={link.isExternal}
               >
                 {link.name}
               </NavLink>

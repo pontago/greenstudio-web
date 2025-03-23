@@ -1,8 +1,8 @@
 import type { MetaFunction } from '@remix-run/node';
 import { IconContext } from 'react-icons';
-import { FaXTwitter, FaGithub, FaGooglePlay } from 'react-icons/fa6';
+import { FaXTwitter, FaGithub, FaGooglePlay, FaAngleRight } from 'react-icons/fa6';
 import { FaAppStore } from 'react-icons/fa';
-import { Outlet, useLoaderData, useLocation } from '@remix-run/react';
+import { Link, Outlet, useLoaderData, useLocation } from '@remix-run/react';
 import { getSkills, SkillCategory } from '~/models/skill';
 import { BiLinkExternal } from 'react-icons/bi';
 import { Skill } from '~/components/features/Skill';
@@ -10,12 +10,47 @@ import { getPortfolios } from '~/models/portfolio';
 import { Portfolio } from '~/components/features/Portfolio';
 import { useEffect, useRef } from 'react';
 import { ExternalLink } from '~/components/ui/ExternalLink';
+import { XMLParser } from 'fast-xml-parser';
+import { parse, format } from '@formkit/tempo';
+import { decode } from 'html-entities';
+
+type BlogPost = {
+  title: string;
+  pubDate: string;
+  link: string;
+  description: string;
+  category: string[];
+};
 
 export const clientLoader = async () => {
   try {
     const skills = await getSkills();
     const portfolios = await getPortfolios();
-    return { skills, portfolios };
+
+    let blogPosts: BlogPost[] = [];
+    try {
+      const response = await fetch('https://www.greenstudio.jp/wp/feed/');
+      const responseText = await response.text();
+      const options = {
+        ignoreAttributes: true,
+        processEntities: false,
+      };
+      const parser = new XMLParser(options);
+      const output = parser.parse(responseText);
+      blogPosts = output.rss.channel.item.map((item: BlogPost) => {
+        return {
+          title: item.title,
+          pubDate: item.pubDate,
+          link: item.link,
+          description: item.description,
+          categories: item.category,
+        };
+      });
+    } catch (error) {
+      console.error(error);
+    }
+
+    return { skills, portfolios, blogPosts };
   } catch (error) {
     throw new Response('Internal Server Error', { status: 500 });
   }
@@ -33,10 +68,17 @@ export const meta: MetaFunction = () => {
 
 export default function Layout() {
   const location = useLocation();
-  const { skills, portfolios } = useLoaderData<typeof clientLoader>();
+  const { skills, portfolios, blogPosts } = useLoaderData<typeof clientLoader>();
   const refHome = useRef<HTMLDivElement>(null);
   const refPortfolio = useRef<HTMLDivElement>(null);
   const refSkill = useRef<HTMLDivElement>(null);
+
+  const trimWords = (text: string, count: number) => {
+    const plainText = decode(text)
+      .replace(/<[^>]+>/g, '')
+      .trim();
+    return plainText.length > count ? plainText.slice(0, count) + ' ...' : plainText;
+  };
 
   useEffect(() => {
     let ref: HTMLDivElement | null = null;
@@ -153,9 +195,40 @@ export default function Layout() {
         </div>
         {/* End Profile */}
 
+        {/* Blog */}
+        <div className='my-8'>
+          <div className='flex'>
+            <h2 className='font-medium text-gray-800 dark:text-neutral-200'>新着ブログ</h2>
+            <Link to='https://www.greenstudio.jp/wp/' className='flex place-self-end group' reloadDocument>
+              <div className='ml-2 mb-0.5 text-xs text-gray-400 group-hover:text-gray-200 dark:text-neutral-500 dark:group-hover:text-white'>
+                もっと見る
+              </div>
+              <FaAngleRight className='text-gray-400 group-hover:text-gray-200 dark:text-neutral-500 dark:group-hover:text-white size-3 mt-0.5' />
+            </Link>
+          </div>
+
+          <div className='mt-4 w-full grid grid-rows-6 grid-cols-1 sm:grid-rows-3 sm:grid-cols-2 gap-4'>
+            {blogPosts.slice(0, 6).map((post, index) => (
+              <div key={index} className='p-4 rounded-xl border border-gray-200 dark:border-neutral-700'>
+                <p className='font-semibold text-gray-800 hover:text-gray-600 dark:text-neutral-300 dark:hover:text-white'>
+                  <Link to={post.link} reloadDocument>
+                    {trimWords(post.title, 50)}
+                  </Link>
+                </p>
+                <p className='mt-2 text-xs text-gray-600 dark:text-neutral-400'>
+                  {format(parse(post.pubDate, 'ddd, DD MMM YYYY HH:mm:ss ZZ'), { date: 'full', time: 'short' }, 'ja')}
+                </p>
+                <p className='mt-3 text-sm text-gray-600 dark:text-neutral-400'>{trimWords(post.description, 98)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* End Blog */}
+
         {/* Portfolio */}
 
-        <div id='portfolio' ref={refPortfolio} className='my-8 sm:my-8 scroll-mt-14'>
+        <div id='portfolio' ref={refPortfolio} className='my-8 scroll-mt-14'>
           <Portfolio portfolios={portfolios} />
         </div>
 

@@ -281,34 +281,34 @@ export default function Layout() {
               Level1
             </div>
             <p className='text-xs text-gray-600 dark:text-neutral-400'>
-              簡単なプログラムを作成・修正できる、もしくは最近使用していない。
+              簡単なプログラムを作成・修正できる。もしくは最近使用していない。
             </p>
             <div className='inline-block mb-1 py-0.5 px-1.5 bg-teal-50 border border-teal-200 text-xs font-medium text-teal-500 rounded-lg dark:bg-teal-800/30 dark:border-teal-800 dark:text-teal-500'>
               Level2
             </div>
             <p className='text-xs text-gray-600 dark:text-neutral-400'>
-              個人アプリ開発、受託開発で使用したことがある、経験値が不十分だと感じるレベル。
+              個人アプリ開発、受託開発で使用したことがある。直近使用率低め、経験が不十分だと感じるレベル。
             </p>
             <div className='inline-block mb-1 py-0.5 px-1.5 bg-yellow-50 border border-yellow-200 text-xs font-medium text-yellow-500 rounded-lg dark:bg-yellow-800/30 dark:border-yellow-800 dark:text-yellow-500'>
               Level3
             </div>
             <p className='text-xs text-gray-600 dark:text-neutral-400'>
-              個人アプリ開発、受託開発で使用したことがある、一人で開発できるレベル。
+              個人アプリ開発、受託開発で使用したことがある。直近5年以内で使用している。
             </p>
           </div>
 
           <div className='grid grid-cols-1 mt-2 sm:grid-cols-2 gap-x-3 border-gray-200  divide-gray-200 dark:border-neutral-700 dark:divide-neutral-700'>
             <div className='sm:-ms-4 sm:px-4'>
               <Skill
-                category={SkillCategory.FRONTEND}
-                records={skills.filter((skill) => skill.category === SkillCategory.FRONTEND)}
+                category={SkillCategory.LANGUAGES}
+                records={skills.filter((skill) => skill.category === SkillCategory.LANGUAGES)}
               />
             </div>
 
             <div className='sm:px-4'>
               <Skill
-                category={SkillCategory.BACKEND}
-                records={skills.filter((skill) => skill.category === SkillCategory.BACKEND)}
+                category={SkillCategory.FRAMEWORKS}
+                records={skills.filter((skill) => skill.category === SkillCategory.FRAMEWORKS)}
               />
             </div>
           </div>
@@ -317,8 +317,9 @@ export default function Layout() {
         <div>
           <div className='mb-2 text-gray-600 dark:text-neutral-400'>その他</div>
           <div className='text-sm text-gray-600 dark:text-neutral-400'>
-            Tailwind, Vuetify, Preline UI, ActionScript, CodeIgniter, memcached, TokyoTyrant, Redis, qmail, Postfix,
-            CourierIMAP, Dovecot, SpamAssassin, bsfilter, ClamAV, bind, Samba, NFS, Apache, lighttpd, Nginx, SQLite
+            GitHub Actions, Docker, Tailwind, Vuetify, Preline UI, ActionScript, CodeIgniter, memcached, TokyoTyrant,
+            Redis, qmail, Postfix, CourierIMAP, Dovecot, SpamAssassin, bsfilter, ClamAV, bind, Samba, NFS, Apache,
+            lighttpd, Nginx, SQLite
           </div>
         </div>
 

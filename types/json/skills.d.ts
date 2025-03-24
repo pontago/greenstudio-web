@@ -1,7 +1,7 @@
 declare module '~/assets/data/skills.json' {
   type SkillJson = {
-    frontend: Skill[];
-    backend: Skill[];
+    languages: Skill[];
+    frameworks: Skill[];
   };
 
   const value: SkillJson;

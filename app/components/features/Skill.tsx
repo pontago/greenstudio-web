@@ -11,8 +11,8 @@ export const Skill = ({ category, records }: Props) => {
     <>
       <h2 className='text-center text-sm mt-4 font-medium text-gray-600 dark:text-neutral-400'>
         {clsx(
-          category === SkillCategory.FRONTEND && 'フロントエンド',
-          category === SkillCategory.BACKEND && 'バックエンド'
+          category === SkillCategory.LANGUAGES && 'プログラミング言語・DB',
+          category === SkillCategory.FRAMEWORKS && 'フレームワーク・ライブラリ・インフラ'
         )}
       </h2>
       <div>

@@ -2,8 +2,8 @@ import { matchSorter } from 'match-sorter';
 import skillJson from '~/assets/data/skills.json' assert { type: 'json' };
 
 export const SkillCategory = {
-  FRONTEND: 'frontend',
-  BACKEND: 'backend',
+  LANGUAGES: 'languages',
+  FRAMEWORKS: 'frameworks',
 } as const;
 
 export type SkillCategoryType = (typeof SkillCategory)[keyof typeof SkillCategory];
@@ -42,10 +42,10 @@ export async function getSkills(query?: string | null) {
   return skills;
 }
 
-skillJson.frontend.forEach((values, id) => {
-  skillData.create(id, values, SkillCategory.FRONTEND);
+skillJson.languages.forEach((values, id) => {
+  skillData.create(id, values, SkillCategory.LANGUAGES);
 });
 
-skillJson.backend.forEach((values, id) => {
-  skillData.create(id, values, SkillCategory.BACKEND);
+skillJson.frameworks.forEach((values, id) => {
+  skillData.create(id, values, SkillCategory.FRAMEWORKS);
 });

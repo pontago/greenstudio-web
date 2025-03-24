@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from '@remix-run/react';
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 type NavLinkItem = {
   name: string;
@@ -26,10 +26,20 @@ const navLinks: NavLinkItem[] = [
 export const Header = () => {
   const location = useLocation();
   const [navLinkStatus, setNavLinkStatus] = useState<NavLinkStatus[]>([]);
+  const refNav = useRef<HTMLButtonElement>(null);
 
   // NavLinkがSPAモードで/の状態が上手く反映されないための対応
   // https://github.com/remix-run/react-router/issues/13010
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      import('preline/preline').then((preline) => {
+        preline.HSCollapse.autoInit();
+        if (refNav.current) {
+          preline.HSCollapse.hide(refNav.current);
+        }
+      });
+    }
+
     const navState = navLinks.reduce((acc, link) => {
       acc.push({ to: link.to, isActive: link.to === location.pathname });
       return acc;
@@ -54,6 +64,7 @@ export const Header = () => {
 
           <div className='md:hidden'>
             <button
+              ref={refNav}
               type='button'
               className='hs-collapse-toggle flex justify-center items-center size-7 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700'
               id='hs-navbar-header-floating-collapse'

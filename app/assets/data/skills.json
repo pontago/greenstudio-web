@@ -1,49 +1,19 @@
 {
-  "frontend": [
+  "languages": [
     {
-      "name": "Vue.js",
-      "level": 3,
-      "experience": "2年以上"
-    },
-    {
-      "name": "React",
-      "level": 2,
-      "experience": "1年未満"
-    },
-    {
-      "name": "Nuxt.js",
-      "level": 3,
-      "experience": "2年以上"
-    },
-    {
-      "name": "Remix",
-      "level": 2,
-      "experience": "1年未満"
-    },
-    {
-      "name": "Electron",
-      "level": 2,
-      "experience": "1年未満"
-    },
-    {
-      "name": "Flutter",
-      "level": 2,
-      "experience": "1年未満"
-    },
-    {
-      "name": "TypeScript",
+      "name": "TypeScript, JavaScript",
       "level": 3,
       "experience": "5年以上"
     },
     {
-      "name": "JavaScript",
+      "name": "PHP",
       "level": 3,
       "experience": "5年以上"
     },
     {
-      "name": "HTML, CSS",
-      "level": 3,
-      "experience": "5年以上"
+      "name": "Ruby",
+      "level": 2,
+      "experience": "3年以上"
     },
     {
       "name": "Objective-C",
@@ -64,43 +34,6 @@
       "name": "Dart",
       "level": 2,
       "experience": "1年未満"
-    }
-  ],
-  "backend": [
-    {
-      "name": "CakePHP",
-      "level": 2,
-      "experience": "3年以上"
-    },
-    {
-      "name": "Ruby On Rails",
-      "level": 3,
-      "experience": "3年以上"
-    },
-    {
-      "name": "Spring Framework",
-      "level": 1,
-      "experience": "1年未満"
-    },
-    {
-      "name": "AWS",
-      "level": 2,
-      "experience": "5年以上"
-    },
-    {
-      "name": "Azure",
-      "level": 1,
-      "experience": "1年未満"
-    },
-    {
-      "name": "PHP",
-      "level": 3,
-      "experience": "5年以上"
-    },
-    {
-      "name": "Ruby",
-      "level": 3,
-      "experience": "3年以上"
     },
     {
       "name": "Java",
@@ -123,13 +56,18 @@
       "experience": "1年未満"
     },
     {
+      "name": "HTML, CSS",
+      "level": 3,
+      "experience": "5年以上"
+    },
+    {
       "name": "MySQL",
       "level": 3,
       "experience": "5年以上"
     },
     {
       "name": "PostgreSQL",
-      "level": 3,
+      "level": 2,
       "experience": "3年以上"
     },
     {
@@ -140,6 +78,68 @@
     {
       "name": "Oracle",
       "level": 2,
+      "experience": "1年未満"
+    }
+  ],
+  "frameworks": [
+    {
+      "name": "Nuxt.js",
+      "level": 3,
+      "experience": "3年以上"
+    },
+    {
+      "name": "Remix",
+      "level": 2,
+      "experience": "1年未満"
+    },
+    {
+      "name": "Vue.js",
+      "level": 3,
+      "experience": "3年以上"
+    },
+    {
+      "name": "React",
+      "level": 2,
+      "experience": "1年未満"
+    },
+    {
+      "name": "Electron",
+      "level": 2,
+      "experience": "1年未満"
+    },
+    {
+      "name": "Jetpack Compose",
+      "level": 2,
+      "experience": "1年未満"
+    },
+    {
+      "name": "Flutter",
+      "level": 2,
+      "experience": "1年未満"
+    },
+    {
+      "name": "CakePHP",
+      "level": 2,
+      "experience": "3年以上"
+    },
+    {
+      "name": "Ruby On Rails",
+      "level": 2,
+      "experience": "3年以上"
+    },
+    {
+      "name": "Spring Framework",
+      "level": 1,
+      "experience": "1年未満"
+    },
+    {
+      "name": "AWS",
+      "level": 2,
+      "experience": "5年以上"
+    },
+    {
+      "name": "Azure",
+      "level": 1,
       "experience": "1年未満"
     },
     {

@@ -51,8 +51,8 @@ jobs:
       - name: Upload Files
         uses: pontago/lftp-deploy-action@master
         with:
-          debug: true
-          dry_run: true
+          debug: false
+          dry_run: false
           protocol: sftp
           host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}

@@ -170,7 +170,7 @@ export default function Layout() {
                   </a>
                 </li>
               </ul>
-              <ul className='mt-5 mx-20 flex flex-col gap-y-3'>
+              <ul className='mt-5 mx-10 flex flex-col gap-y-3'>
                 <li className='flex items-center gap-x-2.5'>
                   <BiLinkExternal />
                   <a

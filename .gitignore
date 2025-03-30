@@ -22,3 +22,6 @@ public/build/
 .github/workflows/test.yml
 
 .DS_Store
+
+resume.md
+resume.pdf

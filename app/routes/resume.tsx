@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { BiLinkExternal } from 'react-icons/bi';
 import { FaRegBuilding, FaHome } from 'react-icons/fa';
 import { PortfolioModal } from '~/components/features/PortfolioModal';
+import DefaultLayout from '~/components/layout/DefaultLayout';
 import { ExternalLink } from '~/components/ui/ExternalLink';
 import { getPortfolio, PortfolioRecord } from '~/models/portfolio';
 
@@ -43,88 +44,90 @@ export default function Resume() {
   }, [fetcher]);
 
   return (
-    <main id='content'>
-      <div id='resume' className='w-full max-w-5xl mx-auto py-10 md:pt-16 px-4 sm:px-6 lg:px-8'>
-        {/* Timeline */}
-        {resumes?.map((resume, index) => (
-          <div key={index}>
-            {/* Heading */}
-            <div className='ps-2 my-2 first:mt-0'>
-              <div className='text-xs font-medium uppercase text-gray-500 dark:text-neutral-400'>{resume.date}</div>
-            </div>
-            {/* End Heading */}
-            {/* Item */}
-            <div className='flex gap-x-3 relative group rounded-lg hover:bg-gray-100 dark:hover:bg-white/10'>
-              {/* <a className='z-1 absolute inset-0' href='#/' /> */}
-              {/* Icon */}
-              <div className='relative last:after:hidden after:absolute after:top-0 after:bottom-0 after:start-3.5 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-neutral-700 dark:group-hover:after:bg-neutral-600'>
-                <div className='relative z-10 size-7 flex justify-center items-center'>
-                  <div className='size-2 rounded-full bg-white border-2 border-gray-300 group-hover:border-gray-600 dark:bg-neutral-800 dark:border-neutral-600 dark:group-hover:border-neutral-600' />
-                </div>
+    <DefaultLayout>
+      <main id='content'>
+        <div id='resume' className='w-full max-w-5xl mx-auto py-10 md:pt-16 px-4 sm:px-6 lg:px-8'>
+          {/* Timeline */}
+          {resumes?.map((resume, index) => (
+            <div key={index}>
+              {/* Heading */}
+              <div className='ps-2 my-2 first:mt-0'>
+                <div className='text-xs font-medium uppercase text-gray-500 dark:text-neutral-400'>{resume.date}</div>
               </div>
-              {/* End Icon */}
-              {/* Right Content */}
-              <div className='grow p-2 pb-8'>
-                <div className='flex gap-x-1.5 font-semibold text-gray-800 dark:text-white'>
-                  {resume.category === ResumeCategory.SOLO && <FaHome className='shrink-0 size-4 mt-1' />}
-                  {resume.category === ResumeCategory.CONTRACT && <FaRegBuilding className='shrink-0 size-4 mt-1' />}
-
-                  <h2>{resume.title}</h2>
-
-                  {resume.category === ResumeCategory.SOLO && (
-                    <h3 className='inline-block mb-1 py-0.5 px-1.5 bg-teal-50 border border-teal-200 text-xs font-medium text-teal-500 rounded-lg dark:bg-teal-800/30 dark:border-teal-800 dark:text-teal-500'>
-                      個人開発
-                    </h3>
-                  )}
-                  {resume.category === ResumeCategory.CONTRACT && (
-                    <h3 className='inline-block mb-2 py-0.5 px-1.5 bg-yellow-50 border border-yellow-200 text-xs font-medium text-yellow-500 rounded-lg dark:bg-yellow-800/30 dark:border-yellow-800 dark:text-yellow-500'>
-                      受託開発
-                    </h3>
-                  )}
+              {/* End Heading */}
+              {/* Item */}
+              <div className='flex gap-x-3 relative group rounded-lg hover:bg-gray-100 dark:hover:bg-white/10'>
+                {/* <a className='z-1 absolute inset-0' href='#/' /> */}
+                {/* Icon */}
+                <div className='relative last:after:hidden after:absolute after:top-0 after:bottom-0 after:start-3.5 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-neutral-700 dark:group-hover:after:bg-neutral-600'>
+                  <div className='relative z-10 size-7 flex justify-center items-center'>
+                    <div className='size-2 rounded-full bg-white border-2 border-gray-300 group-hover:border-gray-600 dark:bg-neutral-800 dark:border-neutral-600 dark:group-hover:border-neutral-600' />
+                  </div>
                 </div>
-                <p
-                  className='mt-1 text-sm text-gray-600 dark:text-neutral-400'
-                  dangerouslySetInnerHTML={{ __html: resume.description }}
-                />
-                <p
-                  className='mt-1 text-sm text-teal-700 dark:text-teal-700'
-                  dangerouslySetInnerHTML={{ __html: resume.techDescription }}
-                />
-                {resume.portfolioLink && (
-                  <button
-                    type='button'
-                    aria-haspopup='dialog'
-                    aria-expanded='false'
-                    aria-controls='hs-portfolio-modal'
-                    data-hs-overlay='#hs-portfolio-modal'
-                    onClick={() => fetcher.load(`/resume?portfolio-name=${resume.portfolioLink}`)}
-                    className='mt-1 -ms-1 p-1 relative z-10 inline-flex items-center gap-x-2 text-xs rounded-lg border border-transparent text-gray-500 hover:bg-white hover:shadow-2xs disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:bg-neutral-800'
-                  >
-                    もっと詳しく
-                  </button>
-                )}
-                <div className='mt-2 flex flex-wrap gap-4'>
-                  {resume.links &&
-                    resume.links.map((link) => (
-                      <div key={link.url}>
-                        <ExternalLink href={link.url}>
-                          <div className='flex items-center gap-x-0.5 py-1.5 px-3 bg-neutral-100 text-blue-500 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 hover:bg-neutral-200'>
-                            <p className=''>{link.name}</p>
-                            <BiLinkExternal />
-                          </div>
-                        </ExternalLink>
-                      </div>
-                    ))}
+                {/* End Icon */}
+                {/* Right Content */}
+                <div className='grow p-2 pb-8'>
+                  <div className='flex gap-x-1.5 font-semibold text-gray-800 dark:text-white'>
+                    {resume.category === ResumeCategory.SOLO && <FaHome className='shrink-0 size-4 mt-1' />}
+                    {resume.category === ResumeCategory.CONTRACT && <FaRegBuilding className='shrink-0 size-4 mt-1' />}
+
+                    <h2>{resume.title}</h2>
+
+                    {resume.category === ResumeCategory.SOLO && (
+                      <h3 className='inline-block mb-1 py-0.5 px-1.5 bg-teal-50 border border-teal-200 text-xs font-medium text-teal-500 rounded-lg dark:bg-teal-800/30 dark:border-teal-800 dark:text-teal-500'>
+                        個人開発
+                      </h3>
+                    )}
+                    {resume.category === ResumeCategory.CONTRACT && (
+                      <h3 className='inline-block mb-2 py-0.5 px-1.5 bg-yellow-50 border border-yellow-200 text-xs font-medium text-yellow-500 rounded-lg dark:bg-yellow-800/30 dark:border-yellow-800 dark:text-yellow-500'>
+                        受託開発
+                      </h3>
+                    )}
+                  </div>
+                  <p
+                    className='mt-1 text-sm text-gray-600 dark:text-neutral-400'
+                    dangerouslySetInnerHTML={{ __html: resume.description }}
+                  />
+                  <p
+                    className='mt-1 text-sm text-teal-700 dark:text-teal-700'
+                    dangerouslySetInnerHTML={{ __html: resume.techDescription }}
+                  />
+                  {resume.portfolioLink && (
+                    <button
+                      type='button'
+                      aria-haspopup='dialog'
+                      aria-expanded='false'
+                      aria-controls='hs-portfolio-modal'
+                      data-hs-overlay='#hs-portfolio-modal'
+                      onClick={() => fetcher.load(`/resume?portfolio-name=${resume.portfolioLink}`)}
+                      className='mt-1 -ms-1 p-1 relative z-10 inline-flex items-center gap-x-2 text-xs rounded-lg border border-transparent text-gray-500 hover:bg-white hover:shadow-2xs disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:bg-neutral-800'
+                    >
+                      もっと詳しく
+                    </button>
+                  )}
+                  <div className='mt-2 flex flex-wrap gap-4'>
+                    {resume.links &&
+                      resume.links.map((link) => (
+                        <div key={link.url}>
+                          <ExternalLink href={link.url}>
+                            <div className='flex items-center gap-x-0.5 py-1.5 px-3 bg-neutral-100 text-blue-500 border border-gray-200 text-xs sm:text-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 hover:bg-neutral-200'>
+                              <p className=''>{link.name}</p>
+                              <BiLinkExternal />
+                            </div>
+                          </ExternalLink>
+                        </div>
+                      ))}
+                  </div>
                 </div>
+                {/* End Right Content */}
               </div>
-              {/* End Right Content */}
+              {/* End Item */}
             </div>
-            {/* End Item */}
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {portfolio && <PortfolioModal portfolio={portfolio} />}
-    </main>
+        {portfolio && <PortfolioModal portfolio={portfolio} />}
+      </main>
+    </DefaultLayout>
   );
 }

@@ -4,8 +4,8 @@
       "date": "2024年〜",
       "category": "solo",
       "title": "収支管理アプリ",
-      "description": "収支を管理するアプリです<br/>。家計簿、投資・キャンブルの収支管理を簡単におこなえます。<br/>カレンダーでの収支一覧表示、カテゴリ・タグでの分類、グラフ表示などすべての機能が無料で使えます。",
-      "techDescription": "iOS/Android、Flutter（3系）、Dart、Riverpod、drift、SQLite3、Firebase、RevenueCat。<br/>設計からプログラミングまですべて担当。レイヤードアーキテクチャで実装してみました。",
+      "description": "収支を管理するアプリです。<br/>家計簿、投資・キャンブルの収支管理を簡単におこなえます。<br/>カレンダーでの収支一覧表示、カテゴリ・タグでの分類、グラフ表示などすべての機能が無料で使えます。",
+      "techDescription": "iOS/Android、Flutter（3系）、Dart、Riverpod、drift、SQLite3、Firebase、RevenueCat。レイヤードアーキテクチャで実装してみました。<br/>設計からプログラミングまですべて担当。開発人数1人、開発期間2ヵ月。",
       "portfolioLink": "balancemanagement"
     },
     {
@@ -13,7 +13,7 @@
       "category": "solo",
       "title": "適時開示情報Androidアプリ",
       "description": "iPhoneアプリ版をAndroidアプリへ移植しました。<br/>Jetpack Composeを使用し、ネイティブアプリとして実装しました。iPhoneと同等のUIと機能を実装し、Glanceを利用したWidgetも作成。",
-      "techDescription": "Android（Android 8.1以降、API Level 27以降）、Kotlin、Hilt、Jetpack Compose、Retrofit、Firebase、Glance。<br/>設計からプログラミングまですべて担当。",
+      "techDescription": "Android（Android 8.1以降、API Level 27以降）、Kotlin、Hilt、Jetpack Compose、Retrofit、Firebase、Glance。<br/>設計からプログラミングまですべて担当。開発人数1人、開発期間2ヵ月。",
       "portfolioLink": "tdnetviewer-app",
       "links": [
         {
@@ -23,6 +23,7 @@
       ]
     },
     {
+      "print": false,
       "date": "2022年〜",
       "category": "solo",
       "title": "Supreme Droplists",
@@ -37,6 +38,7 @@
       ]
     },
     {
+      "print": false,
       "date": "2020〜2023年",
       "category": "solo",
       "title": "自動購入BOT",
@@ -54,7 +56,7 @@
       "category": "solo",
       "title": "適時開示情報WEB",
       "description": "TDNET、EDINETの適時開示一覧を表示するサービスです。<br/>DBからデータを取得するためのAPIの実装、Vueを利用したPDFの表示を実装しました。",
-      "techDescription": "JavaScript、Express（4系）、Nuxt.js（2系）、Vue.js（2系）、Vuetify、MySQL（5.7系、Mroonga）。設計からプログラミングまですべて担当。",
+      "techDescription": "JavaScript、Express（4系）、Nuxt.js（2系）、Vue.js（2系）、Vuetify、MySQL（5.7系、Mroonga）。<br/>設計からプログラミングまですべて担当。開発人数1人、開発期間1ヵ月。",
       "portfolioLink": "適時開示情報WEB",
       "links": [
         {
@@ -68,7 +70,7 @@
       "category": "solo",
       "title": "適時開示情報iOSアプリ",
       "description": "TDNET、EDINETの適時開示をプッシュ通知で配信するアプリです。<br/>総ダウンロード16万以上。監視銘柄の決算予定カレンダー、プッシュ通知にも対応。適時開示のAI要約もできます。<br/>マテリアルデザインを採用しました。また、Firebaseと連携することで複数端末の同期・ログインできるようにしました。",
-      "techDescription": "iOS、Swift、Swift UI（ウィジェット箇所のみ）、RxSwift、Firebase。設計からプログラミングまですべて担当。",
+      "techDescription": "iOS、Swift、Swift UI（ウィジェット箇所のみ）、RxSwift、Firebase。<br/>設計からプログラミングまですべて担当。開発人数1人、開発期間2ヵ月。",
       "portfolioLink": "tdnetviewer-app",
       "links": [
         {
@@ -78,6 +80,7 @@
       ]
     },
     {
+      "print": false,
       "date": "2017〜2019年",
       "category": "solo",
       "title": "仮想通貨アービトラージBOT",
@@ -86,6 +89,7 @@
       "links": []
     },
     {
+      "print": false,
       "date": "2016年〜",
       "category": "solo",
       "title": "自動個体値チェッカー for ポケモンGO",
@@ -103,7 +107,7 @@
       "category": "contract",
       "title": "メモリアル新聞システム",
       "description": "スポニチで使用したメモリアル新聞作成アプリです。<br/>Eye-Fiを使用して一眼レフカメラで撮影した写真をiPadへ転送し、新聞化したデータを即座にプリントアウトして渡せるようにしました。<br/>WiFiを使用したワイヤレス環境で写真の受信から新聞化、プリントアウトまで全てiPad端末でおこなうことができます。<br/>また、プリントアウトまで高速化できるようC#で開発したWindowsアプリも開発しました。有線でカメラを接続させることで、リアルタイムの写真取り込み、プリントアウトをおこなえるようにしました。",
-      "techDescription": "iOS/iPad/Windows、Objective-C、Swift、PHP、C#、CakePHP、Eye-Fi。設計からプログラミングまですべて担当。",
+      "techDescription": "iOS/iPad/Windows、Objective-C、Swift、PHP、C#、CakePHP、Eye-Fi。<br/>設計からプログラミングまですべて担当。開発人数1人、開発期間1ヶ月。イベント会場での現場対応。",
       "links": []
     },
     {
@@ -111,10 +115,11 @@
       "category": "contract",
       "title": "英語学習アプリ",
       "description": "ホテルなどの宿泊施設向けの英語学習アプリです。<br/>iOSアプリ、APIと連携する実装までおこないました。Web上で登録した英語コンテンツを読み込み、iOSアプリから学習をおこないます。<br/>スピーキング、リスニング、ディクテーションなどの主要な英語学習方法を全て実装いたしました。<br/>各ユーザーの学習状況はサーバ同期され、Web上から確認することができます。",
-      "techDescription": "iOS、Objective-C。プログラミングまで担当。",
+      "techDescription": "iOS、Objective-C。<br/>プログラミングまで担当。開発人数2人、開発期間3ヶ月。",
       "links": []
     },
     {
+      "print": false,
       "date": "2015年〜",
       "category": "solo",
       "title": "画面メモアプリ",
@@ -127,8 +132,8 @@
       "date": "2014年",
       "category": "contract",
       "title": "検診予約システム",
-      "description": "人間ドックの検診予約システムです。<br/>Webベースのシステムで各システムと連携するためのバッチプログラム、Web画面の実装までおこないました。10人程度のチームで開発しました。",
-      "techDescription": "WindowsServer、Apache、Java、Tomcat、Oracle、Spring Framework、XHTML、CSS、JavaScript。詳細設計からプログラミングまで担当。",
+      "description": "人間ドックの検診予約システムです。<br/>Webベースのシステムで各システムと連携するためのバッチプログラム、Web画面の実装までおこないました。",
+      "techDescription": "WindowsServer、Apache、Java、Tomcat、Oracle、Spring Framework、XHTML、CSS、JavaScript。<br/>詳細設計からプログラミングまで担当。開発人数3人、テスター10人、開発期間3ヶ月。",
       "links": []
     },
     {
@@ -136,7 +141,7 @@
       "category": "solo",
       "title": "SmilePlayer2（公開終了）",
       "description": "非公式のニコニコ動画専用の動画プレイヤーで、以前開発したSmilePlayerの後継バージョンとして一から開発しました。<br/>総ダウンロード74万、カテゴリランキング5位以内に入りました。<br/>通常では再生できないFLV形式の動画もリアルタイムデコードすることで再生できるようにしました。PCと同じ高画質での再生が可能で、コメントの表示や投稿もできます。独自のNG機能で動画やコメントを非表示にできます。",
-      "techDescription": "iOS、Objective-C、SQLite、FFmpeg。設計からプログラミングまですべて担当。",
+      "techDescription": "iOS、Objective-C、SQLite、FFmpeg。<br/>設計からプログラミングまですべて担当。開発人数1人、開発期間2ヶ月。",
       "portfolioLink": "smileplayer2",
       "links": [
         {
@@ -146,6 +151,7 @@
       ]
     },
     {
+      "print": false,
       "date": "2013年〜",
       "category": "solo",
       "title": "半角カナ入力アプリ",
@@ -154,6 +160,7 @@
       "portfolioLink": "inputhankaku"
     },
     {
+      "print": false,
       "date": "2012年〜",
       "category": "solo",
       "title": "TV実況なう",
@@ -167,6 +174,7 @@
       ]
     },
     {
+      "print": false,
       "date": "2011〜2018年",
       "category": "solo",
       "title": "SmilePlayer（公開終了）",
@@ -180,6 +188,7 @@
       ]
     },
     {
+      "print": false,
       "date": "2010〜2019年",
       "category": "solo",
       "title": "SmilePlayerHD（公開終了）",
@@ -198,6 +207,7 @@
       ]
     },
     {
+      "print": false,
       "date": "2010年",
       "category": "contract",
       "title": "SEO測定システム",
@@ -210,7 +220,7 @@
       "category": "solo",
       "title": "あしあとプラス（公開終了）",
       "description": "mixiアプリ上でのオープンソーシャルアプリケーションになります。<br/>mixiでのあしあとにアクセス解析機能を付加することができます。<br/>アプリランキング1位、30万以上のユーザーに利用され、アクセスログを記録するアプリの性質上、300万/日のアクセスに対応しました。",
-      "techDescription": "AWS（EC2、RDS、ELB、CloudWatch）、Linux、Apache、Ruby、Ruby On Rails（2.3系）、MySQL、JavaScript。設計からプログラミングまですべて担当。",
+      "techDescription": "AWS（EC2、RDS、ELB、CloudWatch）、Linux、Apache、Ruby、Ruby On Rails（2.3系）、MySQL、Redis、JavaScript。<br/>設計からプログラミングまですべて担当。開発人数1人、開発期間1ヶ月。",
       "portfolioLink": "ashiatoplus",
       "links": [
         {
@@ -220,6 +230,7 @@
       ]
     },
     {
+      "print": false,
       "date": "2010年",
       "category": "solo",
       "title": "iPeer（公開終了）",
@@ -228,6 +239,7 @@
       "links": []
     },
     {
+      "print": false,
       "date": "2009年",
       "category": "contract",
       "title": "携帯向けメールアドレスチェックシステム",
@@ -236,6 +248,7 @@
       "links": []
     },
     {
+      "print": false,
       "date": "2008年",
       "category": "contract",
       "title": "勤怠管理システム",
@@ -244,6 +257,7 @@
       "links": []
     },
     {
+      "print": false,
       "date": "2008年",
       "category": "contract",
       "title": "携帯漫画閲覧サイト",
@@ -255,11 +269,12 @@
       "date": "2007年",
       "category": "contract",
       "title": "3キャリア対応携帯SNSサイト",
-      "description": "モバゲーと同じ内容のアバター、ブログ、コミュニティ、ゲームコンテンツを含むポータルサイトです。<br/>絵文字変換や投稿画像の負荷分散、アバターの合成など実装しました。",
-      "techDescription": "Linux、Apache、PHP（5.4系）、MySQL、JavaScript。要件定義・設計、プログラミングまで担当。",
+      "description": "モバゲーと同じ内容のアバター、ブログ、コミュニティ、ゲームコンテンツを含むポータルサイトです。<br/>絵文字変換やメールから画像投稿、アバターの合成など実装しました。",
+      "techDescription": "Linux、Apache、PHP（5.4系）、MySQL、JavaScript。<br/>要件定義・設計、プログラミングまで担当。開発人数1人（アバター画像、ゲームコンテンツ制作除く）、開発期間10ヶ月。",
       "links": []
     },
     {
+      "print": false,
       "date": "2007年",
       "category": "contract",
       "title": "不動産物件管理システム",
@@ -268,11 +283,11 @@
       "links": []
     },
     {
-      "date": "2007年",
+      "date": "2007〜2017年",
       "category": "contract",
       "title": "建設画像履歴管理システム",
-      "description": "建設時の施工状況を携帯で撮影した画像を用いて、履歴として保存していくシステムです。<br/>施工状況をWebから確認でき、物件購入予定のお客さまや管理者が進捗を確認できます。<br/>全ての施行完了後は、HTMLデータを出力することで、CDデータとして保存できるようにしました。<br/>約10年ほどサーバ・システムの保守運用まで対応。",
-      "techDescription": "Linux、Apache、PHP（5.4系）、MySQL、JavaScript。設計、プログラミングまで担当。",
+      "description": "建設時の施工状況を携帯で撮影した画像を用いて、履歴として保存していくシステムです。<br/>施工状況をWebから確認でき、物件購入予定のお客さまや管理者が進捗を確認できます。<br/>全ての施行完了後は、HTMLデータを出力することで、CDデータとして保存できるようにしました。",
+      "techDescription": "Linux、Apache、PHP（5.4系）、MySQL、JavaScript。<br/>設計、プログラミングまで担当。開発人数1人、開発期間2ヶ月、約10年ほどサーバ・システムの保守運用まで対応。",
       "links": []
     },
     {
@@ -280,10 +295,11 @@
       "category": "contract",
       "title": "中古車情報検索サイト",
       "description": "中古車販売店舗を登録し、掲載された中古車情報を一括検索できるサイトです。<br/>地域に特化されており、都道府県・市区町村から絞り込み検索が可能です。",
-      "techDescription": "Linux、Apache、PHP（5.4系）、MySQL、JavaScript。要件定義・設計、プログラミングまで担当。",
+      "techDescription": "Linux、Apache、PHP（5.4系）、MySQL、JavaScript。<br/>要件定義・設計、プログラミングまで担当。開発人数1人、開発期間2ヶ月。",
       "links": []
     },
     {
+      "print": false,
       "date": "2004年",
       "category": "solo",
       "title": "YahooExplorer（公開終了）",
@@ -305,6 +321,7 @@
       ]
     },
     {
+      "print": false,
       "date": "2002年",
       "category": "solo",
       "title": "EGLEx",

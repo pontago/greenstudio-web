@@ -1,11 +1,18 @@
 import { chromium } from 'playwright-core';
 
+const url = new URL('http://localhost:5173/print/resume');
+url.searchParams.set('name', process.env.PRINT_NAME ?? '');
+url.searchParams.set('birth', process.env.PRINT_BIRTH ?? '');
+url.searchParams.set('address', process.env.PRINT_ADDRESS ?? '');
+
 const browser = await chromium.launch({
   channel: 'chrome',
-  headless: false,
+  headless: true,
 });
 const page = await browser.newPage();
-await page.goto('http://localhost:5173/print/resume');
+await page.goto(url.toString());
 await page.waitForTimeout(3000);
-await page.pdf({ path: 'resume.pdf', format: 'a4', printBackground: true });
+//await page.pdf({ path: 'resume.pdf', format: 'a4', printBackground: true });
+const pageHeight = await page.evaluate(() => document.documentElement.scrollHeight);
+await page.pdf({ path: 'resume.pdf', width: '8.27in', height: pageHeight + 300 + 'px', printBackground: true });
 await browser.close();

@@ -21,6 +21,7 @@ type Resume = {
   techDescription: string;
   portfolioLink?: string;
   links?: ResumeLink[];
+  print?: boolean;
 };
 
 export type ResumeRecord = Resume & {
@@ -42,10 +43,13 @@ const resumeData = {
   },
 };
 
-export async function getResumes(query?: string | null) {
+export async function getResumes(query?: string | null, print?: boolean | null) {
   let portfolios = await resumeData.getAll();
   if (query) {
     portfolios = matchSorter(portfolios, query);
+  }
+  if (print) {
+    portfolios = portfolios.filter((portfolio) => portfolio.print == null || portfolio.print);
   }
   return portfolios;
 }

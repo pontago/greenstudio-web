@@ -1,4 +1,4 @@
-import { useLoaderData } from '@remix-run/react';
+import { useLoaderData, useSearchParams } from '@remix-run/react';
 import { FaHome, FaRegBuilding } from 'react-icons/fa';
 import { Skill } from '~/components/features/Skill';
 import { getResumes, ResumeCategory } from '~/models/resume';
@@ -7,7 +7,7 @@ import { getSkills, SkillCategory } from '~/models/skill';
 export const clientLoader = async () => {
   try {
     const skills = await getSkills();
-    const resumes = await getResumes();
+    const resumes = await getResumes(null, true);
 
     return { skills, resumes };
   } catch (error) {
@@ -17,9 +17,7 @@ export const clientLoader = async () => {
 
 export default function PrintResume() {
   const { skills, resumes } = useLoaderData<typeof clientLoader>();
-  // const { resumes } = useLoaderData<typeof clientLoader>();
-  // const fetcher = useFetcher<typeof clientLoader>();
-  // const [portfolio, setPortfolio] = useState<PortfolioRecord>();
+  const [searchParams] = useSearchParams();
 
   return (
     <main id='content' className='my-4'>
@@ -28,9 +26,9 @@ export default function PrintResume() {
         <div id='profile'>
           <h2 className='text-lg font-semibold w-full text-center  text-gray-800 dark:text-neutral-200'>職務経歴書</h2>
           <div className='mt-4'>
-            <p>氏名： 山田太郎</p>
-            <p>生年月： 1990年1月</p>
-            <p>居住地： 東京</p>
+            <p>氏名： {searchParams.get('name')}</p>
+            <p>生年月： {searchParams.get('birth')}</p>
+            <p>居住地： {searchParams.get('address')}</p>
           </div>
         </div>
         {/* End Profile */}
@@ -38,7 +36,7 @@ export default function PrintResume() {
         <div className='mt-3 pt-4 border-t border-gray-200 dark:border-neutral-700'>
           <h2 className='text-normal font-semibold text-gray-800 dark:text-neutral-200'>職務要約</h2>
           <p className='mt-3 text-sm'>
-            自社サービス開発企業で2年間従事し、その後フリーランスとして独立しました。最初の10年間は建設関係の業務システムや携帯SNSサイトなど、主にWebシステムの受託開発を行っていました。自社アプリの開発に集中するため、直近10年間は自社アプリの開発に専念していました。
+            自社サービス開発企業で2年間従事し、その後フリーランスとして独立して約20年になります。独立後の10年間は、主にWebシステムの受託開発を行っていました。受託開発と並行して個人でスマホアプリを開発していましたが、直近10年間は個人アプリの開発に専念していました。
           </p>
         </div>
 
@@ -47,12 +45,13 @@ export default function PrintResume() {
           <div className='mt-3 text-sm'>
             <p>
               個人でのアプリ開発を多く行ってきた経験から、ユーザーのフィードバックを大切にした開発をしてきました。
-              機能面だけではなくユーザービリティを意識したシステム設計、フロントエンドからバックエンドまでの開発を行ってきた経験を持っています。
+              機能面だけではなくユーザービリティを意識したアプリ開発、フロントエンドからバックエンドまで一通りの開発経験があります。
             </p>
+            <p>受託開発では、お客さまのニーズにあった開発・運用方法を提案することを心がけてきました。</p>
+            <p>個人でリリースしたアプリでは、ダウンロード数74万、ランキング5位の経験があります。</p>
             <p>
-              受託開発では技術者目線だけではなく、お客さまのニーズにあった開発・運用方法を提案することを心がけてきました。
+              mixiのソーシャルアプリでリリースしたものは、30万ユーザー、ランキング1位、300万/日のアクセス数に対応した経験があります。
             </p>
-            <p>新しい技術にも興味があり、実際にアプリを作りながら学ぶことが好きです。</p>
           </div>
         </div>
 
@@ -208,9 +207,24 @@ export default function PrintResume() {
           <h2 className='text-normal font-semibold text-gray-800 dark:text-neutral-200'>SNS</h2>
           <div className='flex justify-start'>
             <ul className='mt-2 flex flex-col gap-y-3'>
-              <li className='flex items-center gap-x-2.5'>HP: https://greenstudio.jp/</li>
-              <li className='flex items-center gap-x-2.5'>ブログ: https://greenstudio.jp/blog/</li>
-              <li className='flex items-center gap-x-2.5'>GitHub：https://github.com/pontago</li>
+              <li className='flex items-center gap-x-2.5'>
+                HP：
+                <a href='https://greenstudio.jp/' className='text-blue-500'>
+                  https://greenstudio.jp/
+                </a>
+              </li>
+              <li className='flex items-center gap-x-2.5'>
+                ブログ：
+                <a href='https://greenstudio.jp/blog/' className='text-blue-500'>
+                  https://greenstudio.jp/blog/
+                </a>
+              </li>
+              <li className='flex items-center gap-x-2.5'>
+                GitHub：
+                <a href='https://github.com/pontago' className='text-blue-500'>
+                  https://github.com/pontago
+                </a>
+              </li>
             </ul>
           </div>
         </div>

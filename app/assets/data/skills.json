@@ -7,7 +7,7 @@
     },
     {
       "name": "PHP",
-      "level": 3,
+      "level": 2,
       "experience": "5年以上"
     },
     {
@@ -54,11 +54,6 @@
       "name": "ColdFusion",
       "level": 1,
       "experience": "1年未満"
-    },
-    {
-      "name": "HTML, CSS",
-      "level": 3,
-      "experience": "5年以上"
     },
     {
       "name": "MySQL",
@@ -133,7 +128,7 @@
       "experience": "1年未満"
     },
     {
-      "name": "AWS",
+      "name": "AWS（EC2、RDS、ELB、CloudWatch）",
       "level": 2,
       "experience": "5年以上"
     },

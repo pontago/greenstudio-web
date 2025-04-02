@@ -115,6 +115,7 @@
       ]
     },
     {
+      "print": false,
       "name": "inputhankaku",
       "title": "半角カナ入力アプリ",
       "categories": ["iOS"],
@@ -135,6 +136,7 @@
       ]
     },
     {
+      "print": false,
       "name": "screencapture",
       "title": "画面メモアプリ",
       "categories": ["iOS"],

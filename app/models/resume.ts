@@ -44,14 +44,14 @@ const resumeData = {
 };
 
 export async function getResumes(query?: string | null, print?: boolean | null) {
-  let portfolios = await resumeData.getAll();
+  let resumes = await resumeData.getAll();
   if (query) {
-    portfolios = matchSorter(portfolios, query);
+    resumes = matchSorter(resumes, query);
   }
   if (print) {
-    portfolios = portfolios.filter((portfolio) => portfolio.print == null || portfolio.print);
+    resumes = resumes.filter((resume) => resume.print == null || resume.print);
   }
-  return portfolios;
+  return resumes;
 }
 
 resumesJson.resume.forEach((values, index) => {

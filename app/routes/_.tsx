@@ -2,13 +2,13 @@ import type { MetaFunction } from '@remix-run/node';
 import { IconContext } from 'react-icons';
 import { FaXTwitter, FaGithub, FaGooglePlay, FaAngleRight } from 'react-icons/fa6';
 import { FaAppStore } from 'react-icons/fa';
-import { Link, Outlet, useLoaderData, useLocation } from '@remix-run/react';
+import { Await, Link, Outlet, useLoaderData, useLocation } from '@remix-run/react';
 import { getSkills, SkillCategory } from '~/models/skill';
 import { BiLinkExternal } from 'react-icons/bi';
 import { Skill } from '~/components/features/Skill';
 import { getPortfolios } from '~/models/portfolio';
 import { Portfolio } from '~/components/features/Portfolio';
-import { useEffect, useRef } from 'react';
+import { Suspense, useEffect, useRef } from 'react';
 import { ExternalLink } from '~/components/ui/ExternalLink';
 import { XMLParser } from 'fast-xml-parser';
 import { parse, format } from '@formkit/tempo';
@@ -25,31 +25,34 @@ type BlogPost = {
 
 export const clientLoader = async () => {
   try {
-    const skills = await getSkills();
-    const portfolios = await getPortfolios();
+    const skills = getSkills();
+    const portfolios = getPortfolios();
 
-    let blogPosts: BlogPost[] = [];
-    try {
-      const response = await fetch('https://www.greenstudio.jp/wp/feed/');
-      const responseText = await response.text();
-      const options = {
-        ignoreAttributes: true,
-        processEntities: false,
-      };
-      const parser = new XMLParser(options);
-      const output = parser.parse(responseText);
-      blogPosts = output.rss.channel.item.map((item: BlogPost) => {
-        return {
-          title: item.title,
-          pubDate: item.pubDate,
-          link: item.link,
-          description: item.description,
-          categories: item.category,
+    const getBlogPosts = async (): Promise<BlogPost[]> => {
+      try {
+        const response = await fetch('https://www.greenstudio.jp/wp/feed/');
+        const responseText = await response.text();
+        const options = {
+          ignoreAttributes: true,
+          processEntities: false,
         };
-      });
-    } catch (error) {
-      console.error(error);
-    }
+        const parser = new XMLParser(options);
+        const output = parser.parse(responseText);
+        return output.rss.channel.item.map((item: BlogPost) => {
+          return {
+            title: item.title,
+            pubDate: item.pubDate,
+            link: item.link,
+            description: item.description,
+            categories: item.category,
+          };
+        });
+      } catch (error) {
+        console.error(error);
+      }
+      return [];
+    };
+    const blogPosts = getBlogPosts();
 
     return { skills, portfolios, blogPosts };
   } catch (error) {
@@ -210,19 +213,46 @@ export default function Layout() {
             </div>
 
             <div className='mt-4 w-full grid grid-rows-6 grid-cols-1 sm:grid-rows-3 sm:grid-cols-2 gap-4'>
-              {blogPosts.slice(0, 6).map((post, index) => (
-                <div key={index} className='p-4 rounded-xl border border-gray-200 dark:border-neutral-700'>
-                  <p className='font-semibold text-gray-800 hover:text-gray-600 dark:text-neutral-300 dark:hover:text-white'>
-                    <Link to={post.link} reloadDocument>
-                      {trimWords(post.title, 50)}
-                    </Link>
-                  </p>
-                  <p className='mt-2 text-xs text-gray-600 dark:text-neutral-400'>
-                    {format(parse(post.pubDate, 'ddd, DD MMM YYYY HH:mm:ss ZZ'), { date: 'full', time: 'short' }, 'ja')}
-                  </p>
-                  <p className='mt-3 text-sm text-gray-600 dark:text-neutral-400'>{trimWords(post.description, 98)}</p>
-                </div>
-              ))}
+              <Suspense
+                fallback={
+                  <>
+                    {[...Array(6)].map((index) => (
+                      <ul
+                        key={index}
+                        className=' space-y-3 p-4 rounded-xl border border-gray-200 dark:border-neutral-700'
+                      >
+                        <li className='h-6 w-full bg-gray-100 rounded dark:bg-neutral-800' />
+                        <li className='h-4 w-1/2 bg-gray-100 rounded dark:bg-neutral-800' />
+                        <li className='h-16 w-full bg-gray-100 rounded dark:bg-neutral-800' />
+                      </ul>
+                    ))}
+                  </>
+                }
+              >
+                <Await resolve={blogPosts}>
+                  {(blogPosts) =>
+                    blogPosts.slice(0, 6).map((post, index) => (
+                      <div key={index} className='p-4 rounded-xl border border-gray-200 dark:border-neutral-700'>
+                        <p className='font-semibold text-gray-800 hover:text-gray-600 dark:text-neutral-300 dark:hover:text-white'>
+                          <Link to={post.link} reloadDocument>
+                            {trimWords(post.title, 50)}
+                          </Link>
+                        </p>
+                        <p className='mt-2 text-xs text-gray-600 dark:text-neutral-400'>
+                          {format(
+                            parse(post.pubDate, 'ddd, DD MMM YYYY HH:mm:ss ZZ'),
+                            { date: 'full', time: 'short' },
+                            'ja'
+                          )}
+                        </p>
+                        <p className='mt-3 text-sm text-gray-600 dark:text-neutral-400'>
+                          {trimWords(post.description, 98)}
+                        </p>
+                      </div>
+                    ))
+                  }
+                </Await>
+              </Suspense>
             </div>
           </div>
 
@@ -231,7 +261,29 @@ export default function Layout() {
           {/* Portfolio */}
 
           <div id='portfolio' ref={refPortfolio} className='my-8 scroll-mt-14'>
-            <Portfolio portfolios={portfolios} />
+            <h2 className='font-medium text-gray-800 dark:text-neutral-200'>ポートフォリオ</h2>
+            <div className='mb-2 text-xs text-gray-600 dark:text-neutral-400'>
+              ポートフォリオの一部を表示しています。その他は<Link to='/resume'>経歴ページ</Link>
+              からご確認いただけます。
+            </div>
+
+            <Suspense
+              fallback={
+                <>
+                  <div className='py-4 grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 justify-items-center'>
+                    {[...Array(6)].map((index) => (
+                      <div key={index}>
+                        <div className='group flex flex-col focus:outline-hidden text-left'>
+                          <div className='h-40 w-60 bg-gray-100 rounded dark:bg-neutral-800'></div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              }
+            >
+              <Await resolve={portfolios}>{(portfolios) => <Portfolio portfolios={portfolios} />}</Await>
+            </Suspense>
           </div>
 
           {/* End Portfolio */}
@@ -300,19 +352,46 @@ export default function Layout() {
             </div>
 
             <div className='grid grid-cols-1 mt-2 sm:grid-cols-2 gap-x-3 border-gray-200  divide-gray-200 dark:border-neutral-700 dark:divide-neutral-700'>
-              <div className='sm:-ms-4 sm:px-4'>
-                <Skill
-                  category={SkillCategory.LANGUAGES}
-                  records={skills.filter((skill) => skill.category === SkillCategory.LANGUAGES)}
-                />
-              </div>
+              <Suspense
+                fallback={
+                  <>
+                    <div className='sm:-ms-4 sm:px-4'>
+                      <ul className='mt-5 space-y-3'>
+                        {[...Array(10)].map((index) => (
+                          <li key={index} className='w-full h-4 bg-gray-200 rounded-full dark:bg-neutral-700' />
+                        ))}
+                      </ul>
+                    </div>
+                    <div className='sm:px-4'>
+                      <ul className='mt-5 space-y-3'>
+                        {[...Array(10)].map((index) => (
+                          <li key={index} className='w-full h-4 bg-gray-200 rounded-full dark:bg-neutral-700' />
+                        ))}
+                      </ul>
+                    </div>
+                  </>
+                }
+              >
+                <Await resolve={skills}>
+                  {(skills) => (
+                    <>
+                      <div className='sm:-ms-4 sm:px-4'>
+                        <Skill
+                          category={SkillCategory.LANGUAGES}
+                          records={skills.filter((skill) => skill.category === SkillCategory.LANGUAGES)}
+                        />
+                      </div>
 
-              <div className='sm:px-4'>
-                <Skill
-                  category={SkillCategory.FRAMEWORKS}
-                  records={skills.filter((skill) => skill.category === SkillCategory.FRAMEWORKS)}
-                />
-              </div>
+                      <div className='sm:px-4'>
+                        <Skill
+                          category={SkillCategory.FRAMEWORKS}
+                          records={skills.filter((skill) => skill.category === SkillCategory.FRAMEWORKS)}
+                        />
+                      </div>
+                    </>
+                  )}
+                </Await>
+              </Suspense>
             </div>
           </div>
 

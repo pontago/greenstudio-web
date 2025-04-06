@@ -24,6 +24,7 @@ type Portfolio = {
   techDescription: string;
   images: string[];
   links: PortfolioLink[];
+  print?: boolean;
 };
 
 export type PortfolioRecord = Portfolio & {
@@ -49,10 +50,13 @@ const portfolioData = {
   },
 };
 
-export async function getPortfolios(query?: string | null) {
+export async function getPortfolios(query?: string | null, print?: boolean | null) {
   let portfolios = await portfolioData.getAll();
   if (query) {
     portfolios = matchSorter(portfolios, query);
+  }
+  if (print) {
+    portfolios = portfolios.filter((portfolio) => portfolio.print == null || portfolio.print);
   }
   return portfolios;
 }

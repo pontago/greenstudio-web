@@ -1,14 +1,13 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLocation } from '@remix-run/react';
 import type { LinksFunction } from '@remix-run/node';
 import { useEffect } from 'react';
-import { Header } from '~/components/layout/Header';
-import { Footer } from '~/components/layout/Footer';
 import { ErrorPage } from '~/components/layout/ErrorPage';
 import * as gtag from '~/utils/gtags.client';
 
 import './tailwind.css';
 
 import { type IStaticMethods } from 'preline/preline';
+import DefaultLayout from './components/layout/DefaultLayout';
 declare global {
   interface Window {
     HSStaticMethods: IStaticMethods;
@@ -61,9 +60,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           }}
         />
 
-        <Header />
         {children}
-        <Footer />
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -104,5 +101,9 @@ export function HydrateFallback() {
 }
 
 export function ErrorBoundary() {
-  return <ErrorPage />;
+  return (
+    <DefaultLayout>
+      <ErrorPage />
+    </DefaultLayout>
+  );
 }

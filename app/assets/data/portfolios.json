@@ -1,6 +1,27 @@
 {
   "portfolio": [
     {
+      "name": "greenstudio-web",
+      "title": "GREEN STUDIO WEB",
+      "categories": ["Web"],
+      "cover": "/images/portfolio/greenstudio-web/cover.png",
+      "subtitle": "自分が作ったものをまとめたポートフォリオサイト",
+      "description": "自分が作ったものをまとめたポートフォリオサイトです。<br/>Remix、Reactを使用して作りました。GitHubにソースコードも公開しています。<br/>GitHub Actionsを使用してデプロイまで自動化できるようにしました。<br/>さくらインターネットの共有サーバで動作するようにSPA+PHPで実装。",
+      "techDescription": "JavaScript、TypeScript、Remix、React、TailwindCSS、Preline UI、PHP、GitHub Actions、Docker。",
+      "images": [
+        "/images/portfolio/greenstudio-web/1.png",
+        "/images/portfolio/greenstudio-web/2.png",
+        "/images/portfolio/greenstudio-web/3.png",
+        "/images/portfolio/greenstudio-web/4.png"
+      ],
+      "links": [
+        {
+          "category": "Web",
+          "url": "https://github.com/pontago/greenstudio-web"
+        }
+      ]
+    },
+    {
       "name": "balancemanagement",
       "title": "収支管理アプリ",
       "categories": ["iOS", "Android"],
@@ -94,6 +115,7 @@
       ]
     },
     {
+      "print": false,
       "name": "inputhankaku",
       "title": "半角カナ入力アプリ",
       "categories": ["iOS"],
@@ -114,6 +136,7 @@
       ]
     },
     {
+      "print": false,
       "name": "screencapture",
       "title": "画面メモアプリ",
       "categories": ["iOS"],

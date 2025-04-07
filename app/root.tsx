@@ -43,6 +43,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        {children}
+        <ScrollRestoration />
+        <Scripts />
         <script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.VITE_GA_TRACKING_ID}`} />
         <script
           async
@@ -59,10 +62,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
               `,
           }}
         />
-
-        {children}
-        <ScrollRestoration />
-        <Scripts />
       </body>
     </html>
   );

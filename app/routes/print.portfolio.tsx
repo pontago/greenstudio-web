@@ -1,4 +1,4 @@
-import { useLoaderData, useSearchParams } from '@remix-run/react';
+import { useLoaderData, useSearchParams } from 'react-router';
 import { BiLinkExternal } from 'react-icons/bi';
 import { ExternalLink } from '~/components/ui/ExternalLink';
 import { getPortfolios, PortfolioCategory } from '~/models/portfolio';

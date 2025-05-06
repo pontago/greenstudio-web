@@ -3,12 +3,12 @@
     {
       "name": "TypeScript, JavaScript",
       "level": 3,
-      "experience": "5年以上"
+      "experience": "3年以上"
     },
     {
       "name": "PHP",
       "level": 2,
-      "experience": "5年以上"
+      "experience": "3年以上"
     },
     {
       "name": "Ruby",
@@ -18,12 +18,12 @@
     {
       "name": "Objective-C",
       "level": 3,
-      "experience": "5年以上"
+      "experience": "3年以上"
     },
     {
       "name": "Swift",
       "level": 3,
-      "experience": "5年以上"
+      "experience": "3年以上"
     },
     {
       "name": "Kotlin",
@@ -43,7 +43,7 @@
     {
       "name": "VB, C++",
       "level": 1,
-      "experience": "3年以上"
+      "experience": "1年以上"
     },
     {
       "name": "C#",
@@ -58,12 +58,12 @@
     {
       "name": "MySQL",
       "level": 3,
-      "experience": "5年以上"
+      "experience": "3年以上"
     },
     {
       "name": "PostgreSQL",
       "level": 2,
-      "experience": "3年以上"
+      "experience": "1年以上"
     },
     {
       "name": "MS SQL Server",
@@ -115,12 +115,12 @@
     {
       "name": "CakePHP",
       "level": 2,
-      "experience": "3年以上"
+      "experience": "1年以上"
     },
     {
       "name": "Ruby On Rails",
       "level": 2,
-      "experience": "3年以上"
+      "experience": "1年以上"
     },
     {
       "name": "Spring Framework",
@@ -130,7 +130,7 @@
     {
       "name": "AWS（EC2、RDS、ELB、CloudWatch）",
       "level": 2,
-      "experience": "5年以上"
+      "experience": "1年以上"
     },
     {
       "name": "Azure",
@@ -140,12 +140,12 @@
     {
       "name": "Linux",
       "level": 3,
-      "experience": "5年以上"
+      "experience": "3年以上"
     },
     {
       "name": "FreeBSD",
       "level": 2,
-      "experience": "3年以上"
+      "experience": "1年以上"
     }
   ]
 }

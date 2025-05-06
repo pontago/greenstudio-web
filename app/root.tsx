@@ -1,5 +1,5 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLocation } from '@remix-run/react';
-import type { LinksFunction } from '@remix-run/node';
+import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLocation } from 'react-router';
+import type { LinksFunction } from 'react-router';
 import { useEffect } from 'react';
 import { ErrorPage } from '~/components/layout/ErrorPage';
 import * as gtag from '~/utils/gtags.client';

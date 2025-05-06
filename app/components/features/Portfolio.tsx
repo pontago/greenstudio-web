@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { PortfolioCategory, PortfolioRecord } from '~/models/portfolio';
-import { Link } from '@remix-run/react';
+import { Link } from 'react-router';
 
 type Props = {
   portfolios: PortfolioRecord[];

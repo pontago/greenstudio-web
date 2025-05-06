@@ -1,5 +1,5 @@
-import { LoaderFunctionArgs, MetaFunction } from '@remix-run/node';
-import { useFetcher, useLoaderData } from '@remix-run/react';
+import { LoaderFunctionArgs, MetaFunction } from 'react-router';
+import { useFetcher, useLoaderData } from 'react-router';
 import { useEffect, useState } from 'react';
 import { BiLinkExternal } from 'react-icons/bi';
 import { FaRegBuilding, FaHome } from 'react-icons/fa';

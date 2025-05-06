@@ -1,8 +1,8 @@
-import type { MetaFunction } from '@remix-run/node';
+import type { MetaFunction } from 'react-router';
 import { IconContext } from 'react-icons';
 import { FaXTwitter, FaGithub, FaGooglePlay, FaAngleRight } from 'react-icons/fa6';
 import { FaAppStore } from 'react-icons/fa';
-import { Await, Link, Outlet, useLoaderData, useLocation } from '@remix-run/react';
+import { Await, Link, Outlet, useLoaderData, useLocation } from 'react-router';
 import { getSkills, SkillCategory } from '~/models/skill';
 import { BiLinkExternal } from 'react-icons/bi';
 import { Skill } from '~/components/features/Skill';

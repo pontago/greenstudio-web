@@ -1,5 +1,5 @@
-import { LoaderFunctionArgs } from '@remix-run/node';
-import { useLoaderData } from '@remix-run/react';
+import { LoaderFunctionArgs } from 'react-router';
+import { useLoaderData } from 'react-router';
 //mport { useEffect } from 'react';
 import invariant from 'tiny-invariant';
 import { PortfolioModal } from '~/components/features/PortfolioModal';

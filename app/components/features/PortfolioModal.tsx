@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react';
 import { MdClose } from 'react-icons/md';
 
 import { HSOverlay } from 'preline/preline';
-import { useLocation, useNavigate } from '@remix-run/react';
+import { useLocation, useNavigate } from 'react-router';
 
 declare global {
   interface Window {

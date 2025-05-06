@@ -1,4 +1,4 @@
-import { useLoaderData, useSearchParams } from '@remix-run/react';
+import { useLoaderData, useSearchParams } from 'react-router';
 import { FaHome, FaRegBuilding } from 'react-icons/fa';
 import { Skill } from '~/components/features/Skill';
 import { getResumes, ResumeCategory } from '~/models/resume';

@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from '@remix-run/react';
+import { NavLink, useLocation } from 'react-router';
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 
@@ -19,7 +19,7 @@ const navLinks: NavLinkItem[] = [
   { name: 'ポートフォリオ', to: '/portfolio' },
   { name: 'スキル', to: '/skill' },
   { name: '経歴', to: '/resume', scrollReset: true },
-  { name: 'お問い合わせ', to: '/contact' },
+  { name: 'お問い合わせ', to: '/contact', scrollReset: true },
   { name: 'ブログ', to: 'https://www.greenstudio.jp/wp/', isExternal: true },
 ];
 

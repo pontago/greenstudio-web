@@ -240,8 +240,8 @@ export default function Layout() {
                         </p>
                         <p className='mt-2 text-xs text-gray-600 dark:text-neutral-400'>
                           {format(
-                            parse(post.pubDate, 'ddd, DD MMM YYYY HH:mm:ss ZZ'),
-                            { date: 'full', time: 'short' },
+                            parse(post.pubDate, 'ddd, DD MMM YYYY HH:mm:ss ZZ', 'en'),
+                            { date: 'long', time: 'short' },
                             'ja'
                           )}
                         </p>

@@ -1,12 +1,36 @@
 {
   "portfolio": [
     {
+      "name": "otenki-live",
+      "title": "お天気ライブ",
+      "categories": ["Web"],
+      "cover": "/images/portfolio/otenki-live/cover.png",
+      "subtitle": "天気予報データとライブカメラ映像の検出データを組み合わせた天気予報サービス",
+      "description": "機械学習モデルを用いて歩行者の人数や服装、傘を検出し、天気予報と組み合わせて表示を行うサービスです。<br/>GitHubでソースコードも公開しています。<br/>FastAPI+Next.jsをAWSサーバレス構成で構築、TerraformとGitHub Actionsを使用してデプロイまで自動化できるようにしました。",
+      "techDescription": "FastAPI、Python、uv、ruff、mypy、Next.js、TypeScript、React、Storybook、Vitest、Playwright E2E、MSW、shadcn/ui、TailwindCSS、EfficientNetV2、SAHI、YOLO、GitHub Actions、Docker、Terraform、AWS（Lambda、CloudFront、DynamoDB、SQS、SES、S3、ECR、EventBridge）。",
+      "images": [
+        "/images/portfolio/otenki-live/1.png",
+        "/images/portfolio/otenki-live/2.png",
+        "/images/portfolio/otenki-live/3.png"
+      ],
+      "links": [
+        {
+          "category": "Web",
+          "url": "https://otenki.pontago.net"
+        },
+        {
+          "category": "Web",
+          "url": "https://github.com/pontago/otenki-live"
+        }
+      ]
+    },
+    {
       "name": "greenstudio-web",
       "title": "GREEN STUDIO WEB",
       "categories": ["Web"],
       "cover": "/images/portfolio/greenstudio-web/cover.png",
       "subtitle": "自分が作ったものをまとめたポートフォリオサイト",
-      "description": "自分が作ったものをまとめたポートフォリオサイトです。<br/>Remix、Reactを使用して作りました。GitHubにソースコードも公開しています。<br/>GitHub Actionsを使用してデプロイまで自動化できるようにしました。<br/>さくらインターネットの共有サーバで動作するようにSPA+PHPで実装。",
+      "description": "自分が作ったものをまとめたポートフォリオサイトです。<br/>Remix、Reactを使用して作りました。GitHubでソースコードも公開しています。<br/>GitHub Actionsを使用してデプロイまで自動化できるようにしました。<br/>さくらインターネットの共有サーバで動作するようにSPA+PHPで実装。",
       "techDescription": "JavaScript、TypeScript、Remix、React、TailwindCSS、Preline UI、PHP、GitHub Actions、Docker。",
       "images": [
         "/images/portfolio/greenstudio-web/1.png",

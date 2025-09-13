@@ -1,12 +1,22 @@
 {
   "resume": [
     {
-      "date": "2024年〜",
+      "date": "2025年〜",
       "category": "solo",
-      "title": "収支管理アプリ",
-      "description": "収支を管理するアプリです。<br/>家計簿、投資・キャンブルの収支管理を簡単におこなえます。<br/>カレンダーでの収支一覧表示、カテゴリ・タグでの分類、グラフ表示などすべての機能が無料で使えます。",
-      "techDescription": "iOS/Android、Flutter（3系）、Dart、Riverpod、drift、SQLite3、Firebase、RevenueCat。レイヤードアーキテクチャで実装してみました。<br/>設計からプログラミングまですべて担当。開発人数1人、開発期間2ヵ月。",
-      "portfolioLink": "balancemanagement"
+      "title": "お天気ライブ",
+      "description": "機械学習モデルを用いて歩行者の人数や服装、傘を検出し、天気予報と組み合わせて表示を行うサービスです。",
+      "techDescription": "FastAPI、Python、uv、ruff、mypy、Next.js、TypeScript、React、Storybook、Vitest、Playwright E2E、MSW、shadcn/ui、TailwindCSS、EfficientNetV2、SAHI、YOLO、GitHub Actions、Docker、Terraform、AWS（Lambda、CloudFront、DynamoDB、SQS、SES、S3、ECR、EventBridge）。クリーンアーキテクチャで実装してみました。<br/>設計からプログラミングまですべて担当。開発人数1人、開発期間2ヵ月。",
+      "portfolioLink": "otenki-live",
+      "links": [
+        {
+          "name": "お天気ライブ",
+          "url": "https://otenki.pontago.net/"
+        },
+        {
+          "name": "GitHub",
+          "url": "https://github.com/pontago/otenki-live"
+        }
+      ]
     },
     {
       "date": "2024年〜",

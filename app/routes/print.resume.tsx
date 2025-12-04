@@ -10,7 +10,7 @@ export const clientLoader = async () => {
     const resumes = await getResumes(null, true);
 
     return { skills, resumes };
-  } catch (error) {
+  } catch {
     throw new Response('Internal Server Error', { status: 500 });
   }
 };

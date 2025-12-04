@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import { SkillCategory, SkillCategoryType, SkillRecord } from '~/models/skill';
 
 type Props = {

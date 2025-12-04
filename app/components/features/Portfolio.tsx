@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import { PortfolioCategory, PortfolioRecord } from '~/models/portfolio';
 import { Link } from 'react-router';
 

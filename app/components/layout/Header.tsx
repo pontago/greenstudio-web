@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from 'react-router';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 
 type NavLinkItem = {

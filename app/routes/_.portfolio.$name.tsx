@@ -1,5 +1,4 @@
-import { LoaderFunctionArgs } from 'react-router';
-import { useLoaderData } from 'react-router';
+import { LoaderFunctionArgs, useLoaderData } from 'react-router';
 //mport { useEffect } from 'react';
 import invariant from 'tiny-invariant';
 import { PortfolioModal } from '~/components/features/PortfolioModal';

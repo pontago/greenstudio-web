@@ -55,7 +55,7 @@ export const clientLoader = async () => {
     const blogPosts = getBlogPosts();
 
     return { skills, portfolios, blogPosts };
-  } catch (error) {
+  } catch {
     throw new Response('Internal Server Error', { status: 500 });
   }
 };
@@ -78,9 +78,8 @@ export default function Layout() {
   const refSkill = useRef<HTMLDivElement>(null);
 
   const trimWords = (text: string, count: number) => {
-    const plainText = decode(text)
-      .replace(/<[^>]+>/g, '')
-      .trim();
+    const doc = new DOMParser().parseFromString(decode(text), 'text/html');
+    const plainText = (doc.body.textContent || '').trim();
     return plainText.length > count ? plainText.slice(0, count) + ' ...' : plainText;
   };
 

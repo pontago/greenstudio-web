@@ -8,7 +8,7 @@ export const clientLoader = async () => {
     const portfolios = await getPortfolios(null, true);
 
     return { portfolios };
-  } catch (error) {
+  } catch {
     throw new Response('Internal Server Error', { status: 500 });
   }
 };

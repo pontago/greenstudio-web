@@ -1,12 +1,10 @@
-import { LoaderFunctionArgs, MetaFunction } from 'react-router';
-import { useFetcher, useLoaderData } from 'react-router';
-import { useEffect, useState } from 'react';
+import { LoaderFunctionArgs, MetaFunction, useFetcher, useLoaderData } from 'react-router';
 import { BiLinkExternal } from 'react-icons/bi';
 import { FaRegBuilding, FaHome } from 'react-icons/fa';
 import { PortfolioModal } from '~/components/features/PortfolioModal';
 import DefaultLayout from '~/components/layout/DefaultLayout';
 import { ExternalLink } from '~/components/ui/ExternalLink';
-import { getPortfolio, PortfolioRecord } from '~/models/portfolio';
+import { getPortfolio } from '~/models/portfolio';
 
 import { getResumes, ResumeCategory } from '~/models/resume';
 
@@ -22,7 +20,7 @@ export const clientLoader = async ({ request }: LoaderFunctionArgs) => {
       const resumes = await getResumes();
       return { resumes };
     }
-  } catch (error) {
+  } catch {
     throw new Response('Internal Server Error', { status: 500 });
   }
 };
@@ -34,14 +32,7 @@ export const meta: MetaFunction = () => {
 export default function Resume() {
   const { resumes } = useLoaderData<typeof clientLoader>();
   const fetcher = useFetcher<typeof clientLoader>();
-  const [portfolio, setPortfolio] = useState<PortfolioRecord>();
-
-  useEffect(() => {
-    if (fetcher.state === 'idle' && fetcher.data) {
-      console.log(fetcher.data);
-      setPortfolio(fetcher.data.portfolio ?? undefined);
-    }
-  }, [fetcher]);
+  const portfolio = fetcher.data?.portfolio;
 
   return (
     <DefaultLayout>

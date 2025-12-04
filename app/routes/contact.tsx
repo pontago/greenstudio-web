@@ -1,7 +1,6 @@
 import { getFormProps, getInputProps, getTextareaProps, useForm } from '@conform-to/react';
 import { parseWithZod } from '@conform-to/zod';
-import { ActionFunctionArgs, MetaFunction } from 'react-router';
-import { Form, useActionData } from 'react-router';
+import { ActionFunctionArgs, MetaFunction, Form, useActionData } from 'react-router';
 import { useEffect } from 'react';
 import { z } from 'zod';
 import DefaultLayout from '~/components/layout/DefaultLayout';
@@ -81,7 +80,6 @@ export default function Contact() {
     }
 
     const script = document.createElement('script');
-    script.id;
     script.src = `https://www.google.com/recaptcha/api.js?render=${import.meta.env.VITE_RECAPTCHA_SITE_KEY}`;
     script.async = true;
     script.defer = true;

@@ -14,21 +14,21 @@
     "@conform-to/react": "^1.14.1",
     "@conform-to/zod": "^1.14.1",
     "@formkit/tempo": "^0.1.2",
-    "@react-router/node": "^7.12.0",
-    "fast-xml-parser": "^5.3.8",
+    "@react-router/node": "^7.15.0",
+    "fast-xml-parser": "^5.7.0",
     "html-entities": "^2.5.3",
     "isbot": "^5.1.32",
     "match-sorter": "^8.2.0",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
-    "react-router": "^7.12.0",
+    "react-router": "^7.15.0",
     "tiny-invariant": "^1.3.3",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@preline/theme-switch": "^3.2.3",
-    "@react-router/dev": "^7.12.0",
-    "@react-router/fs-routes": "^7.12.0",
+    "@react-router/dev": "^7.15.0",
+    "@react-router/fs-routes": "^7.15.0",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/postcss": "^4.0.12",
     "@types/node": "^22.19.1",
@@ -48,7 +48,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "playwright": "^1.57.0",
     "playwright-core": "^1.57.0",
-    "postcss": "^8.5.3",
+    "postcss": "^8.5.10",
     "preline": "^2.7.0",
     "prettier": "^3.7.4",
     "react-icons": "^5.5.0",
@@ -56,7 +56,7 @@
     "textlint-rule-preset-ja-technical-writing": "^12.0.2",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "vite": "^6.4.1",
+    "vite": "^6.4.2",
     "vite-tsconfig-paths": "^5.1.4"
   },
   "engines": {
@@ -64,6 +64,6 @@
   },
   "volta": {
     "node": "22.19.0",
-    "yarn": "4.7.0"
+    "yarn": "4.14.1"
   }
 }

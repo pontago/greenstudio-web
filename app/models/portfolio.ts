@@ -1,5 +1,5 @@
 import { matchSorter } from 'match-sorter';
-import portfoliosJson from '~/assets/data/portfolios.json' assert { type: 'json' };
+import portfoliosJson from '~/assets/data/portfolios.json';
 
 export const PortfolioCategory = {
   IOS: 'iOS',

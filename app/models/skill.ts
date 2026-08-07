@@ -1,5 +1,5 @@
 import { matchSorter } from 'match-sorter';
-import skillJson from '~/assets/data/skills.json' assert { type: 'json' };
+import skillJson from '~/assets/data/skills.json';
 
 export const SkillCategory = {
   LANGUAGES: 'languages',

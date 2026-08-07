@@ -1,5 +1,5 @@
 import { matchSorter } from 'match-sorter';
-import resumesJson from '~/assets/data/resumes.json' assert { type: 'json' };
+import resumesJson from '~/assets/data/resumes.json';
 
 export const ResumeCategory = {
   SOLO: 'solo',

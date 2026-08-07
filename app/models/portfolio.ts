@@ -1,5 +1,4 @@
-import { matchSorter } from 'match-sorter';
-import portfoliosJson from '~/assets/data/portfolios.json' assert { type: 'json' };
+import portfoliosJson from '~/assets/data/portfolios.json';
 
 export const PortfolioCategory = {
   IOS: 'iOS',
@@ -50,11 +49,8 @@ const portfolioData = {
   },
 };
 
-export async function getPortfolios(query?: string | null, print?: boolean | null) {
+export async function getPortfolios(print?: boolean | null) {
   let portfolios = await portfolioData.getAll();
-  if (query) {
-    portfolios = matchSorter(portfolios, query);
-  }
   if (print) {
     portfolios = portfolios.filter((portfolio) => portfolio.print == null || portfolio.print);
   }

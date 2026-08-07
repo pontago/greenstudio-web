@@ -5,7 +5,7 @@ import { getPortfolios, PortfolioCategory } from '~/models/portfolio';
 
 export const clientLoader = async () => {
   try {
-    const portfolios = await getPortfolios(null, true);
+    const portfolios = await getPortfolios(true);
 
     return { portfolios };
   } catch {

@@ -1,5 +1,4 @@
-import { matchSorter } from 'match-sorter';
-import resumesJson from '~/assets/data/resumes.json' assert { type: 'json' };
+import resumesJson from '~/assets/data/resumes.json';
 
 export const ResumeCategory = {
   SOLO: 'solo',
@@ -43,11 +42,8 @@ const resumeData = {
   },
 };
 
-export async function getResumes(query?: string | null, print?: boolean | null) {
+export async function getResumes(print?: boolean | null) {
   let resumes = await resumeData.getAll();
-  if (query) {
-    resumes = matchSorter(resumes, query);
-  }
   if (print) {
     resumes = resumes.filter((resume) => resume.print == null || resume.print);
   }

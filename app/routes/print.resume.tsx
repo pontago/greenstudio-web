@@ -7,7 +7,7 @@ import { getSkills, SkillCategory } from '~/models/skill';
 export const clientLoader = async () => {
   try {
     const skills = await getSkills();
-    const resumes = await getResumes(null, true);
+    const resumes = await getResumes(true);
 
     return { skills, resumes };
   } catch {

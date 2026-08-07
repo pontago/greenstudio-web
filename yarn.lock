@@ -776,10 +776,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@formkit/tempo@npm:^0.1.2":
-  version: 0.1.2
-  resolution: "@formkit/tempo@npm:0.1.2"
-  checksum: 10/c71a5b62084302369352b6672a80c27d9d9bbc2098294976953d390c689c3f27e1d814055d2e585d8241c052cd40e9894305bbb108d985c8a00d9e2883c7c59a
+"@formkit/tempo@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@formkit/tempo@npm:1.1.0"
+  checksum: 10/a68accc31cc676a719b581aad943f0f444143c8ab6960c416552d232d508632af76914f008d6587ed9b3e4984190ce8b7d2fe9b571a00e1c780b7568691bcef0
   languageName: node
   linkType: hard
 
@@ -3648,7 +3648,7 @@ __metadata:
     "@conform-to/zod": "npm:^1.20.2"
     "@eslint/compat": "npm:^2.1.0"
     "@eslint/js": "npm:^9.39.5"
-    "@formkit/tempo": "npm:^0.1.2"
+    "@formkit/tempo": "npm:^1.1.0"
     "@preline/theme-switch": "npm:^3.2.3"
     "@react-router/dev": "npm:^8.3.0"
     "@react-router/fs-routes": "npm:^8.3.0"

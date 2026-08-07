@@ -1,4 +1,3 @@
-import { matchSorter } from 'match-sorter';
 import skillJson from '~/assets/data/skills.json';
 
 export const SkillCategory = {
@@ -34,12 +33,8 @@ const skillData = {
   },
 };
 
-export async function getSkills(query?: string | null) {
-  let skills = await skillData.getAll();
-  if (query) {
-    skills = matchSorter(skills, query);
-  }
-  return skills;
+export async function getSkills() {
+  return skillData.getAll();
 }
 
 skillJson.languages.forEach((values, id) => {

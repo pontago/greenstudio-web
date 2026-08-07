@@ -38,7 +38,13 @@ export const PortfolioGallery = ({ portfolio }: Props) => {
                   <div className='flex justify-center h-full bg-gray-100 p-6 dark:bg-neutral-900'>
                     <div className='self-center text-gray-800 transition duration-700 dark:text-white'>
                       <div className='overflow-hidden bg-gray-100 rounded dark:bg-neutral-900'>
-                        <img className='h-96 w-auto object-scale-down' src={image} alt='{index}' />
+                        <img
+                          className='h-96 w-auto object-scale-down'
+                          src={image}
+                          alt={`${portfolio.title} スクリーンショット${index + 1}`}
+                          loading='lazy'
+                          decoding='async'
+                        />
                       </div>
                     </div>
                   </div>

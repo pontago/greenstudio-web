@@ -5,7 +5,7 @@ import { PortfolioModal } from '~/components/features/PortfolioModal';
 import { getPortfolio } from '~/models/portfolio';
 //import { usePortfolioStore } from '~/store/portfolio';
 
-export const clientLoader = async ({ params }: LoaderFunctionArgs) => {
+export const loader = async ({ params }: LoaderFunctionArgs) => {
   invariant(params.name, 'Missing portfolio name param');
 
   const portfolio = await getPortfolio(params.name);
@@ -16,7 +16,7 @@ export const clientLoader = async ({ params }: LoaderFunctionArgs) => {
 };
 
 export default function Portfolio() {
-  const { portfolio } = useLoaderData<typeof clientLoader>();
+  const { portfolio } = useLoaderData<typeof loader>();
   // const { setPortfolio } = usePortfolioStore();
 
   // useEffect(() => {

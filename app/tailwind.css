@@ -1,3 +1,17 @@
+/* Interは自己ホストする。Google Fontsの外部CSSはレンダリングブロッキングになるため使わない。
+   日本語はシステムフォントにフォールバックするので、Basic Latin + 常用記号のみのサブセットで足りる。
+   ウェイト軸もfont-light〜font-boldしか使っていないため300..700に絞っている(73KB -> 44KB)。
+   サブセットの再生成手順はREADME参照。 */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0020-007E, U+00A9, U+00B0, U+00B1, U+00D7, U+00F7, U+00A3, U+00A5, U+2013-2014, U+2018-2019,
+    U+201C-201D, U+2026, U+2190-2193, U+20AC;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

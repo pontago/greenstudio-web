@@ -2,59 +2,24 @@ import type { MetaFunction } from 'react-router';
 import { IconContext } from 'react-icons';
 import { FaXTwitter, FaGithub, FaGooglePlay, FaAngleRight } from 'react-icons/fa6';
 import { FaAppStore } from 'react-icons/fa';
-import { Await, Link, Outlet, useLoaderData, useLocation } from 'react-router';
+import { Link, Outlet, useLoaderData, useLocation } from 'react-router';
 import { getSkills, SkillCategory } from '~/models/skill';
 import { BiLinkExternal } from 'react-icons/bi';
 import { Skill } from '~/components/features/Skill';
 import { getPortfolios } from '~/models/portfolio';
 import { Portfolio } from '~/components/features/Portfolio';
-import { Suspense, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { ExternalLink } from '~/components/ui/ExternalLink';
-import { XMLParser } from 'fast-xml-parser';
-import { parse, format } from '@formkit/tempo';
-import { decode } from 'html-entities';
+import { BlogPosts } from '~/components/features/BlogPosts';
 import DefaultLayout from '~/components/layout/DefaultLayout';
 
-type BlogPost = {
-  title: string;
-  pubDate: string;
-  link: string;
-  description: string;
-  category: string[];
-};
-
-export const clientLoader = async () => {
+// ローカルJSON由来のデータはビルド時に解決してプリレンダリングHTMLへ埋め込む
+export const loader = async () => {
   try {
-    const skills = getSkills();
-    const portfolios = getPortfolios();
+    const skills = await getSkills();
+    const portfolios = await getPortfolios();
 
-    const getBlogPosts = async (): Promise<BlogPost[]> => {
-      try {
-        const response = await fetch('https://www.greenstudio.jp/wp/feed/');
-        const responseText = await response.text();
-        const options = {
-          ignoreAttributes: true,
-          processEntities: false,
-        };
-        const parser = new XMLParser(options);
-        const output = parser.parse(responseText);
-        return output.rss.channel.item.map((item: BlogPost) => {
-          return {
-            title: item.title,
-            pubDate: item.pubDate,
-            link: item.link,
-            description: item.description,
-            categories: item.category,
-          };
-        });
-      } catch (error) {
-        console.error(error);
-      }
-      return [];
-    };
-    const blogPosts = getBlogPosts();
-
-    return { skills, portfolios, blogPosts };
+    return { skills, portfolios };
   } catch {
     throw new Response('Internal Server Error', { status: 500 });
   }
@@ -72,16 +37,10 @@ export const meta: MetaFunction = () => {
 
 export default function Layout() {
   const location = useLocation();
-  const { skills, portfolios, blogPosts } = useLoaderData<typeof clientLoader>();
+  const { skills, portfolios } = useLoaderData<typeof loader>();
   const refHome = useRef<HTMLDivElement>(null);
   const refPortfolio = useRef<HTMLDivElement>(null);
   const refSkill = useRef<HTMLDivElement>(null);
-
-  const trimWords = (text: string, count: number) => {
-    const doc = new DOMParser().parseFromString(decode(text), 'text/html');
-    const plainText = (doc.body.textContent || '').trim();
-    return plainText.length > count ? plainText.slice(0, count) + ' ...' : plainText;
-  };
 
   useEffect(() => {
     let ref: HTMLDivElement | null = null;
@@ -112,7 +71,14 @@ export default function Layout() {
           {/* Avator */}
           <div id='profile' className='flex items-center gap-x-3'>
             <div className='shrink-0'>
-              <img className='shrink-0 size-16 rounded-full' src='/images/avatar.png' alt='Avatar' />
+              <img
+                className='shrink-0 size-16 rounded-full'
+                src='/images/avatar.webp'
+                alt='Avatar'
+                width={64}
+                height={64}
+                fetchPriority='high'
+              />
             </div>
 
             <div className='grow'>
@@ -204,55 +170,14 @@ export default function Layout() {
             <div className='flex'>
               <h2 className='font-medium text-gray-800 dark:text-neutral-200'>新着ブログ</h2>
               <Link to='https://www.greenstudio.jp/wp/' className='flex place-self-end group' reloadDocument>
-                <div className='ml-2 mb-0.5 text-xs text-gray-400 group-hover:text-gray-200 dark:text-neutral-500 dark:group-hover:text-white'>
+                <div className='ml-2 mb-0.5 text-xs text-gray-500 group-hover:text-gray-800 dark:text-neutral-400 dark:group-hover:text-white'>
                   もっと見る
                 </div>
-                <FaAngleRight className='text-gray-400 group-hover:text-gray-200 dark:text-neutral-500 dark:group-hover:text-white size-3 mt-0.5' />
+                <FaAngleRight className='text-gray-500 group-hover:text-gray-800 dark:text-neutral-400 dark:group-hover:text-white size-3 mt-0.5' />
               </Link>
             </div>
 
-            <div className='mt-4 w-full grid grid-rows-6 grid-cols-1 sm:grid-rows-3 sm:grid-cols-2 gap-4'>
-              <Suspense
-                fallback={
-                  <>
-                    {[...Array(6)].map((_, index) => (
-                      <ul
-                        key={index}
-                        className=' space-y-3 p-4 rounded-xl border border-gray-200 dark:border-neutral-700'
-                      >
-                        <li className='h-6 w-full bg-gray-100 rounded dark:bg-neutral-800' />
-                        <li className='h-4 w-1/2 bg-gray-100 rounded dark:bg-neutral-800' />
-                        <li className='h-16 w-full bg-gray-100 rounded dark:bg-neutral-800' />
-                      </ul>
-                    ))}
-                  </>
-                }
-              >
-                <Await resolve={blogPosts}>
-                  {(blogPosts) =>
-                    blogPosts.slice(0, 6).map((post, index) => (
-                      <div key={index} className='p-4 rounded-xl border border-gray-200 dark:border-neutral-700'>
-                        <p className='font-semibold text-gray-800 hover:text-gray-600 dark:text-neutral-300 dark:hover:text-white'>
-                          <Link to={post.link} reloadDocument>
-                            {trimWords(post.title, 50)}
-                          </Link>
-                        </p>
-                        <p className='mt-2 text-xs text-gray-600 dark:text-neutral-400'>
-                          {format(
-                            parse(post.pubDate, 'ddd, DD MMM YYYY HH:mm:ss ZZ', 'en'),
-                            { date: 'long', time: 'short' },
-                            'ja'
-                          )}
-                        </p>
-                        <p className='mt-3 text-sm text-gray-600 dark:text-neutral-400'>
-                          {trimWords(post.description, 98)}
-                        </p>
-                      </div>
-                    ))
-                  }
-                </Await>
-              </Suspense>
-            </div>
+            <BlogPosts />
           </div>
 
           {/* End Blog */}
@@ -266,23 +191,7 @@ export default function Layout() {
               からご確認いただけます。
             </div>
 
-            <Suspense
-              fallback={
-                <>
-                  <div className='py-4 grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 justify-items-center'>
-                    {[...Array(6)].map((_, index) => (
-                      <div key={index}>
-                        <div className='group flex flex-col focus:outline-hidden text-left'>
-                          <div className='h-40 w-60 bg-gray-100 rounded dark:bg-neutral-800'></div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </>
-              }
-            >
-              <Await resolve={portfolios}>{(portfolios) => <Portfolio portfolios={portfolios} />}</Await>
-            </Suspense>
+            <Portfolio portfolios={portfolios} />
           </div>
 
           {/* End Portfolio */}
@@ -295,10 +204,10 @@ export default function Layout() {
                 <div className='inline-block mb-2 ms-[calc(33%-20px)] py-0.5 px-1.5 bg-blue-50 border border-blue-200 text-xs font-medium text-blue-600 rounded-lg dark:bg-blue-800/30 dark:border-blue-800 dark:text-blue-500'>
                   Level1
                 </div>
-                <div className='inline-block mb-2 ms-[calc(33%-50px)] py-0.5 px-1.5 bg-teal-50 border border-teal-200 text-xs font-medium text-teal-500 rounded-lg dark:bg-teal-800/30 dark:border-teal-800 dark:text-teal-500'>
+                <div className='inline-block mb-2 ms-[calc(33%-50px)] py-0.5 px-1.5 bg-teal-50 border border-teal-200 text-xs font-medium text-teal-700 rounded-lg dark:bg-teal-800/30 dark:border-teal-800 dark:text-teal-500'>
                   Level2
                 </div>
-                <div className='inline-block mb-2 ms-[calc(33%-50px)] py-0.5 px-1.5 bg-yellow-50 border border-yellow-200 text-xs font-medium text-yellow-500 rounded-lg dark:bg-yellow-800/30 dark:border-yellow-800 dark:text-yellow-500'>
+                <div className='inline-block mb-2 ms-[calc(33%-50px)] py-0.5 px-1.5 bg-yellow-50 border border-yellow-200 text-xs font-medium text-yellow-700 rounded-lg dark:bg-yellow-800/30 dark:border-yellow-800 dark:text-yellow-500'>
                   Level3
                 </div>
               </div>
@@ -307,6 +216,7 @@ export default function Layout() {
                   className='flex flex-col justify-center overflow-hidden bg-blue-600 text-xs text-white text-center whitespace-nowrap'
                   style={{ width: '33%' }}
                   role='progressbar'
+                  aria-label='Level1の範囲'
                   aria-valuenow={10}
                   aria-valuemin={0}
                   aria-valuemax={30}
@@ -315,6 +225,7 @@ export default function Layout() {
                   className='flex flex-col justify-center overflow-hidden bg-teal-500 text-xs text-white text-center whitespace-nowrap'
                   style={{ width: '33%' }}
                   role='progressbar'
+                  aria-label='Level2の範囲'
                   aria-valuenow={10}
                   aria-valuemin={0}
                   aria-valuemax={30}
@@ -323,6 +234,7 @@ export default function Layout() {
                   className='flex flex-col justify-center overflow-hidden bg-yellow-500 text-xs text-white text-center whitespace-nowrap'
                   style={{ width: '34%' }}
                   role='progressbar'
+                  aria-label='Level3の範囲'
                   aria-valuenow={10}
                   aria-valuemin={0}
                   aria-valuemax={30}
@@ -336,13 +248,13 @@ export default function Layout() {
               <p className='text-xs text-gray-600 dark:text-neutral-400'>
                 簡単なプログラムを作成・修正できる。もしくは最近使用していない。
               </p>
-              <div className='inline-block mb-1 py-0.5 px-1.5 bg-teal-50 border border-teal-200 text-xs font-medium text-teal-500 rounded-lg dark:bg-teal-800/30 dark:border-teal-800 dark:text-teal-500'>
+              <div className='inline-block mb-1 py-0.5 px-1.5 bg-teal-50 border border-teal-200 text-xs font-medium text-teal-700 rounded-lg dark:bg-teal-800/30 dark:border-teal-800 dark:text-teal-500'>
                 Level2
               </div>
               <p className='text-xs text-gray-600 dark:text-neutral-400'>
                 個人アプリ開発、受託開発で使用したことがある。直近使用率低め、経験が不十分だと感じるレベル。
               </p>
-              <div className='inline-block mb-1 py-0.5 px-1.5 bg-yellow-50 border border-yellow-200 text-xs font-medium text-yellow-500 rounded-lg dark:bg-yellow-800/30 dark:border-yellow-800 dark:text-yellow-500'>
+              <div className='inline-block mb-1 py-0.5 px-1.5 bg-yellow-50 border border-yellow-200 text-xs font-medium text-yellow-700 rounded-lg dark:bg-yellow-800/30 dark:border-yellow-800 dark:text-yellow-500'>
                 Level3
               </div>
               <p className='text-xs text-gray-600 dark:text-neutral-400'>
@@ -351,46 +263,19 @@ export default function Layout() {
             </div>
 
             <div className='grid grid-cols-1 mt-2 sm:grid-cols-2 gap-x-3 border-gray-200  divide-gray-200 dark:border-neutral-700 dark:divide-neutral-700'>
-              <Suspense
-                fallback={
-                  <>
-                    <div className='sm:-ms-4 sm:px-4'>
-                      <ul className='mt-5 space-y-3'>
-                        {[...Array(10)].map((_, index) => (
-                          <li key={index} className='w-full h-4 bg-gray-200 rounded-full dark:bg-neutral-700' />
-                        ))}
-                      </ul>
-                    </div>
-                    <div className='sm:px-4'>
-                      <ul className='mt-5 space-y-3'>
-                        {[...Array(10)].map((_, index) => (
-                          <li key={index} className='w-full h-4 bg-gray-200 rounded-full dark:bg-neutral-700' />
-                        ))}
-                      </ul>
-                    </div>
-                  </>
-                }
-              >
-                <Await resolve={skills}>
-                  {(skills) => (
-                    <>
-                      <div className='sm:-ms-4 sm:px-4'>
-                        <Skill
-                          category={SkillCategory.LANGUAGES}
-                          records={skills.filter((skill) => skill.category === SkillCategory.LANGUAGES)}
-                        />
-                      </div>
+              <div className='sm:-ms-4 sm:px-4'>
+                <Skill
+                  category={SkillCategory.LANGUAGES}
+                  records={skills.filter((skill) => skill.category === SkillCategory.LANGUAGES)}
+                />
+              </div>
 
-                      <div className='sm:px-4'>
-                        <Skill
-                          category={SkillCategory.FRAMEWORKS}
-                          records={skills.filter((skill) => skill.category === SkillCategory.FRAMEWORKS)}
-                        />
-                      </div>
-                    </>
-                  )}
-                </Await>
-              </Suspense>
+              <div className='sm:px-4'>
+                <Skill
+                  category={SkillCategory.FRAMEWORKS}
+                  records={skills.filter((skill) => skill.category === SkillCategory.FRAMEWORKS)}
+                />
+              </div>
             </div>
           </div>
 
@@ -410,10 +295,14 @@ export default function Layout() {
                 <BiLinkExternal />
               </div>
             </ExternalLink>
-            <embed
-              className='h-76 sm:h-96 dark:bg-gray-500'
+            {/* embedだと遅延読み込みできず、h-76はTailwindに存在しない値で高さが決まらずCLSの原因になっていた */}
+            <img
+              className='w-full h-72 sm:h-96 object-contain dark:bg-gray-500'
               src='https://wakatime.com/share/@pontago/c6f3c792-c14f-419a-aa08-2e5c8551d071.svg'
-            ></embed>
+              alt='WakaTimeで計測したコーディング時間のグラフ'
+              loading='lazy'
+              decoding='async'
+            />
           </div>
           {/* End Skills */}
         </div>

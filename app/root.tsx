@@ -3,6 +3,7 @@ import type { LinksFunction } from 'react-router';
 import { useEffect } from 'react';
 import { ErrorPage } from '~/components/layout/ErrorPage';
 import * as gtag from '~/utils/gtags.client';
+import { THEME_INIT_SCRIPT } from '~/utils/theme';
 
 import './tailwind.css';
 
@@ -15,15 +16,12 @@ declare global {
 }
 
 export const links: LinksFunction = () => [
-  { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   {
-    rel: 'preconnect',
-    href: 'https://fonts.gstatic.com',
+    rel: 'preload',
+    as: 'font',
+    type: 'font/woff2',
+    href: '/fonts/inter-latin.woff2',
     crossOrigin: 'anonymous',
-  },
-  {
-    rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
   },
   { rel: 'icon', type: 'image/png', href: '/favicon-96x96.png', sizes: '96x96' },
   { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
@@ -41,27 +39,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name='apple-mobile-web-app-title' content='GS' />
         <Meta />
         <Links />
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
       </head>
       <body>
         {children}
         <ScrollRestoration />
         <Scripts />
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.VITE_GA_TRACKING_ID}`} />
-        <script
-          async
-          id='gtag-init'
-          dangerouslySetInnerHTML={{
-            __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-
-                gtag('config', '${import.meta.env.VITE_GA_TRACKING_ID}', {
-                  page_path: window.location.pathname,
-                });
-              `,
-          }}
-        />
       </body>
     </html>
   );
@@ -70,12 +53,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   const location = useLocation();
 
+  // prelineはHeader / PortfolioModal / PortfolioGalleryが各自で必要なときに読み込むため、
+  // ここでの一括autoInitは重複。292KBのパースが初期表示を塞ぐので行わない。
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      import('preline/preline').then(() => {
-        window.HSStaticMethods.autoInit();
-      });
-    }
+    gtag.setupGtag(import.meta.env.VITE_GA_TRACKING_ID);
+    gtag.loadGtagScript(import.meta.env.VITE_GA_TRACKING_ID);
   }, []);
 
   useEffect(() => {

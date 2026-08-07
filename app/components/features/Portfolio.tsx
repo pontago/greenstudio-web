@@ -22,6 +22,10 @@ export const Portfolio = ({ portfolios }: Props) => {
                   className='h-48 w-96 group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out object-cover rounded'
                   src={portfolio.cover}
                   alt={portfolio.title}
+                  width={384}
+                  height={192}
+                  loading='lazy'
+                  decoding='async'
                 />
               </div>
               <div className='pt-4'>

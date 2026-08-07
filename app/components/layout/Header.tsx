@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from 'react-router';
 import { clsx } from 'clsx';
-import { useEffect, useRef } from 'react';
+import { useState } from 'react';
 
 type NavLinkItem = {
   name: string;
@@ -25,7 +25,16 @@ const navLinks: NavLinkItem[] = [
 
 export const Header = () => {
   const location = useLocation();
-  const refNav = useRef<HTMLButtonElement>(null);
+  // 折りたたみのためだけにpreline(292KB)を初期表示で読み込むとTBTが跳ねるため、Reactのstateで開閉する
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [openedPathname, setOpenedPathname] = useState(location.pathname);
+
+  // 画面遷移したらメニューを閉じる。effectではなくレンダー中に調整する
+  // https://react.dev/reference/react/useState#storing-information-from-previous-renders
+  if (openedPathname !== location.pathname) {
+    setOpenedPathname(location.pathname);
+    setIsNavOpen(false);
+  }
 
   // NavLinkがSPAモードで/の状態が上手く反映されないための対応
   // https://github.com/remix-run/react-router/issues/13010
@@ -34,17 +43,6 @@ export const Header = () => {
     to: link.to,
     isActive: link.to === location.pathname,
   }));
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      import('preline/preline').then((preline) => {
-        preline.HSCollapse.autoInit();
-        if (refNav.current) {
-          preline.HSCollapse.hide(refNav.current);
-        }
-      });
-    }
-  }, [location.pathname]);
 
   return (
     <header className='sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-40 w-full before:absolute before:inset-0 before:max-w-5xl before:mx-2 lg:before:mx-auto before:rounded-6.5 before:bg-white-800/30 before:backdrop-blur-md'>
@@ -62,17 +60,16 @@ export const Header = () => {
 
           <div className='md:hidden'>
             <button
-              ref={refNav}
               type='button'
-              className='hs-collapse-toggle flex justify-center items-center size-7 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700'
+              className='flex justify-center items-center size-7 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700'
               id='hs-navbar-header-floating-collapse'
-              aria-expanded='false'
+              aria-expanded={isNavOpen}
               aria-controls='hs-navbar-header-floating'
               aria-label='Toggle navigation'
-              data-hs-collapse='#hs-navbar-header-floating'
+              onClick={() => setIsNavOpen((open) => !open)}
             >
               <svg
-                className='hs-collapse-open:hidden shrink-0 size-3.5'
+                className={clsx('shrink-0', isNavOpen ? 'hidden' : 'size-3.5')}
                 xmlns='http://www.w3.org/2000/svg'
                 width='24'
                 height='24'
@@ -88,7 +85,7 @@ export const Header = () => {
                 <line x1='3' x2='21' y1='18' y2='18' />
               </svg>
               <svg
-                className='hs-collapse-open:block hidden shrink-0 size-4'
+                className={clsx('shrink-0', isNavOpen ? 'size-4' : 'hidden')}
                 xmlns='http://www.w3.org/2000/svg'
                 width='24'
                 height='24'
@@ -108,7 +105,10 @@ export const Header = () => {
 
         <div
           id='hs-navbar-header-floating'
-          className='hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow md:block'
+          className={clsx(
+            'overflow-hidden transition-all duration-300 basis-full grow md:block',
+            isNavOpen ? 'block' : 'hidden'
+          )}
           aria-labelledby='hs-navbar-header-floating-collapse'
         >
           <div className='flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-3 mt-3 md:mt-0 py-2 md:py-0 md:ps-7'>

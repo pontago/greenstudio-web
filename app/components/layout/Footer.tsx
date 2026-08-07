@@ -1,4 +1,10 @@
+import { useSyncExternalStore } from 'react';
+import { clsx } from 'clsx';
+import { getServerThemeSnapshot, getThemeSnapshot, setTheme, subscribeTheme } from '~/utils/theme';
+
 export const Footer = () => {
+  const theme = useSyncExternalStore(subscribeTheme, getThemeSnapshot, getServerThemeSnapshot);
+
   return (
     <footer className='mt-8 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8'>
       <div className='py-6 border-t border-gray-200 dark:border-neutral-700'>
@@ -47,8 +53,11 @@ export const Footer = () => {
               {/* Dark Mode */}
               <button
                 type='button'
-                className='hs-dark-mode hs-dark-mode-active:hidden relative flex justify-center items-center size-7 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700'
-                data-hs-theme-click-value='dark'
+                className={clsx(
+                  'relative justify-center items-center size-7 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700',
+                  theme === 'dark' ? 'hidden' : 'flex'
+                )}
+                onClick={() => setTheme('dark')}
               >
                 <span className='sr-only'>Dark</span>
                 <svg
@@ -68,8 +77,11 @@ export const Footer = () => {
               </button>
               <button
                 type='button'
-                className='hs-dark-mode hs-dark-mode-active:flex hidden relative  justify-center items-center size-7 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700'
-                data-hs-theme-click-value='light'
+                className={clsx(
+                  'relative justify-center items-center size-7 border border-gray-200 text-gray-500 rounded-full hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700',
+                  theme === 'dark' ? 'flex' : 'hidden'
+                )}
+                onClick={() => setTheme('light')}
               >
                 <span className='sr-only'>Light</span>
                 <svg

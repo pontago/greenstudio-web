@@ -20,12 +20,13 @@ export const Skill = ({ category, records }: Props) => {
         {records.map((skill) => (
           <div className='mt-2' key={skill.id}>
             <div className='mb-2 flex justify-between items-center'>
-              <h4 className='text-sm font-semibold text-gray-600 dark:text-neutral-400'>{skill.name}</h4>
+              <h3 className='text-sm font-semibold text-gray-600 dark:text-neutral-400'>{skill.name}</h3>
               <span className='text-sm text-gray-600 dark:text-neutral-400'>{skill.experience}</span>
             </div>
             <div
               className='flex w-full h-1.5 bg-gray-200 rounded-full overflow-hidden dark:bg-neutral-700'
               role='progressbar'
+              aria-label={`${skill.name}の習熟レベル`}
               aria-valuenow={skill.level}
               aria-valuemin={0}
               aria-valuemax={3}

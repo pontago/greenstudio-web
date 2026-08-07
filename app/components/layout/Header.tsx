@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from 'react-router';
 import { clsx } from 'clsx';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 type NavLinkItem = {
   name: string;
@@ -25,11 +25,16 @@ const navLinks: NavLinkItem[] = [
 
 export const Header = () => {
   const location = useLocation();
-  const [navLinkStatus, setNavLinkStatus] = useState<NavLinkStatus[]>([]);
   const refNav = useRef<HTMLButtonElement>(null);
 
   // NavLinkがSPAモードで/の状態が上手く反映されないための対応
   // https://github.com/remix-run/react-router/issues/13010
+  // location.pathnameから導出できるのでレンダー中に計算する
+  const navLinkStatus: NavLinkStatus[] = navLinks.map((link) => ({
+    to: link.to,
+    isActive: link.to === location.pathname,
+  }));
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       import('preline/preline').then((preline) => {
@@ -39,13 +44,6 @@ export const Header = () => {
         }
       });
     }
-
-    const navState = navLinks.reduce((acc, link) => {
-      acc.push({ to: link.to, isActive: link.to === location.pathname });
-      return acc;
-    }, [] as NavLinkStatus[]);
-
-    setNavLinkStatus(navState);
   }, [location.pathname]);
 
   return (

@@ -215,7 +215,7 @@ export default function Layout() {
               <Suspense
                 fallback={
                   <>
-                    {[...Array(6)].map((index) => (
+                    {[...Array(6)].map((_, index) => (
                       <ul
                         key={index}
                         className=' space-y-3 p-4 rounded-xl border border-gray-200 dark:border-neutral-700'
@@ -270,7 +270,7 @@ export default function Layout() {
               fallback={
                 <>
                   <div className='py-4 grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 justify-items-center'>
-                    {[...Array(6)].map((index) => (
+                    {[...Array(6)].map((_, index) => (
                       <div key={index}>
                         <div className='group flex flex-col focus:outline-hidden text-left'>
                           <div className='h-40 w-60 bg-gray-100 rounded dark:bg-neutral-800'></div>
@@ -356,14 +356,14 @@ export default function Layout() {
                   <>
                     <div className='sm:-ms-4 sm:px-4'>
                       <ul className='mt-5 space-y-3'>
-                        {[...Array(10)].map((index) => (
+                        {[...Array(10)].map((_, index) => (
                           <li key={index} className='w-full h-4 bg-gray-200 rounded-full dark:bg-neutral-700' />
                         ))}
                       </ul>
                     </div>
                     <div className='sm:px-4'>
                       <ul className='mt-5 space-y-3'>
-                        {[...Array(10)].map((index) => (
+                        {[...Array(10)].map((_, index) => (
                           <li key={index} className='w-full h-4 bg-gray-200 rounded-full dark:bg-neutral-700' />
                         ))}
                       </ul>

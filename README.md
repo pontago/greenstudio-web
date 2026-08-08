@@ -70,10 +70,10 @@ subsetFont(fs.readFileSync('inter-latin-full.woff2'), chars, {
 
 配信用は WebP、**原本の png / jpg はそのまま残す**（`cover.png` が原本、`cover.webp` が配信用）。参照しているのは `app/assets/data/portfolios.json` の webp 側。
 
-ポートフォリオのカバーは表示サイズ（384x192 CSS px）の2倍にあたる 768x384 で書き出す。
+ポートフォリオのカバーは**原本のアスペクト比を保ったまま**長辺 768px 以内に縮小する（`>` は拡大しないフラグ）。トリミングしてはいけない。表示枠の縦横比はブレークポイントで変わり（1カラム時は約 361x192、3カラム時は 288x192）、一覧は `object-cover`、印刷用ページは `object-contain` と扱いが異なるため、書き出し時に切り抜くと二重にトリミングされて見切れる。切り抜きはCSS側に任せる。
 
 ```shellscript
-magick cover.png -resize '768x384^' -gravity center -extent 768x384 -quality 75 -define webp:method=6 cover.webp
+magick cover.png -resize '768x768>' -quality 75 -define webp:method=6 cover.webp
 ```
 
 アバターは表示サイズ 64x64 の2倍で書き出す（`avatar.png` が原本、`avatar.webp` が配信用）。

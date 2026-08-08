@@ -8,10 +8,14 @@ import { BiLinkExternal } from 'react-icons/bi';
 import { Skill } from '~/components/features/Skill';
 import { getPortfolios } from '~/models/portfolio';
 import { Portfolio } from '~/components/features/Portfolio';
-import { useEffect, useRef } from 'react';
+import { lazy, Suspense, useEffect, useRef } from 'react';
 import { ExternalLink } from '~/components/ui/ExternalLink';
-import { BlogPosts } from '~/components/features/BlogPosts';
+import { BlogPostsSkeleton } from '~/components/features/BlogPostsSkeleton';
 import DefaultLayout from '~/components/layout/DefaultLayout';
+
+// fast-xml-parser / html-entities / @formkit/tempo を初期チャンクから外すため遅延読み込みする。
+// プリレンダリング時はfallbackのスケルトンがHTMLへ入るのでCLSは出ない。
+const BlogPosts = lazy(() => import('~/components/features/BlogPosts'));
 
 // ローカルJSON由来のデータはビルド時に解決してプリレンダリングHTMLへ埋め込む
 export const loader = async () => {
@@ -177,7 +181,9 @@ export default function Layout() {
               </Link>
             </div>
 
-            <BlogPosts />
+            <Suspense fallback={<BlogPostsSkeleton />}>
+              <BlogPosts />
+            </Suspense>
           </div>
 
           {/* End Blog */}

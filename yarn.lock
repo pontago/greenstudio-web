@@ -418,33 +418,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@conform-to/dom@npm:1.20.2":
-  version: 1.20.2
-  resolution: "@conform-to/dom@npm:1.20.2"
-  checksum: 10/76fba049a7356f390c3cd68b4d949a2a896b57199fa663459f275f1dd67f58d384206a6f30572f3590d890d557cfe439c10c1e8e4f75418cf739ed51f5c3d968
+"@conform-to/dom@npm:1.21.0":
+  version: 1.21.0
+  resolution: "@conform-to/dom@npm:1.21.0"
+  checksum: 10/19f718d70b4bd4230502f668e33d00cbc1cbf6e6c27fc88c121578aa0d0bda0b3b44ee27ef935e9fb0d4d7f63aa5163f4c6e753b45ef478359104c9bcc0f9204
   languageName: node
   linkType: hard
 
-"@conform-to/react@npm:^1.20.2":
-  version: 1.20.2
-  resolution: "@conform-to/react@npm:1.20.2"
+"@conform-to/react@npm:^1.21.0":
+  version: 1.21.0
+  resolution: "@conform-to/react@npm:1.21.0"
   dependencies:
-    "@conform-to/dom": "npm:1.20.2"
+    "@conform-to/dom": "npm:1.21.0"
   peerDependencies:
     react: ">=18"
     react-dom: ">=18"
-  checksum: 10/abcc3948e568bfc39c9484317d5f04c573f80889fa2cc8e3c71132503ca3de49bd8073171f5e469cf28e334f06188b5347e2ad521562c301bf7779976066d318
+  checksum: 10/a20c591d8a5bfabb48fd4c66fd2e1dbb9e5380a887d41982786b744d29632d4f338d58b8134a1d55b41f9aa84f0728180af1bcea84101916d543802d75e7b3fa
   languageName: node
   linkType: hard
 
-"@conform-to/zod@npm:^1.20.2":
-  version: 1.20.2
-  resolution: "@conform-to/zod@npm:1.20.2"
+"@conform-to/zod@npm:^1.21.0":
+  version: 1.21.0
+  resolution: "@conform-to/zod@npm:1.21.0"
   dependencies:
-    "@conform-to/dom": "npm:1.20.2"
+    "@conform-to/dom": "npm:1.21.0"
   peerDependencies:
     zod: ^3.21.0 || ^4.0.0
-  checksum: 10/e1eead77d59efd9f4afc0568db3d138d3d99ccdb894937f679318e6f3793ceb8ce1aae0c867e0925be79741147716dd66daca9ada13a3fca191188d6fa183434
+  checksum: 10/6971a399748b85178287ba3aadddafb9228acd7bfb28aa0f17ae1700b1bcb0ee6b1ff4ff284f030b3a7d3973e68a088c6f99bf64c1c64a7ca2db74b3d3aeb9a9
   languageName: node
   linkType: hard
 
@@ -3630,8 +3630,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "greenstudio-web@workspace:."
   dependencies:
-    "@conform-to/react": "npm:^1.20.2"
-    "@conform-to/zod": "npm:^1.20.2"
+    "@conform-to/react": "npm:^1.21.0"
+    "@conform-to/zod": "npm:^1.21.0"
     "@eslint/compat": "npm:^2.1.0"
     "@eslint/js": "npm:^9.39.5"
     "@formkit/tempo": "npm:^1.1.0"

@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@eslint/compat": "^2.1.0",
-    "@eslint/js": "^9.39.5",
+    "@eslint/js": "^10.0.1",
     "@preline/theme-switch": "^3.2.3",
     "@react-router/dev": "^8.3.0",
     "@react-router/fs-routes": "^8.3.0",

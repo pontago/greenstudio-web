@@ -1,6 +1,38 @@
 {
   "portfolio": [
     {
+      "name": "colorwalker",
+      "title": "Color Walker",
+      "categories": ["iOS", "Android"],
+      "cover": "/images/portfolio/colorwalker/cover.webp",
+      "subtitle": "お題のカラーを探して撮影。集めた色をコラージュに仕立てるアプリ",
+      "description": "お題のカラーを抽選し、街を歩きながら見つけた色を撮影してコラージュを作成できるアプリです。<br/>ひとりで楽しめるほか、グループで担当カラーを振り分け、撮影した写真の共有やチャットもできます。",
+      "techDescription": "iOS/Android、Flutter（3系）、Dart、Riverpod、Hono、TypeScript、Cloudflare Workers、Durable Objects、D1、R2、Firebase。<br/>設計からプログラミングまですべて担当。",
+      "images": [
+        "/images/portfolio/colorwalker/1_s.png",
+        "/images/portfolio/colorwalker/2_s.png",
+        "/images/portfolio/colorwalker/3_s.png",
+        "/images/portfolio/colorwalker/4_s.png",
+        "/images/portfolio/colorwalker/5_s.png",
+        "/images/portfolio/colorwalker/6_s.png",
+        "/images/portfolio/colorwalker/7_s.png"
+      ],
+      "links": [
+        {
+          "category": "Web",
+          "url": "https://colorwalker.app/"
+        },
+        {
+          "category": "iOS",
+          "url": "https://apps.apple.com/app/id6795416397"
+        },
+        {
+          "category": "Android",
+          "url": "https://play.google.com/store/apps/details?id=jp.pontago.colorwalker"
+        }
+      ]
+    },
+    {
       "name": "otenki-live",
       "title": "お天気ライブ",
       "categories": ["Web"],

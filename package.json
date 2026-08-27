@@ -11,11 +11,11 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
-    "@conform-to/react": "^1.20.2",
-    "@conform-to/zod": "^1.20.2",
+    "@conform-to/react": "^1.21.1",
+    "@conform-to/zod": "^1.21.1",
     "@formkit/tempo": "^1.1.0",
     "@react-router/node": "^8.3.0",
-    "fast-xml-parser": "^5.10.1",
+    "fast-xml-parser": "^5.11.0",
     "html-entities": "^2.5.3",
     "isbot": "^5.2.1",
     "react": "^19.2.8",

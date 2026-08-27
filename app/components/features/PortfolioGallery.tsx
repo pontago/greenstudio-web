@@ -6,6 +6,18 @@ type Props = {
 };
 
 export const PortfolioGallery = ({ portfolio }: Props) => {
+  const carouselOptions = {
+    loadingClasses: 'opacity-0',
+    dotsItemClasses:
+      'hs-carousel-active:bg-blue-700 hs-carousel-active:border-blue-700 size-3 border border-gray-400 rounded-full cursor-pointer dark:border-neutral-600 dark:hs-carousel-active:bg-blue-500 dark:hs-carousel-active:border-blue-500',
+    slidesQty: {
+      xs: 1,
+      md: Math.min(portfolio.images.length, 3),
+      lg: Math.min(portfolio.images.length, 4),
+    },
+    isDraggable: true,
+  };
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       import('preline/preline').then(() => {
@@ -18,16 +30,7 @@ export const PortfolioGallery = ({ portfolio }: Props) => {
     <>
       {/* Slider */}
       <div
-        data-hs-carousel='{
-          "loadingClasses": "opacity-0",
-          "dotsItemClasses": "hs-carousel-active:bg-blue-700 hs-carousel-active:border-blue-700 size-3 border border-gray-400 rounded-full cursor-pointer dark:border-neutral-600 dark:hs-carousel-active:bg-blue-500 dark:hs-carousel-active:border-blue-500",
-          "slidesQty": {
-            "xs": 1,
-            "md": 2,
-            "lg": 3
-          },
-          "isDraggable": true
-        }'
+        data-hs-carousel={JSON.stringify(carouselOptions)}
         className='relative'
       >
         <div className='hs-carousel flex flex-col md:flex-row gap-2'>
@@ -35,7 +38,7 @@ export const PortfolioGallery = ({ portfolio }: Props) => {
             <div className='hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0 cursor-grab hs-carousel-dragging:transition-none hs-carousel-dragging:cursor-grabbing'>
               {portfolio.images.map((image, index) => (
                 <div key={index} className='hs-carousel-slide'>
-                  <div className='flex justify-center h-full bg-gray-100 p-6 dark:bg-neutral-900'>
+                  <div className='flex justify-center h-full bg-gray-100 px-2 py-4 dark:bg-neutral-900'>
                     <div className='self-center text-gray-800 transition duration-700 dark:text-white'>
                       <div className='overflow-hidden bg-gray-100 rounded dark:bg-neutral-900'>
                         <img
@@ -54,6 +57,7 @@ export const PortfolioGallery = ({ portfolio }: Props) => {
 
             <button
               type='button'
+              aria-label='前のスクリーンショット'
               className='hs-carousel-prev hs-carousel-disabled:opacity-50 hs-carousel-disabled:pointer-events-none absolute inset-y-0 start-0 inline-flex justify-center items-center w-11.5 h-full text-gray-800 hover:bg-gray-800/10 focus:outline-hidden focus:bg-gray-800/10 rounded-s-lg dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10'
             >
               <span className='text-2xl' aria-hidden='true'>
@@ -76,6 +80,7 @@ export const PortfolioGallery = ({ portfolio }: Props) => {
             </button>
             <button
               type='button'
+              aria-label='次のスクリーンショット'
               className='hs-carousel-next hs-carousel-disabled:opacity-50 hs-carousel-disabled:pointer-events-none absolute inset-y-0 end-0 inline-flex justify-center items-center w-11.5 h-full text-gray-800 hover:bg-gray-800/10 focus:outline-hidden focus:bg-gray-800/10 rounded-e-lg dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10'
             >
               <span className='sr-only'>Next</span>

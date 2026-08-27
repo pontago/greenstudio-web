@@ -1,6 +1,20 @@
 {
   "resume": [
     {
+      "date": "2026年〜",
+      "category": "solo",
+      "title": "Color Walker",
+      "description": "お題のカラーを探して撮影し、集めた写真からコラージュを作成できるiOS/Androidアプリです。<br/>グループでの担当カラー抽選、写真共有、チャットにも対応しています。",
+      "techDescription": "iOS/Android、Flutter（3系）、Dart、Riverpod、Hono、TypeScript、Cloudflare Workers、Durable Objects、D1、R2、Firebase。<br/>設計からプログラミングまですべて担当。開発人数1人、初期リリースまでの開発期間1ヵ月。",
+      "portfolioLink": "colorwalker",
+      "links": [
+        {
+          "name": "Color Walker",
+          "url": "https://colorwalker.app/"
+        }
+      ]
+    },
+    {
       "date": "2025年〜",
       "category": "solo",
       "title": "お天気ライブ",

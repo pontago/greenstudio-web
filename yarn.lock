@@ -1074,7 +1074,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-router/node@npm:8.3.0, @react-router/node@npm:^8.3.0":
+"@react-router/node@npm:8.3.0":
   version: 8.3.0
   resolution: "@react-router/node@npm:8.3.0"
   dependencies:
@@ -1089,10 +1089,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-router/node@npm:^8.3.1":
+  version: 8.3.1
+  resolution: "@react-router/node@npm:8.3.1"
+  dependencies:
+    "@remix-run/node-fetch-server": "npm:^0.14.1"
+  peerDependencies:
+    react-router: 8.3.1
+    typescript: ^5.1.0 || ^6.0.0 || ^7.0.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 10/f6bcbae2a9acd676933724feafa5183da394465bc6034da9ea7ef11de7858e991e9fd82924c32d8def96c5304a47f6689a6f95ec1d7255b6fd770ce92f519425
+  languageName: node
+  linkType: hard
+
 "@remix-run/node-fetch-server@npm:^0.13.3":
   version: 0.13.3
   resolution: "@remix-run/node-fetch-server@npm:0.13.3"
   checksum: 10/c785a6d8e2c743a504192f3c5629e2785db218aaf0136205ced003d8e08bef823159fd59dffed6d8000f8e88afc338a7d1965743626fcc4876aff7d49bd1da0f
+  languageName: node
+  linkType: hard
+
+"@remix-run/node-fetch-server@npm:^0.14.1":
+  version: 0.14.1
+  resolution: "@remix-run/node-fetch-server@npm:0.14.1"
+  checksum: 10/d2a3704e47e720adef42dfc0b7c95cd63dd537947d23f45001c25c37638d8dda19fb080b77b3e6af629608959c82cb2c8427e4fe6baba1eb0a7fbaa7faf07b4e
   languageName: node
   linkType: hard
 
@@ -3312,9 +3334,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-xml-parser@npm:^5.11.0":
-  version: 5.11.0
-  resolution: "fast-xml-parser@npm:5.11.0"
+"fast-xml-parser@npm:^5.11.1":
+  version: 5.11.1
+  resolution: "fast-xml-parser@npm:5.11.1"
   dependencies:
     "@nodable/entities": "npm:^3.0.0"
     fast-xml-builder: "npm:^1.2.0"
@@ -3324,7 +3346,7 @@ __metadata:
     xml-naming: "npm:^0.3.0"
   bin:
     fxparser: src/cli/cli.js
-  checksum: 10/67f21eefbeafee6ae1f2ca8a1fc47a7b6fd588c6d88f26f94ada8b7102df464c50a1f63b5181e8f3478c3e67bd9339bdc29350010621ef6de8a003fcf733b8ed
+  checksum: 10/9e0854bb49140bb2bdbe527fd71c74c502d5c8766587e6cad49e0175d5b1ee5e751f896445262d6ecdb7a407a644f7c25da5f20ad0feadd08787d3a9505f7dc4
   languageName: node
   linkType: hard
 
@@ -3645,7 +3667,7 @@ __metadata:
     "@preline/theme-switch": "npm:^3.2.3"
     "@react-router/dev": "npm:^8.3.0"
     "@react-router/fs-routes": "npm:^8.3.0"
-    "@react-router/node": "npm:^8.3.0"
+    "@react-router/node": "npm:^8.3.1"
     "@tailwindcss/forms": "npm:^0.5.11"
     "@types/node": "npm:^26.2.0"
     "@types/react": "npm:^19.2.8"
@@ -3660,10 +3682,10 @@ __metadata:
     eslint-plugin-jsx-a11y: "npm:^6.10.2"
     eslint-plugin-react: "npm:^7.37.5"
     eslint-plugin-react-hooks: "npm:^7.1.1"
-    fast-xml-parser: "npm:^5.11.0"
+    fast-xml-parser: "npm:^5.11.1"
     globals: "npm:^17.11.0"
     html-entities: "npm:^2.5.3"
-    isbot: "npm:^5.2.1"
+    isbot: "npm:^5.2.2"
     playwright: "npm:^1.62.1"
     playwright-core: "npm:^1.62.1"
     postcss: "npm:^8.5.26"
@@ -4244,10 +4266,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"isbot@npm:^5.1.40, isbot@npm:^5.2.1":
+"isbot@npm:^5.1.40":
   version: 5.2.1
   resolution: "isbot@npm:5.2.1"
   checksum: 10/9319abee74daad2c2893dc2417207b974a1cc1f577c3887c699a685c1efc87384f1413df766a5a2e2c29c22d9301f46ec50bac1f122bb79bdbcc794d9ea18681
+  languageName: node
+  linkType: hard
+
+"isbot@npm:^5.2.2":
+  version: 5.2.2
+  resolution: "isbot@npm:5.2.2"
+  checksum: 10/e627afb5c9f7f62790d8092b6734be4d08126e667667882c23b6d835fd2562b82806ab3b2405b6f8fc1a598cc545ba343cfe2910b9aaa2ade194a75f8bc98079
   languageName: node
   linkType: hard
 

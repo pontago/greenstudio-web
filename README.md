@@ -10,7 +10,7 @@ Remix App
 
 ## Requirement
 
-- Node.js 20.x
+- [mise](https://mise.jdx.dev/)（Node.js 26.x / Yarn 4.x を `mise.toml` で管理）
 - Yarn (PnP)
 - ZipFS (VSCode)
 
@@ -33,6 +33,8 @@ Remix App
 ## Build and Install
 
 ```shellscript
+mise trust
+mise install
 yarn install
 yarn dlx @yarnpkg/sdks vscode
 yarn run dev

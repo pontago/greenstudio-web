@@ -10,7 +10,7 @@ Remix App
 
 ## Requirement
 
-- [mise](https://mise.jdx.dev/)（Node.js 26.x / Yarn 4.x を `mise.toml` で管理）
+- [mise](https://mise.jdx.dev/)（Node.js 26.x / Yarn 4.18 を `mise.toml` で管理）
 - Yarn (PnP)
 - ZipFS (VSCode)
 

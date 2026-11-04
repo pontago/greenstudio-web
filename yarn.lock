@@ -858,10 +858,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@preline/theme-switch@npm:^3.2.3":
-  version: 3.2.3
-  resolution: "@preline/theme-switch@npm:3.2.3"
-  checksum: 10/20cd78165c8209d8a69a7152e705525427f6de5a7e49f83ee9e5ec422e2da5bca2c08dc9c49bf504880d1e9e7da5ea8b057901859269d45ec02b812346391e71
+"@preline/theme-switch@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@preline/theme-switch@npm:5.0.0"
+  checksum: 10/16d837fbe4be7673c9fd728c5406b9f61c8d51dd6cf107c2b75f1b6ee1517d94f2f2680f904ec8a09805fe09ab29c86ac878bd83a76c40a160f615f5949c875d
   languageName: node
   linkType: hard
 
@@ -3466,7 +3466,7 @@ __metadata:
     "@eslint/compat": "npm:^2.1.1"
     "@eslint/js": "npm:^9.39.5"
     "@formkit/tempo": "npm:^1.1.0"
-    "@preline/theme-switch": "npm:^3.2.3"
+    "@preline/theme-switch": "npm:^5.0.0"
     "@react-router/dev": "npm:^8.4.0"
     "@react-router/fs-routes": "npm:^8.4.0"
     "@react-router/node": "npm:^8.4.0"

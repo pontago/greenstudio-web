@@ -630,6 +630,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@floating-ui/core@npm:^1.8.0":
+  version: 1.8.0
+  resolution: "@floating-ui/core@npm:1.8.0"
+  dependencies:
+    "@floating-ui/utils": "npm:^0.2.12"
+  checksum: 10/762cd5677fd4e82597db2efdd8f1e81d248eac5615d8be755e1bbb5f12a14c56a6bccd735676374d4914db7ccb3f09ec405ec7433e8c48a5521f5d66dc8dd5d6
+  languageName: node
+  linkType: hard
+
+"@floating-ui/dom@npm:^1.6.13":
+  version: 1.8.0
+  resolution: "@floating-ui/dom@npm:1.8.0"
+  dependencies:
+    "@floating-ui/core": "npm:^1.8.0"
+    "@floating-ui/utils": "npm:^0.2.12"
+  checksum: 10/2e7d75fb702875a62795dd8529569f27eff53167768d75476056d6bf824a1ba608177a8877ed9d728eadb5787b4bd07b043fb2c3125b7ad2505a398680b323c0
+  languageName: node
+  linkType: hard
+
+"@floating-ui/utils@npm:^0.2.12":
+  version: 0.2.12
+  resolution: "@floating-ui/utils@npm:0.2.12"
+  checksum: 10/ec4e176fb22d33d75df752c5acf82dcaacae40ed2d09c1a5015cb4081318fff20260db216678e952344b95f90c6b43214762b69eba7c51556ecd82c35a795cff
+  languageName: node
+  linkType: hard
+
 "@formkit/tempo@npm:^1.1.0":
   version: 1.1.0
   resolution: "@formkit/tempo@npm:1.1.0"
@@ -848,13 +874,6 @@ __metadata:
   version: 0.156.0
   resolution: "@oxc-project/types@npm:0.156.0"
   checksum: 10/282e357299cd6c5a2c0c55d57fcb6edb4ac67df1bec1a6e4613f146721f584377071bce61453093a8cf179fc934095ffdf269ea327dd4df250272ac8ab04e159
-  languageName: node
-  linkType: hard
-
-"@popperjs/core@npm:^2.11.2":
-  version: 2.11.8
-  resolution: "@popperjs/core@npm:2.11.8"
-  checksum: 10/ddd16090cde777aaf102940f05d0274602079a95ad9805bd20bc55dcc7c3a2ba1b99dd5c73e5cc2753c3d31250ca52a67d58059459d7d27debb983a9f552936c
   languageName: node
   linkType: hard
 
@@ -1080,6 +1099,50 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@svgdotjs/svg.draggable.js@npm:^3.0.4":
+  version: 3.0.7
+  resolution: "@svgdotjs/svg.draggable.js@npm:3.0.7"
+  peerDependencies:
+    "@svgdotjs/svg.js": ^3.0.0
+  checksum: 10/a1e0e353af0a831e6b5be57b6f1a15f5ee0a5c492f30feac9489505c6c683d564e406d45760ac8732eb8aa224cce075fdfc4f78bed266cc39c6c58a68a8e6e19
+  languageName: node
+  linkType: hard
+
+"@svgdotjs/svg.filter.js@npm:^3.0.8":
+  version: 3.0.10
+  resolution: "@svgdotjs/svg.filter.js@npm:3.0.10"
+  peerDependencies:
+    "@svgdotjs/svg.js": ^3.1.0
+  checksum: 10/8bb583defe18f3b69138519e3bb7528584a0d379889006d6086e6ec7f26fd365acc22faee7dc99ed8b5c583e80127462411f1a13997965fbf53cac379396226c
+  languageName: node
+  linkType: hard
+
+"@svgdotjs/svg.js@npm:^3.2.4":
+  version: 3.2.8
+  resolution: "@svgdotjs/svg.js@npm:3.2.8"
+  checksum: 10/d58885420989ee8e1ab0957428d3d496ee5908860eed0881746f98bf8a149c0c1d0b0b5ff50aaf29894c10693a8c5b25afce51fca781eff4307208e51ad1e47f
+  languageName: node
+  linkType: hard
+
+"@svgdotjs/svg.resize.js@npm:^2.0.2":
+  version: 2.0.7
+  resolution: "@svgdotjs/svg.resize.js@npm:2.0.7"
+  peerDependencies:
+    "@svgdotjs/svg.js": ^3.1.0
+    "@svgdotjs/svg.select.js": ^4.0.1
+  checksum: 10/70d18654651b03e0c019093be811809ca16b9ca82101164627912cc96b67250805df433b871d138f46507066235978eef1a6111219d4e7810104fb78f343118b
+  languageName: node
+  linkType: hard
+
+"@svgdotjs/svg.select.js@npm:^4.0.1":
+  version: 4.0.5
+  resolution: "@svgdotjs/svg.select.js@npm:4.0.5"
+  peerDependencies:
+    "@svgdotjs/svg.js": ^3.1.0
+  checksum: 10/8a2a0a43efbb44cf48bee8dc3e3b10ac27d39bb855e70dcb6f5a7aa406549a425377fcd729d751beff18051a8dffb6af18fd970bc41fef2e0acf7cb5c9c961c6
+  languageName: node
+  linkType: hard
+
 "@tailwindcss/forms@npm:^0.5.11":
   version: 0.5.11
   resolution: "@tailwindcss/forms@npm:0.5.11"
@@ -1275,6 +1338,13 @@ __metadata:
   dependencies:
     tslib: "npm:^2.4.0"
   checksum: 10/7fe0d239397aebb002ac4855d30c197c06a05ea8df8511350a3a5b1abeefe26167c60eda8a5508337571161e4c4b53d7c1342296123f9607af8705369de9fa7f
+  languageName: node
+  linkType: hard
+
+"@types/culori@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "@types/culori@npm:4.0.1"
+  checksum: 10/34240fce795cdcbeefbbb4ec1fd6adec1c7edafa949131586176649c21d912236d151bf7af53de161454a6c2fa259a4ddd54f204c66e67e8b9ecfd90b9021c68
   languageName: node
   linkType: hard
 
@@ -1612,6 +1682,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@yr/monotone-cubic-spline@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@yr/monotone-cubic-spline@npm:1.0.3"
+  checksum: 10/f946b0a1aa3e976126b8ee07d4fd430f3b956f195b16f2497ab4510d8463b777d6dd53c49e4f86c6c506de7d8420c05fa566a7454548afde804ffd7fb21ff8d4
+  languageName: node
+  linkType: hard
+
 "abbrev@npm:^4.0.0":
   version: 4.0.0
   resolution: "abbrev@npm:4.0.0"
@@ -1702,6 +1779,20 @@ __metadata:
   version: 1.0.1
   resolution: "anynum@npm:1.0.1"
   checksum: 10/096acef76cc8b9f34d43ec37ae9ba7a3d4e2e8c722a0dd59a78995248a8eb4021713ee91b55de106366ac4eaa47578ceb0fffe9829ef01d78b20f9fd6d412a88
+  languageName: node
+  linkType: hard
+
+"apexcharts@npm:^4.5.0":
+  version: 4.7.0
+  resolution: "apexcharts@npm:4.7.0"
+  dependencies:
+    "@svgdotjs/svg.draggable.js": "npm:^3.0.4"
+    "@svgdotjs/svg.filter.js": "npm:^3.0.8"
+    "@svgdotjs/svg.js": "npm:^3.2.4"
+    "@svgdotjs/svg.resize.js": "npm:^2.0.2"
+    "@svgdotjs/svg.select.js": "npm:^4.0.1"
+    "@yr/monotone-cubic-spline": "npm:^1.0.3"
+  checksum: 10/d537da3edd1e5edeb19b9a361a9aeeacc0d1f878792b152f40b4b99879ea3d2510f4218692470c23eb158edfeedfb8bc11c34f4ca980c6a2121b17a3de56dd11
   languageName: node
   linkType: hard
 
@@ -2287,6 +2378,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"culori@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "culori@npm:4.0.2"
+  checksum: 10/9d297ca5c6fc86b2637200e1d9edb5a7d1015a2e978a6748781ef53c9577269ce1df96dc0925b0002239c85665ba881a3d580564dfd2807c65ee65dc2e829849
+  languageName: node
+  linkType: hard
+
 "damerau-levenshtein@npm:^1.0.8":
   version: 1.0.8
   resolution: "damerau-levenshtein@npm:1.0.8"
@@ -2324,6 +2422,25 @@ __metadata:
     es-errors: "npm:^1.3.0"
     is-data-view: "npm:^1.0.1"
   checksum: 10/fa3bdfa0968bea6711ee50375094b39f561bce3f15f9e558df59de9c25f0bdd4cddc002d9c1d70ac7772ebd36854a7e22d1761e7302a934e6f1c2263bcf44aa2
+  languageName: node
+  linkType: hard
+
+"datatables.net-dt@npm:^2.2.2":
+  version: 2.3.8
+  resolution: "datatables.net-dt@npm:2.3.8"
+  dependencies:
+    datatables.net: "npm:2.3.8"
+    jquery: "npm:>=1.7"
+  checksum: 10/cdf64ec4940b3cd7d993afd1931ea2c3cfd2a358945f680524fe8ba3db64f0de3ea814b05c4315633fdcd807fb9684ad6e20767e49b187beabf697225cd7346c
+  languageName: node
+  linkType: hard
+
+"datatables.net@npm:2.3.8, datatables.net@npm:^2.3.5":
+  version: 2.3.8
+  resolution: "datatables.net@npm:2.3.8"
+  dependencies:
+    jquery: "npm:>=1.7"
+  checksum: 10/b7ead39d52be8cb0bbee5cedc57dcb7139d53254992f3c4e0f135de323a6cbbbf4d94f9cecd19d04c37beab00b3d3d7bc3378dad0bc8ff6cf3b9693fddb68d43
   languageName: node
   linkType: hard
 
@@ -2440,6 +2557,13 @@ __metadata:
   version: 0.0.2
   resolution: "doublearray@npm:0.0.2"
   checksum: 10/c9b93d61ecb25955e56c00da4653c6531e18f71f4170a17c5ec43bb71a44ae2431ba769811e7d52b26445a92f178ae4a76778b1dbba50437782a7151faf58d2c
+  languageName: node
+  linkType: hard
+
+"dropzone@npm:^6.0.0-beta.2":
+  version: 6.3.5
+  resolution: "dropzone@npm:6.3.5"
+  checksum: 10/065d686657655b32f0633216ddfea1cdf7b4d124dbf1c9dc4ac99c005a2a39e7d62541afbf9a7ceba5c10c3f44326c08301cd8024a1def02aaa7158d4ca721ee
   languageName: node
   linkType: hard
 
@@ -3491,7 +3615,7 @@ __metadata:
     playwright: "npm:^1.63.0"
     playwright-core: "npm:^1.63.0"
     postcss: "npm:^8.5.28"
-    preline: "npm:^2.7.0"
+    preline: "npm:^5.0.0"
     prettier: "npm:^3.9.8"
     react: "npm:^19.3.0"
     react-dom: "npm:^19.3.0"
@@ -4130,6 +4254,13 @@ __metadata:
   bin:
     jiti: bin/jiti.js
   checksum: 10/6a182521532126e4b7b5ad64b64fb2e162718fc03bc6019c21aa2222aacde6c6dfce4fc3bce9f69561a73b24ab5f79750ad353c37c3487a220d5869a39eae3a2
+  languageName: node
+  linkType: hard
+
+"jquery@npm:>=1.7":
+  version: 4.0.0
+  resolution: "jquery@npm:4.0.0"
+  checksum: 10/722be14779518f27f50463d9aaa8d6b42782673a23f65335c4ff9e2ad124cb4d5267696dfc7bc4f40ecf04e852cbb05b1630b50daacf2821737d5d3b480fbf19
   languageName: node
   linkType: hard
 
@@ -5030,6 +5161,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nouislider@npm:^15.8.1":
+  version: 15.8.1
+  resolution: "nouislider@npm:15.8.1"
+  checksum: 10/4e8917f12db64a41704521a38bd09f333e32cd69bff2bd78af2d33b8fc8a2e6837b0ff7507dfdb647634a62d85b5673cee4140586f3be6c9367f0b278bcd4303
+  languageName: node
+  linkType: hard
+
 "object-assign@npm:^3.0.0":
   version: 3.0.0
   resolution: "object-assign@npm:3.0.0"
@@ -5442,12 +5580,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"preline@npm:^2.7.0":
-  version: 2.7.0
-  resolution: "preline@npm:2.7.0"
+"preline@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "preline@npm:5.0.0"
   dependencies:
-    "@popperjs/core": "npm:^2.11.2"
-  checksum: 10/b004f411a4ac16243fe99a69c43765930b61942b3b937fba7aea35a789fa1bce9b23ab3e160f0420657b8797474b8108cd0dfd0f6dcacb363b81100cf51f5f5c
+    "@floating-ui/dom": "npm:^1.6.13"
+    "@types/culori": "npm:^4.0.1"
+    apexcharts: "npm:^4.5.0"
+    culori: "npm:^4.0.2"
+    datatables.net: "npm:^2.3.5"
+    datatables.net-dt: "npm:^2.2.2"
+    dropzone: "npm:^6.0.0-beta.2"
+    nouislider: "npm:^15.8.1"
+    vanilla-calendar-pro: "npm:^3.0.4"
+  bin:
+    preline-theme-generator: skills/theme-generator/scripts/generate-theme.js
+  checksum: 10/8f41ef2a3dedc9d7be3f15d82f64736fb3654a70f3cc44fd11e14efb134bb5a95d9e6160cd3a25e39209d09f17961cdb4769873d58c3f76a9cf3f7effa29cddc
   languageName: node
   linkType: hard
 
@@ -7126,6 +7274,13 @@ __metadata:
     typescript:
       optional: true
   checksum: 10/bb88d083a3f8f37a19796cd9c4e06004ad939a1bdb996b77a7246fceb133d5da5d1ba21c89baebaec327f421f23200fea54d1e682de3452a30138e2e70548521
+  languageName: node
+  linkType: hard
+
+"vanilla-calendar-pro@npm:^3.0.4":
+  version: 3.4.0
+  resolution: "vanilla-calendar-pro@npm:3.4.0"
+  checksum: 10/8ca3993c75cb61c5f20fddb0ba52aeb46f0ed89c4b3baf0107edc3221b7dd10d0a102a8a3a89b5d897418d0de621561be57ac15cc0cd2e1d369e927af2a434c4
   languageName: node
   linkType: hard
 

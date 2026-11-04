@@ -1,5 +1,5 @@
 import { getFormProps, getInputProps, getTextareaProps, useForm } from '@conform-to/react';
-import { parseWithZod } from '@conform-to/zod';
+import { parseWithZod } from '@conform-to/zod/v4';
 import { ActionFunctionArgs, MetaFunction, Form, useActionData } from 'react-router';
 import { useEffect } from 'react';
 import { z } from 'zod';
@@ -21,13 +21,13 @@ type ContactResponse = {
 
 const schema = z.object({
   name: z
-    .string({ required_error: 'お名前が入力されていません。' })
+    .string({ error: 'お名前が入力されていません。' })
     .max(100, 'お名前は100文字以内で入力してください。'),
   email: z
-    .string({ required_error: 'メールアドレスが入力されていません。' })
+    .string({ error: 'メールアドレスが入力されていません。' })
     .email('メールアドレスの形式が正しくありません。'),
   message: z
-    .string({ required_error: '本文が入力されていません。' })
+    .string({ error: '本文が入力されていません。' })
     .max(10000, '本文は10000文字以内で入力してください。'),
 });
 

@@ -6,6 +6,20 @@ updates:
       interval: weekly
     target-branch: develop
     open-pull-requests-limit: 5
+    ignore:
+      # eslint-plugin-react / jsx-a11y / import が ESLint 10 未対応のため保留
+      - dependency-name: eslint
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@eslint/js'
+        update-types: ['version-update:semver-major']
+      # Tailwind CSS 4 は設定・CSS・preline の移行が必要なため別作業で対応
+      - dependency-name: tailwindcss
+        update-types: ['version-update:semver-major']
+      # preline 3 以降は Tailwind CSS 4 前提のため、Tailwind 4 移行と合わせて対応
+      - dependency-name: preline
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@preline/theme-switch'
+        update-types: ['version-update:semver-major']
     groups:
       react-router:
         patterns:
